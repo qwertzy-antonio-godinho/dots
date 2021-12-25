@@ -1,0 +1,18 @@
+[begin] (Menu)
+[encoding] {UTF-8}
+      [exec] (Alacritty) {alacritty}
+      [exec] (Caja) {caja}
+      [exec] (Firefox) {firefox}
+      [exec] (Thunderbird) {thunderbird}
+      [separator]
+      [submenu](System)
+            [reconfig] (Reload config)
+  		    [restart] (Restart Fluxbox)
+            [separator]
+            [exec] (Reboot) {reboot}
+            [exec] (Shutdown) {shutdown 0} 
+      [end] 
+      [separator]
+      [workspaces] (Workspaces)  
+[endencoding]
+[end]

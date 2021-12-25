@@ -1,0 +1,48 @@
+
+[alsa]
+mixer-element=Master
+
+[audacious]
+clear_playlist=FALSE
+repeat=TRUE
+show_numbers_in_pl=TRUE
+shuffle=TRUE
+
+[audgui]
+filesel_path=/backup/Music/Gotan Project
+
+[gtkui]
+column_widths=64,275,175,10,175,175,10,100,32,64,275,275,275,10,275
+player_x=2174
+player_y=125
+playlist_columns=number title artist album length
+playlist_tabs_visible=FALSE
+statusbar_visible=FALSE
+
+[gtkui-layout]
+item_count=0
+
+[qtui]
+player_height=571
+player_width=714
+statusbar_visible=FALSE
+
+[search-tool]
+path=/backup/Music
+
+[skins]
+equalizer_shaded=TRUE
+equalizer_x=1195
+equalizer_y=1054
+mainwin_font=Zekton 9
+player_x=2579
+player_y=938
+playlist_font=Zekton 7
+playlist_height=290
+playlist_x=1453
+playlist_y=1054
+show_remaining_time=TRUE
+skin=/home/qwertzy/.local/share/audacious/Skins/Neo_by_k-raki.wsz
+
+[skins-layout]
+blur_scope-qt=425,335,366,244

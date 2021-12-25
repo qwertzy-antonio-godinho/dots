@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# APPLICATIONS
+# -------------
+exec dunst &
+exec skippy-xd --config ~/.config/skyppy-xd/skippy-xd.rc --start-daemon &
+exec netwmpager &
+exec fittstool &
+exec conky -c ~/.config/conky/inforc &
+exec conky -c ~/.config/conky/authnetrc &
+
+# APPLETS
+# -------------
+#exec redshift-gtk &
+exec clipit &
+exec nm-applet &
+exec blueman-applet &
+exec volumeicon &
+
+# WM
+# -------------
+exec fluxbox

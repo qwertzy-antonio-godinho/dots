@@ -1,0 +1,9 @@
+{
+    "workbench.colorTheme": "Default Dark+",
+    "workbench.sideBar.location": "right",
+    "editor.fontFamily": "'liga mononoki', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "telemetry.telemetryLevel": "off",
+    "editor.wordWrap": "on",
+    "editor.fontSize": 13,
+    "workbench.startupEditor": "none"
+}

@@ -1,0 +1,35 @@
+# DISPLAY
+# -------------
+exec systemctl --user import-environment DISPLAY &
+
+# KEYBOARD
+# -------------
+exec setxkbmap -layout us &
+#exec setxkbmap -layout pt &
+#exec setxkbmap -layout us -variant mac &
+
+# SOUND
+# -------------
+exec start-pulseaudio-x11 &
+
+# LAPTOP
+# -------------
+#exec xbacklight -ctrl intel_backlight -set $(cat ~/.config/scripts/setting_intel_backlight.txt || echo 100) &
+#exec xbacklight -ctrl smc::kbd_backlight -set $(cat ~/.config/scripts/setting_kbd_backlight.txt || echo 100) &
+
+# START-UP
+# -------------
+exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
+exec xcompmgr -CcF -t-5 -l-5 -r4.2 -o.55 -I-.02 -O-.02 -D2 &
+
+# SETTINGS
+# -------------
+#exec ~/.config/scripts/set_video_mode.sh &
+exec xrdb ~/.Xresources &
+exec hsetroot -solid '#11122C' &
+exec ~/.config/scripts/set_wallpaper.sh &
+exec xbindkeys &
+
+# WM
+# -------------
+exec startfluxbox

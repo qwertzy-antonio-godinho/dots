@@ -1,0 +1,31 @@
+[Default Applications]
+x-scheme-handler/mailto=userapp-Thunderbird-D47KB1.desktop
+message/rfc822=userapp-Thunderbird-D47KB1.desktop
+x-scheme-handler/mid=userapp-Thunderbird-D47KB1.desktop
+text/plain=pluma.desktop
+application/x-executable=pluma.desktop
+text/css=pluma.desktop
+text/x-csrc=pluma.desktop
+application/zip=engrampa.desktop
+application/x-7z-compressed=engrampa.desktop
+application/json=pluma.desktop
+application/x-wine-extension-ini=pluma.desktop
+application/xml=pluma.desktop
+application/x-shellscript=pluma.desktop
+
+[Added Associations]
+x-scheme-handler/mailto=userapp-Thunderbird-D47KB1.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-D47KB1.desktop;
+text/plain=pluma.desktop;
+application/x-executable=pluma.desktop;
+text/css=pluma.desktop;
+text/x-csrc=pluma.desktop;
+application/zip=gzdoom.desktop;engrampa.desktop;
+application/x-7z-compressed=gzdoom.desktop;engrampa.desktop;
+application/json=pluma.desktop;
+application/x-wine-extension-ini=pluma.desktop;
+application/xml=pluma.desktop;
+application/x-shellscript=pluma.desktop;
+
+[Removed Associations]
+application/x-shellscript=micro.desktop;
