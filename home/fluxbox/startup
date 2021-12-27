@@ -5,16 +5,16 @@
 exec fluxbox &
 fbpid=$!
 
-sleep 0.1
+sleep 0.5
 {
     # APPLICATIONS
     # -------------
-    dunst &
-    skippy-xd --config ~/.config/skyppy-xd/skippy-xd.rc --start-daemon &
-    netwmpager &
     fittstool &
+    dunst &
     conky -c ~/.config/conky/inforc &
     conky -c ~/.config/conky/authnetrc &
+    skippy-xd --config ~/.config/skyppy-xd/skippy-xd.rc --start-daemon &
+    netwmpager &
 
     # APPLETS
     # -------------
