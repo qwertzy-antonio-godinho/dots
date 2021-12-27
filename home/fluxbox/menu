@@ -2,7 +2,7 @@
 [encoding] {UTF-8}
       [exec] (Alacritty) {alacritty}
       [exec] (Caja) {caja}
-      [exec] (Firefox) {firefox}
+      [exec] (Brave) {brave}
       [exec] (Thunderbird) {thunderbird}
       [separator]
       [submenu](System)
