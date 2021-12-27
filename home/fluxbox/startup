@@ -23,6 +23,7 @@ sleep 0.5
     nm-applet &
     blueman-applet &
     volumeicon &
+    flameshot &
 } &
 
 wait $fbpid
