@@ -1,6 +1,6 @@
 #! /usr/bin/bash
 
-DOTS_HOME_SOURCE="/workbench/dots/home"
+DOTS_HOME_SOURCE="$(pwd)/home"
 DOTS_HOME_TARGET="$HOME"
 
 function create_directories () {
