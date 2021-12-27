@@ -11,7 +11,7 @@ The script creates a directory tree just like the directory structure defined in
 
 This is followed by the creation of a symbolic link or a copy of the file in the TARGET destination location for each of the files present in the SOURCE ```home``` directory.
 
-A symbolic link is created in the target location if the source file is a regular file, in case the source file is a symbolic link itself then a copy of the file as a regular file is made to prevent symlinking a symlink.
+A symbolic link is created in the target location if the source file is a regular file, in case the source file is a symbolic link itself then a copy of the file as a regular file is made to prevent symlinking a symlink. There is also the edge-case of some programs replacing the symlinked file with a regular file when updates to the settings are made (volumeicon applet).
 
 ### How to use?
 **Upon execution the script does not make any changes, instead it will display a list of the changes it will make.** This list, is a list of updates to be made on the SOURCE or TARGET destination depending on where they are different.
