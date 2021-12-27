@@ -28,19 +28,19 @@ function remove_dead_links () {
 
 function main () {
     local dry_run="$1"
-    if [[ "$dry_run" == "--no-dry-run" ]]; then remove_dead_links; create_directories; else printf "***\nExecuting in Dry Run mode, no changes will be made\nUse --no-dry-run to apply changes\n***\n"; fi
+    if [[ "$dry_run" == "--no-dry-run" || "$dry_run" == "--no-dry-run-update-source" || "$dry_run" == "--no-dry-run-update-target" ]]; then remove_dead_links; create_directories; else printf "***\nExecuting in Dry Run mode, no changes will be made\nUse --no-dry-run to apply updates to source and target locations\nUse --no-dry-run-update-target to apply updates to target locations\nUse --no-dry-run-update-source to apply updates to source locations\n***\n"; fi
     find "$DOTS_HOME_SOURCE" -name '*' -type f,l -printf '%P\n' | while read -r dot; do
         if [[ ! -f "$DOTS_HOME_TARGET/.$dot" ]]; then
-            printf "[ UPD-TARGET : $DOTS_HOME_TARGET ] %s\n" "$dot"
-            if [[ "$dry_run" == "--no-dry-run" ]]; then update_target; fi
+            if [[ "$dry_run" != "--no-dry-run-update-source" ]]; then printf "[ UPD-TARGET : $DOTS_HOME_TARGET ] %s\n" "$dot"; fi
+            if [[ "$dry_run" == "--no-dry-run" || "$dry_run" == "--no-dry-run-update-target" ]]; then update_target; fi
         else
             if [[ $(date +%s -r "$DOTS_HOME_TARGET/.$dot") -lt $(date +%s -r "$DOTS_HOME_SOURCE/$dot") ]]; then
-                printf "[ UPD-TARGET : $DOTS_HOME_TARGET ] %s\n" "$dot"
-                if [[ "$dry_run" == "--no-dry-run" ]]; then update_target; fi
+                if [[ "$dry_run" != "--no-dry-run-update-source" ]]; then printf "[ UPD-TARGET : $DOTS_HOME_TARGET ] %s\n" "$dot"; fi
+                if [[ "$dry_run" == "--no-dry-run" || "$dry_run" == "--no-dry-run-update-target" ]]; then update_target; fi
             fi
             if [[ $(date +%s -r "$DOTS_HOME_TARGET/.$dot") -gt $(date +%s -r "$DOTS_HOME_SOURCE/$dot") ]]; then
-                printf "[ UPD-SOURCE : $DOTS_HOME_SOURCE ] %s\n" "$dot"
-                if [[ "$dry_run" == "--no-dry-run" ]]; then update_source; fi
+                if [[ "$dry_run" != "--no-dry-run-update-target" ]]; then printf "[ UPD-SOURCE : $DOTS_HOME_SOURCE ] %s\n" "$dot"; fi
+                if [[ "$dry_run" == "--no-dry-run" || "$dry_run" == "--no-dry-run-update-source" ]]; then update_source; fi
             fi
         fi
     done
