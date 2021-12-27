@@ -1,8 +1,6 @@
 #! /usr/bin/bash
 
-TARGET_RESOLUTION=1024
-MONITOR_REFRESH_RATE=144.00
-TV_REFRESH_RATE=60
+
 
 
 function set_scale () {
@@ -154,4 +152,96 @@ function main () {
 	fi
 }
 
-main "$1"
+
+
+# Settings
+OUTPUT_TV="HDMI-0"
+OUTPUT_TV_SET_REFRESH_RATE="60"
+OUTPUT_TV_SET_RESOLUTION="1920x1080"
+
+OUTPUT_MONITOR="DP-4"
+OUTPUT_MONITOR_SET_REFRESH_RATE="144.00"
+OUTPUT_MONITOR_SET_RESOLUTION="1920x1080"
+
+TARGET_RESOLUTION=1024
+
+# Temp
+OUTPUT_TV_STATE=""
+OUTPUT_TV_RESOLUTION=""
+OUTPUT_TV_IS_PRIMARY=""
+OUTPUT_MONITOR_STATE=""
+OUTPUT_MONITOR_RESOLUTION=""
+OUTPUT_MONITOR_IS_PRIMARY=""
+
+function get_details () {
+	local output_name="$1"
+	local output_number="$2"
+	local output_message=""; output_message="${output_name} :"
+
+	if [[ $(xrandr | awk -v monitor="${output_name}" '/connected/ {p = 0} $0 ~ monitor {p = 1} p' | grep -c "\*") -gt 0 ]]; then
+
+		if [[ "${output_name}" == "${OUTPUT_TV}" ]]; then
+			OUTPUT_TV_STATE="ON"
+			OUTPUT_TV_RESOLUTION="$(xrandr | awk -v monitor="${output_name}" '/connected/ {p = 0} $0 ~ monitor {p = 1} p' | grep "\*" | awk '{ sub(/^[ \t]+/, ""); print $1}')"
+		elif [[ "${output_name}" == "${OUTPUT_MONITOR}" ]]; then
+			OUTPUT_MONITOR_STATE="ON"
+			OUTPUT_MONITOR_RESOLUTION="$(xrandr | awk -v monitor="${output_name}" '/connected/ {p = 0} $0 ~ monitor {p = 1} p' | grep "\*" | awk '{ sub(/^[ \t]+/, ""); print $1}')"
+		fi
+
+		output_message="${output_message} $(xrandr | awk -v monitor="${output_name}" '/connected/ {p = 0} $0 ~ monitor {p = 1} p' | grep "\*" | awk '{ sub(/^[ \t]+/, ""); print $1}')"
+	else
+		output_message="${output_message} Off"
+	fi
+
+	if [[ $(xrandr | awk -v monitor="${output_name}" '/connected/ {p = 0} $0 ~ monitor {p = 1} p' | grep -c "primary") -gt 0 ]]; then
+
+		if [[ "${output_name}" == "${OUTPUT_TV}" ]]; then
+			OUTPUT_TV_IS_PRIMARY="PRIMARY"
+		elif [[ "${output_name}" == "${OUTPUT_MONITOR}" ]]; then
+			OUTPUT_MONITOR_IS_PRIMARY="PRIMARY"
+		fi
+
+		output_message="${output_message} Primary"
+	fi
+
+	printf "[ ${output_number} ] = %s\n" "${output_message}"
+}
+
+function main1 () {
+	local available_outputs=""; available_outputs=( $(xrandr | grep -w "connected" | awk '{print $1}') )
+	local computer_name=""; computer_name=$(lscpu | grep 'Model name:' | cut -d\  -f3- | sed -e 's/^[ \t]*//')
+
+	if [[ ${#available_outputs[@]} -gt 0 ]]; then
+		printf "\nOutputs detected: %s\n\n" "${#available_outputs[@]}"
+		for (( output_number=0; output_number<${#available_outputs[@]}; output_number++ )); do 
+			get_details "${available_outputs[$output_number]}" "$((output_number + 1))"
+		done
+
+		if [[ ${#available_outputs[@]} -eq 1 ]]; then
+
+			if [[ "${available_outputs[0]}" == "${OUTPUT_MONITOR}" ]]; then
+				if [[ "${OUTPUT_MONITOR_IS_PRIMARY}" == "" ]]; then printf "      - Setting %s as Primary output...\n" "${OUTPUT_MONITOR}"; xrandr --output "${OUTPUT_MONITOR}" --primary; fi
+				if [[ "${OUTPUT_MONITOR_STATE}" == "" ]]; then printf "      - Turning On %s ${OUTPUT_MONITOR_SET_RESOLUTION} ${OUTPUT_MONITOR_SET_REFRESH_RATE}...\n" "${OUTPUT_MONITOR}"; xrandr --output "${OUTPUT_MONITOR}" --mode ${OUTPUT_MONITOR_SET_RESOLUTION} --rate ${OUTPUT_MONITOR_SET_REFRESH_RATE}; fi
+			elif [[ "${available_outputs[0]}" == "${OUTPUT_TV}" ]]; then
+				if [[ "${OUTPUT_TV_IS_PRIMARY}" == "" ]]; then printf "      - Setting %s as Primary output...\n" "${OUTPUT_TV}"; xrandr --output "${OUTPUT_TV}" --primary; fi
+				if [[ "${OUTPUT_TV_STATE}" == "" ]]; then printf "      - Turning On %s ${OUTPUT_TV_SET_RESOLUTION} ${OUTPUT_TV_SET_REFRESH_RATE}...\n" "${OUTPUT_TV}"; 2>/dev/null 1>&2 nvidia-settings --assign CurrentMetaMode="${OUTPUT_TV}: ${OUTPUT_TV_SET_RESOLUTION}_${OUTPUT_TV_SET_REFRESH_RATE} +0+0 {viewportout=1840x1035+40+22} {ForceFullCompositionPipeline=On}"; fi
+			fi
+
+		fi
+
+		if [[ ${#available_outputs[@]} -eq 2 ]]; then
+			if [[ "${OUTPUT_MONITOR_STATE}" == "ON" ]]; then printf "      - Turning Off %s...\n" "${OUTPUT_MONITOR}"; xrandr --output "${OUTPUT_MONITOR}" --off; fi
+			if [[ "${OUTPUT_TV_IS_PRIMARY}" == "" ]]; then printf "      - Setting %s as Primary output...\n" "${OUTPUT_TV}"; xrandr --output "${OUTPUT_TV}" --primary; fi
+			if [[ "${OUTPUT_TV_STATE}" == "" ]]; then printf "      - Turning On %s ${OUTPUT_TV_SET_RESOLUTION} ${OUTPUT_TV_SET_REFRESH_RATE}...\n" "${OUTPUT_TV}"; 2>/dev/null 1>&2 nvidia-settings --assign CurrentMetaMode="${OUTPUT_TV}: ${OUTPUT_TV_SET_RESOLUTION}_${OUTPUT_TV_SET_REFRESH_RATE} +0+0 {viewportout=1840x1035+40+22} {ForceFullCompositionPipeline=On}"; fi
+		fi
+
+		printf "\n"
+		exit 0
+
+	else
+		printf "[ INFO ] No outputs were detected, exiting...\n"
+		exit 1
+	fi
+}
+
+main1 "$1"
