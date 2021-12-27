@@ -5,9 +5,9 @@ This repository contains my dot configuration files.
 These dot files are managed locally using the ```setup_home_dots.sh``` script. 
 
 ### What does the script do?
-Upon execution, the script will create a directory tree just like the directory structure inside the  SOURCE ```home``` directory. 
+This script looks for a givel file modification date in a SOURCE and TARGET location to identify the latest version. 
 
-Any directories not present in the target location will be created if they do not exist.
+The script creates a directory tree just like the directory structure defined inside the SOURCE ```home``` directory. Any directories not present in the target location will be created if they do not exist.
 
 This is followed by the creation of a symbolic link or a copy of the file in the TARGET destination location for each of the files present in the SOURCE ```home``` directory.
 
