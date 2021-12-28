@@ -1,5 +1,3 @@
-Match host * exec "gpg-connect-agent UPDATESTARTUPTTY /bye"
-
 Host github.com github.com
   HostName github.com
   Preferredauthentications publickey
