@@ -220,19 +220,37 @@ function main1 () {
 		if [[ ${#available_outputs[@]} -eq 1 ]]; then
 
 			if [[ "${available_outputs[0]}" == "${OUTPUT_MONITOR}" ]]; then
+
 				if [[ "${OUTPUT_MONITOR_IS_PRIMARY}" == "" ]]; then printf "      - Setting %s as Primary output...\n" "${OUTPUT_MONITOR}"; xrandr --output "${OUTPUT_MONITOR}" --primary; fi
-				if [[ "${OUTPUT_MONITOR_STATE}" == "" ]]; then printf "      - Turning On %s ${OUTPUT_MONITOR_SET_RESOLUTION} ${OUTPUT_MONITOR_SET_REFRESH_RATE}...\n" "${OUTPUT_MONITOR}"; xrandr --output "${OUTPUT_MONITOR}" --mode ${OUTPUT_MONITOR_SET_RESOLUTION} --rate ${OUTPUT_MONITOR_SET_REFRESH_RATE}; fi
+				if [[ "${OUTPUT_MONITOR_STATE}" == "" ]]; then 
+					printf "      - Turning On %s ${OUTPUT_MONITOR_SET_RESOLUTION} ${OUTPUT_MONITOR_SET_REFRESH_RATE}...\n" "${OUTPUT_MONITOR}"; 
+					# Hack
+					2>/dev/null 1>&2 xrandr --output "${OUTPUT_MONITOR}" --scale 1.1x1.1; # Hack
+					#Hack
+					xrandr --output "${OUTPUT_MONITOR}" --mode ${OUTPUT_MONITOR_SET_RESOLUTION} --rate ${OUTPUT_MONITOR_SET_REFRESH_RATE} --panning ${OUTPUT_MONITOR_SET_RESOLUTION} --scale 1x1; 
+				fi
+
 			elif [[ "${available_outputs[0]}" == "${OUTPUT_TV}" ]]; then
+
 				if [[ "${OUTPUT_TV_IS_PRIMARY}" == "" ]]; then printf "      - Setting %s as Primary output...\n" "${OUTPUT_TV}"; xrandr --output "${OUTPUT_TV}" --primary; fi
-				if [[ "${OUTPUT_TV_STATE}" == "" ]]; then printf "      - Turning On %s ${OUTPUT_TV_SET_RESOLUTION} ${OUTPUT_TV_SET_REFRESH_RATE}...\n" "${OUTPUT_TV}"; 2>/dev/null 1>&2 nvidia-settings --assign CurrentMetaMode="${OUTPUT_TV}: ${OUTPUT_TV_SET_RESOLUTION}_${OUTPUT_TV_SET_REFRESH_RATE} +0+0 {viewportout=1840x1035+40+22} {ForceFullCompositionPipeline=On}"; fi
+				if [[ "${OUTPUT_TV_STATE}" == "" ]]; then 
+					printf "      - Turning On %s ${OUTPUT_TV_SET_RESOLUTION} ${OUTPUT_TV_SET_REFRESH_RATE}...\n" "${OUTPUT_TV}"; 
+					2>/dev/null 1>&2 nvidia-settings --assign CurrentMetaMode="${OUTPUT_TV}: ${OUTPUT_TV_SET_RESOLUTION}_${OUTPUT_TV_SET_REFRESH_RATE} +0+0 {viewportout=1840x1035+40+22} {ForceFullCompositionPipeline=On}"; 
+				fi
+
 			fi
 
 		fi
 
 		if [[ ${#available_outputs[@]} -eq 2 ]]; then
+
 			if [[ "${OUTPUT_MONITOR_STATE}" == "ON" ]]; then printf "      - Turning Off %s...\n" "${OUTPUT_MONITOR}"; xrandr --output "${OUTPUT_MONITOR}" --off; fi
 			if [[ "${OUTPUT_TV_IS_PRIMARY}" == "" ]]; then printf "      - Setting %s as Primary output...\n" "${OUTPUT_TV}"; xrandr --output "${OUTPUT_TV}" --primary; fi
-			if [[ "${OUTPUT_TV_STATE}" == "" ]]; then printf "      - Turning On %s ${OUTPUT_TV_SET_RESOLUTION} ${OUTPUT_TV_SET_REFRESH_RATE}...\n" "${OUTPUT_TV}"; 2>/dev/null 1>&2 nvidia-settings --assign CurrentMetaMode="${OUTPUT_TV}: ${OUTPUT_TV_SET_RESOLUTION}_${OUTPUT_TV_SET_REFRESH_RATE} +0+0 {viewportout=1840x1035+40+22} {ForceFullCompositionPipeline=On}"; fi
+			if [[ "${OUTPUT_TV_STATE}" == "" ]]; then 
+				printf "      - Turning On %s ${OUTPUT_TV_SET_RESOLUTION} ${OUTPUT_TV_SET_REFRESH_RATE}...\n" "${OUTPUT_TV}"; 
+				2>/dev/null 1>&2 nvidia-settings --assign CurrentMetaMode="${OUTPUT_TV}: ${OUTPUT_TV_SET_RESOLUTION}_${OUTPUT_TV_SET_REFRESH_RATE} +0+0 {viewportout=1840x1035+40+22} {ForceFullCompositionPipeline=On}"; 
+			fi
+			
 		fi
 
 		printf "\n"
