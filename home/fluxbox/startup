@@ -14,16 +14,15 @@ sleep 0.5
     conky -c ~/.config/conky/inforc &
     conky -c ~/.config/conky/authnetrc &
     skippy-xd --config ~/.config/skyppy-xd/skippy-xd.rc --start-daemon &
-    netwmpager &
 
     # APPLETS
     # -------------
-    # redshift-gtk &
     clipit &
     nm-applet &
     blueman-applet &
     volumeicon &
     flameshot &
+    redshift-gtk &
 } &
 
 wait $fbpid

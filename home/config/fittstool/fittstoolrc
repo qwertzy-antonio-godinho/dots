@@ -2,7 +2,4 @@
 # Available events: LeftButton, RightButton, MiddleButton, WheelUp, WheelDown, WheelUpOnce, WheelDownOnce, Enter, Leave 
 
 [TopRight]
-Enter=~/.config/scripts/skippy_toogle.sh
-
-[TopLeft]
-Enter=~/.config/scripts/netwmpager_toogle.sh
+Enter=~/.config/scripts/toogle_skippy.sh
