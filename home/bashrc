@@ -65,7 +65,7 @@ alias less='less -iFMRSX -x4'
 alias ncdu="ncdu --color=dark"
 alias diff="diff --color=auto"
 alias ip="ip -c"
-alias setfont='setfont "$(find "$(find "/usr/share" -type d -name consolefonts 2> /dev/null)" -type f | fzf)"'
+alias setttyfont='setfont "$(find "$(find "/usr/share" -type d -name consolefonts 2> /dev/null)" -type f | fzf)"'
 alias tv-small='nvidia-settings --assign CurrentMetaMode="HDMI-0: 1920x1080_60 +0+0 {viewportout=1840x1035+40+22} {ForceFullCompositionPipeline=On}"'
 alias tv-big='nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"'
 
