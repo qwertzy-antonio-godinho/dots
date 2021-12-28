@@ -9,5 +9,6 @@
     "git.autofetch": true,
     "workbench.iconTheme": "vscode-icons",
     "color-highlight.markerType": "dot-before",
-    "color-highlight.matchRgbWithNoFunction": true
+    "color-highlight.matchRgbWithNoFunction": true,
+    "vsicons.dontShowNewVersionMessage": true
 }
