@@ -21,7 +21,8 @@ exec start-pulseaudio-x11 &
 # START-UP
 # -------------
 exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
-exec xcompmgr -CcF -t-5 -l-5 -r4.2 -o.55 -I-.02 -O-.02 -D2 &
+#exec xcompmgr -CcF -t-5 -l-5 -r4.2 -o.55 -I-.02 -O-.02 -D2 &
+exec picom &
 
 # SETTINGS
 # -------------
