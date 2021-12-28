@@ -1,9 +1,8 @@
-#Available positions: Left, TopLeft, etc, TopCenter, BottomCenter, Right, TopRight, BottomRight, etc...
-#Available events: LeftButton, RightButton, MiddleButton, WheelUp, WheelDown, WheelUpOnce, WheelDownOnce, Enter, Leave 
+# Available positions: Left, TopLeft, etc, TopCenter, BottomCenter, Right, TopRight, BottomRight, etc...
+# Available events: LeftButton, RightButton, MiddleButton, WheelUp, WheelDown, WheelUpOnce, WheelDownOnce, Enter, Leave 
 
 [TopRight]
-Enter=~/.config/scripts/skippy_run.sh
+Enter=~/.config/scripts/skippy_toogle.sh
 
-#[BottomRight]
-#WheelUp=pavolume volup 5 --noshow
-#WheelDown=pavolume voldown 5 --noshow
+[TopLeft]
+Enter=~/.config/scripts/netwmpager_toogle.sh
