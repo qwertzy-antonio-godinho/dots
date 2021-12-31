@@ -45,8 +45,6 @@ conky.config = {
 }
 
 conky.text = [[
-${color1}${time %A, %e %B %Y} ${alignr}${time %H:%M}
-
 ${color1}SYSTEM ${stippled_hr}
 ${color2}CPU${alignr}${execi 10 top -b -n1 | grep ^%Cpu | awk '{printf("%.0f"), 100-$8}'}%
 ${color3}${execbar 8 top -b -n1 | grep ^%Cpu | awk '{printf("%.0f"), 100-$8}'}

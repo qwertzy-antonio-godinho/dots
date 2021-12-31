@@ -16,7 +16,7 @@ session.screen0.toolbar.autoRaise: false
 session.screen0.toolbar.widthPercent: 100
 session.screen0.toolbar.maxOver: false
 session.screen0.toolbar.layer: Dock
-session.screen0.toolbar.tools: iconbar, systemtray
+session.screen0.toolbar.tools: prevworkspace, nextworkspace, clock, iconbar, systemtray
 session.screen0.toolbar.placement: BottomCenter
 session.screen0.toolbar.height: 0
 session.screen0.toolbar.onhead: 1
@@ -49,7 +49,7 @@ session.screen0.menuDelay: 200
 session.screen0.maxIgnoreIncrement: true
 session.screen0.defaultDeco: NORMAL
 session.screen0.workspaces: 2
-session.screen0.strftimeFormat: %d %b, %a %02k:%M:%S
+session.screen0.strftimeFormat: %a, %d %b %02k:%M
 session.screen0.workspacewarpinghorizontaloffset: 1
 session.screen0.edgeResizeSnapThreshold: 0
 session.screen0.maxDisableResize: false
