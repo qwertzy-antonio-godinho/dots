@@ -1,6 +1,6 @@
 [begin] (Menu)
 [encoding] {UTF-8}
-      [exec] (Alacritty) {alacritty}
+      [exec] (URxvt) {urxvt}
       [exec] (Caja) {caja}
       [exec] (Brave) {brave}
       [exec] (Thunderbird) {thunderbird}

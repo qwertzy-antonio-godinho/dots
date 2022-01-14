@@ -11,3 +11,63 @@ Xft.rgba: rgb
 ! == Cursor ==
 Xcursor.theme: Vanilla-DMZ-AA
 Xcursor.size: 32
+
+! == Colors ==
+
+! black
+*.color0: #222226
+*.color8: #969696
+
+! red
+*.color1: #f841a0
+*.color9: #f6188f
+
+! green
+*.color2: #25c141
+*.color10: #1ebb2b
+
+! yellow
+*.color3: #fdf454
+*.color11: #fdf834
+
+! blue
+*.color4: #2f9ded
+*.color12: #2186ec
+
+! magenta
+*.color5: #f97137
+*.color13: #f85a21
+
+! cyan
+*.color6: #19cde6
+*.color14: #12c3e2
+
+! white
+*.color7: #ffffff
+*.color15: #ffffff
+
+! == URxvt ==
+URxvt.depth:      32 
+!URxvt.transparent: false
+!URxvt.background: #011627
+URxvt.foreground: #ffffff
+URxvt*background: rgba:0000/0000/1111/dddd
+URxvt.cursorColor: #289c93
+URxvt.letterSpace: -1
+URxvt.geometry: 92x34
+URxvt.cursorBlink: true
+URxvt.scrollBar: false
+URxvt.font: xft:liga Mononoki:style=Regular:size=10
+urxvt.iso14755:                   false
+urxvt.keysym.Shift-Control-V:     eval:paste_clipboard
+urxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+URxvt.keysym.Control-Up: \033[1;5A
+URxvt.keysym.Control-Down: \033[1;5B
+URxvt.keysym.Control-Right: \033[1;5C
+URxvt.keysym.Control-Left: \033[1;5D
+URxvt.underlineURLs: true
+URxvt.urlButton: 1
+
+
