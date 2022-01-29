@@ -37,7 +37,7 @@ conky.config = {
     own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
     own_window_colour = '#000000',
     stippled_borders = 0,
-    update_interval = 1.0,
+    update_interval = 1,
     use_spacer = 'none',
     show_graph_scale = false,
     imlib_cache_size = 0,
@@ -46,16 +46,15 @@ conky.config = {
 }
 
 conky.text = [[
-${color1}NETWORK ${stippled_hr}
-${color2}Wired ${if_existing /proc/net/route enp3s0}@ ${execi 300 wget http://ipinfo.io/ -qO - | jq -r '.city, .country, .ip' | sed ':a; N; $!ba; s/\n/-/g'}${alignr}ON
-${color3}${upspeedgraph enp3s0 24 -t}
-${color3}${downspeedgraph enp3s0 24 -t}
+${color2}Wired ${if_existing /proc/net/route enp3s0}@ ${texeci 300 wget http://ipinfo.io/ -qO - | jq -r '.city, .country, .ip' | sed ':a; N; $!ba; s/\n/-/g'}${alignr}ON
+${color3}${upspeedgraph enp3s0 24}
+${color3}${downspeedgraph enp3s0 24}
 ${else}${alignr}OFF
-${endif}${color2}Wireless ${if_existing /proc/net/route wlp9s0f3u4}@ ${execi 300 wget http://ipinfo.io/ -qO - | jq -r '.city, .country, .ip' | sed ':a; N; $!ba; s/\n/-/g'}${alignr}ON
-${color2}${wireless_essid wlp9s0f3u4}${alignr}${execi 10 cat /proc/net/wireless | grep "wlp9s0f3u4" | awk '{printf("%.0f"), $3*10/7}'}%
-${color3}${execbar 8 cat /proc/net/wireless | grep "wlp9s0f3u4" | awk '{printf("%.0f"), $3*10/7}'}
-${color3}${upspeedgraph wlp9s0f3u4 24 -t}
-${color3}${downspeedgraph wlp9s0f3u4 24 -t}
+${endif}${color2}Wireless ${if_existing /proc/net/route wlp9s0f3u4}@ ${texeci 300 wget http://ipinfo.io/ -qO - | jq -r '.city, .country, .ip' | sed ':a; N; $!ba; s/\n/-/g'}${alignr}ON
+${color2}${wireless_essid wlp9s0f3u4}${alignr}${wireless_link_qual_perc wlp9s0f3u4}%
+${color3}${wireless_link_bar wlp9s0f3u4}
+${color3}${upspeedgraph wlp9s0f3u4 24}
+${color3}${downspeedgraph wlp9s0f3u4 24}
 
 ${else}${alignr}OFF
 ${endif}${color1}CONNECTIONS ${stippled_hr}
@@ -71,6 +70,6 @@ ${tcp_portmon 32768 61000 rhost 3} ${alignr} ${tcp_portmon 32768 61000 rservice 
 ${tcp_portmon 32768 61000 rhost 4} ${alignr} ${tcp_portmon 32768 61000 rservice 4}
 
 ${color1}DATA ${stippled_hr}
-${color2}Today${alignr} ${execi 300 vnstat -i wlp9s0f3u4 | grep "today" | awk '{print $8" "substr($9,1,1)}'}
-${color2}Month${alignr} ${execi 300 vnstat -i wlp9s0f3u4 -m | grep "`date +%Y-%m`" | awk '{print $8" "substr($9,1,1)}'}
+${color2}Today${alignr} ${execi 350 vnstat -i wlp9s0f3u4 | grep "today" | awk '{print $8" "substr($9,1,1)}'}
+${color2}Month${alignr} ${execi 350 vnstat -i wlp9s0f3u4 -m | grep "`date +%Y-%m`" | awk '{print $8" "substr($9,1,1)}'}
 ]]

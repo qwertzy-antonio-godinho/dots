@@ -1,7 +1,7 @@
 [Default Applications]
-x-scheme-handler/mailto=userapp-Thunderbird-D47KB1.desktop
-message/rfc822=userapp-Thunderbird-D47KB1.desktop
-x-scheme-handler/mid=userapp-Thunderbird-D47KB1.desktop
+x-scheme-handler/mailto=userapp-Thunderbird-26XJF1.desktop
+message/rfc822=userapp-Thunderbird-26XJF1.desktop
+x-scheme-handler/mid=userapp-Thunderbird-26XJF1.desktop
 text/plain=pluma.desktop
 application/x-executable=pluma.desktop
 text/css=pluma.desktop
@@ -12,10 +12,15 @@ application/json=pluma.desktop
 application/x-wine-extension-ini=pluma.desktop
 application/xml=pluma.desktop
 application/x-shellscript=pluma.desktop
+x-scheme-handler/discord-863127630534148136=discord-863127630534148136.desktop
+x-scheme-handler/webcal=userapp-Thunderbird-OS6LF1.desktop
+text/calendar=userapp-Thunderbird-OS6LF1.desktop
+application/x-extension-ics=userapp-Thunderbird-OS6LF1.desktop
+x-scheme-handler/webcals=userapp-Thunderbird-OS6LF1.desktop
 
 [Added Associations]
-x-scheme-handler/mailto=userapp-Thunderbird-D47KB1.desktop;
-x-scheme-handler/mid=userapp-Thunderbird-D47KB1.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-D47KB1.desktop;userapp-Thunderbird-26XJF1.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-D47KB1.desktop;userapp-Thunderbird-26XJF1.desktop;
 text/plain=pluma.desktop;
 application/x-executable=pluma.desktop;
 text/css=pluma.desktop;
@@ -26,6 +31,9 @@ application/json=pluma.desktop;
 application/x-wine-extension-ini=pluma.desktop;
 application/xml=pluma.desktop;
 application/x-shellscript=pluma.desktop;
+x-scheme-handler/webcal=userapp-Thunderbird-OS6LF1.desktop;
+x-scheme-handler/webcals=userapp-Thunderbird-OS6LF1.desktop;
+text/vbscript=pluma.desktop;
 
 [Removed Associations]
 application/x-shellscript=micro.desktop;
