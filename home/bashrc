@@ -72,6 +72,19 @@ man() {
     command man "$@"
 }
 
+mail(){
+	export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+--color="fg:#f0f0f0,bg:#252c31,bg+:#005f5f,hl:#87d75f,gutter:#252c31"
+--color="query:#ffffff,prompt:#f0f0f0,pointer:#dfaf00,marker:#00d7d7"
+'
+    export FZF_DEFAULT_COMMAND='himalaya list -s 0' &&
+		fzf --border --bind "ctrl-r:execute(himalaya reply {1})+reload($FZF_DEFAULT_COMMAND),del:execute-silent(himalaya delete {1})+reload($FZF_DEFAULT_COMMAND),ctrl-f:execute(himalaya forward {1})+reload($FZF_DEFAULT_COMMAND),ctrl-a:execute(himalaya attachments {1})" \
+		--preview 'himalaya read {1} | elinks' \
+		--header-lines=2\
+		--header 'Ctrl-r: Reply, Ctrl-f: Forward, Ctrl-a: Attachments, Del: Delete, Ctrl-c: Exit'\
+		--layout=reverse
+}
+
 # Set PATH so it includes user's private bin directories
 PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
 
