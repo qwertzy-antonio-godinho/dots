@@ -1,0 +1,7 @@
+browser         "brave"
+player          "mpv"
+download-path   "/backup/Downloads/%n"
+save-path       "/backup/Downloads"
+reload-threads  20
+cleanup-on-quit yes
+text-width      74
