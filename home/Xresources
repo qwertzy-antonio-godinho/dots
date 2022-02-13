@@ -46,9 +46,10 @@ URxvt.geometry: 120x38
 URxvt.cursorBlink: true
 URxvt.scrollBar: false
 URxvt.font: xft:liga Mononoki:style=Regular:size=10
-URxvt.iso14755: false
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.iso14755: false
+URxvt.iso14755_52: false
 URxvt.keysym.Shift-Up: command:\033]720;1\007
 URxvt.keysym.Shift-Down: command:\033]721;1\007
 URxvt.keysym.Control-Up: \033[1;5A
@@ -62,10 +63,9 @@ URxvt.foreground: #ffffff
 URxvt.loginShell: true
 URxvt.fading: 30
 URxvt.colorUL: yellow
-URxvt.underlineURLs: true
+URxvt.url-launcher: /usr/bin/xdg-open
 
 !URxvt.scrollTtyOutput: false
 !URxvt.scrollWithBuffer: true
 !URxvt.scrollTtyKeypress: true
 !URxvt.background: #011627
-!URxvt.url-launcher: /usr/bin/xdg-open
