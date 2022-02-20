@@ -17,6 +17,11 @@ x-scheme-handler/webcal=userapp-Thunderbird-OS6LF1.desktop
 text/calendar=userapp-Thunderbird-OS6LF1.desktop
 application/x-extension-ics=userapp-Thunderbird-OS6LF1.desktop
 x-scheme-handler/webcals=userapp-Thunderbird-OS6LF1.desktop
+text/html=brave-browser.desktop
+x-scheme-handler/http=brave-browser.desktop
+x-scheme-handler/https=brave-browser.desktop
+x-scheme-handler/about=brave-browser.desktop
+x-scheme-handler/unknown=brave-browser.desktop
 
 [Added Associations]
 x-scheme-handler/mailto=userapp-Thunderbird-D47KB1.desktop;userapp-Thunderbird-26XJF1.desktop;
@@ -37,3 +42,6 @@ text/vbscript=pluma.desktop;
 
 [Removed Associations]
 application/x-shellscript=micro.desktop;
+text/plain=micro.desktop;
+application/x-php=micro.desktop;
+image/jpeg=brave-browser.desktop;
