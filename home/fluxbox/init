@@ -1,6 +1,6 @@
 session.screen0.systray.pinLeft:	
 session.screen0.systray.pinRight:	
-session.screen0.slit.placement:	LeftTop
+session.screen0.slit.placement:	RightTop
 session.screen0.slit.layer:	Dock
 session.screen0.slit.onhead:	0
 session.screen0.slit.autoHide:	false
@@ -28,7 +28,7 @@ session.screen0.iconbar.mode:	{static groups}
 session.screen0.iconbar.alignment:	Relative
 session.screen0.tab.placement:	TopLeft
 session.screen0.tab.width:	64
-session.screen0.titlebar.left: Minimize
+session.screen0.titlebar.left:
 session.screen0.titlebar.right:	Close 
 session.screen0.tabs.usePixmap:	false
 session.screen0.tabs.maxOver:	false

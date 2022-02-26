@@ -9,7 +9,7 @@ sleep 0.5
 {
     # APPLICATIONS
     # -------------
-    tint2 &
+    stalonetray &
     fittstool &
     dunst &
     unclutter --timeout 3 --start-hidden &

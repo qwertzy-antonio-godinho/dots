@@ -1,0 +1,10 @@
+background "#001f2f"
+decorations none
+dockapp_mode none
+icon_size 24
+skip_taskbar true
+sticky true
+transparent true
+vertical true
+window_layer bottom
+window_type desktop
