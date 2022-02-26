@@ -19,11 +19,9 @@ sleep 0.5
 
     # APPLETS
     # -------------
-    clipit &
     nm-applet &
     blueman-applet &
     volumeicon &
-    flameshot &
     redshift-gtk &
 } &
 
