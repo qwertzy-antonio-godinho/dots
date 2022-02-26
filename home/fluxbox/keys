@@ -76,7 +76,7 @@ Mod1 F2 :Exec fbrun
 # current window commands
 Mod1 F4 :Close
 Mod1 F5 :Kill
-Mod1 F9 :Minimize
+#Mod1 F9 :Minimize
 Mod1 F10 :Maximize
 Mod1 F11 :Fullscreen
 
@@ -146,3 +146,11 @@ Control Mod1 Mod4 Right :MacroCmd {ResizeTo 50% 100%} {MoveTo 00 00 Right}
 Control Mod1 Mod4 Up :MacroCmd {ResizeTo 100% 50%} {MoveTo 00 00 Up}
 Control Mod1 Mod4 Down :MacroCmd {ResizeTo 100% 50%} {MoveTo 00 00 Bottom}
 Control Mod1 Mod4 Return :ToggleCmd {Maximize} {Restore}
+
+Control Mod1 Mod4 Insert :MacroCmd {ResizeTo 50% 50%} {MoveTo 00 00 TopLeft}
+Control Mod1 Mod4 Prior :MacroCmd {ResizeTo 50% 50%} {MoveTo 00 00 TopRight}
+Control Mod1 Mod4 Delete :MacroCmd {ResizeTo 50% 50%} {MoveTo 00 00 BottomLeft}
+Control Mod1 Mod4 Next :MacroCmd {ResizeTo 50% 50%} {MoveTo 00 00 BottomRight}
+
+Control Mod1 Mod4 Home :ArrangeWindowsStackRight
+

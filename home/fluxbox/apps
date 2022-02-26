@@ -2,3 +2,9 @@
   [Position]	(WINCENTER)	{0 0}
   [Layer]	{2}
 [end]
+[group]
+[app] (name=caja) (class=Caja) 
+  [Workspace]   {0}
+  [Head]        {0}
+  [Maximized]   {no}
+[end]
