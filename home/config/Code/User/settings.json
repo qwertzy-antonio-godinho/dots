@@ -54,5 +54,7 @@
     "debug.console.fontSize": 13,
     "terminal.integrated.fontSize": 13,
     "markdown.preview.fontSize": 13,
-    "gitlens.views.commits.avatars": false
+    "gitlens.views.commits.avatars": false,
+    "gitlens.views.fileHistory.avatars": false,
+    "gitlens.views.branches.avatars": false
 }

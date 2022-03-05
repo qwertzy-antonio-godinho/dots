@@ -21,7 +21,6 @@ exec start-pulseaudio-x11 &
 # START-UP
 # -------------
 exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
-exec picom --experimental-backends &
 
 # SETTINGS
 # -------------
@@ -30,6 +29,21 @@ exec hsetroot -solid '#11122C' &
 exec ~/.config/scripts/set_wallpaper.sh &
 exec xbindkeys &
 
+# APPLICATIONS
+# -------------
+dunst &
+tint2 &
+unclutter --timeout 3 --start-hidden &
+conky -c ~/.config/conky/inforc &
+conky -c ~/.config/conky/authnetrc &
+
+# APPLETS
+# -------------
+nm-applet &
+blueman-applet &
+volumeicon &
+redshift-gtk &
+
 # WM
 # -------------
-exec startfluxbox
+exec compiz
