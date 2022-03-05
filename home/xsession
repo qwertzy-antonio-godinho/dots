@@ -25,7 +25,6 @@ exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 # SETTINGS
 # -------------
 exec xrdb ~/.Xresources &
-exec hsetroot -solid '#11122C' &
 exec ~/.config/scripts/set_wallpaper.sh &
 exec xbindkeys &
 
