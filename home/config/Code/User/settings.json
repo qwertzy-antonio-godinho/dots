@@ -2,7 +2,6 @@
     "workbench.startupEditor": "none",
     "editor.fontFamily": "'liga Mononoki', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.fontSize": 13,
-    "terminal.integrated.shellArgs.linux": ["-l"],
     "workbench.sideBar.location": "right",
     "telemetry.telemetryLevel": "off",
     "editor.bracketPairColorization.enabled": true,
