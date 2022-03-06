@@ -45,8 +45,6 @@ conky.config = {
 }
 
 conky.text = [[
-${color1}${time %A, %e %B %Y} ${alignr}${time %H:%M}
-
 ${color1}SYSTEM ${stippled_hr}
 ${color2}CPU${alignr}${cpu cpu0}%
 ${color3}${cpubar cpu0 8}
