@@ -129,7 +129,9 @@
 	"__metadata": {
 		"id": "eaa2127d-cb69-4ab9-8505-a60c9ee5f28b",
 		"publisherId": "ac064ae0-224d-4351-9aa4-45ef7bf3ed21",
-		"publisherDisplayName": null,
-		"installedTimestamp": 1640904530853
+		"publisherDisplayName": "oderwat",
+		"isPreReleaseVersion": false,
+		"preRelease": false,
+		"installedTimestamp": 1646851185501
 	}
 }

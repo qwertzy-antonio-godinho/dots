@@ -132,7 +132,9 @@
 	"__metadata": {
 		"id": "121396ad-85a1-45ec-9fd1-d95028a847f5",
 		"publisherId": "e9a76d04-24d4-44eb-a202-964f71acf59e",
-		"publisherDisplayName": null,
-		"installedTimestamp": 1640649330506
+		"publisherDisplayName": "Sergii Naumov",
+		"isPreReleaseVersion": false,
+		"preRelease": false,
+		"installedTimestamp": 1646851159070
 	}
 }

@@ -1,7 +1,7 @@
 # DISPLAY
 # -------------
-exec systemctl --user import-environment DISPLAY &
 exec ~/.config/scripts/set_video_mode.sh &
+exec systemctl --user import-environment DISPLAY &
 
 # KEYBOARD
 # -------------
@@ -25,24 +25,11 @@ exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 # SETTINGS
 # -------------
 exec xrdb ~/.Xresources &
+exec hsetroot -solid '#11122C' &
 exec ~/.config/scripts/set_wallpaper.sh &
 exec xbindkeys &
-
-# APPLICATIONS
-# -------------
-dunst &
-tint2 &
-unclutter --timeout 3 --start-hidden &
-conky -c ~/.config/conky/inforc &
-conky -c ~/.config/conky/authnetrc &
-
-# APPLETS
-# -------------
-nm-applet &
-blueman-applet &
-volumeicon &
-redshift-gtk &
+exec picom --experimental-backends & 
 
 # WM
 # -------------
-exec compiz
+exec startfluxbox

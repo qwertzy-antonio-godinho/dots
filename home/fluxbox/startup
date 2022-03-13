@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# WM
+# -------------
+exec fluxbox &
+fbpid=$!
+
+sleep 0.5
+{
+    # APPLICATIONS
+    # -------------
+    dunst &
+    unclutter --timeout 3 --start-hidden &
+    conky -c ~/.config/conky/inforc &
+    conky -c ~/.config/conky/authnetrc &
+
+    # APPLETS
+    # -------------
+    nm-applet &
+    blueman-applet &
+    volumeicon &
+    redshift-gtk &
+} &
+
+wait $fbpid

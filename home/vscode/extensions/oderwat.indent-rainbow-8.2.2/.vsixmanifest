@@ -22,7 +22,7 @@
         
       
       <Property Id="Microsoft.VisualStudio.Services.Links.Support" Value="https://github.com/oderwat/vscode-indent-rainbow/issues" />
-      
+      <Property Id="Microsoft.VisualStudio.Services.Links.Learn" Value="https://github.com/oderwat/vscode-indent-rainbow#readme" />
       
       
       <Property Id="Microsoft.VisualStudio.Services.GitHubFlavoredMarkdown" Value="true" />

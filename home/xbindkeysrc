@@ -1,4 +1,4 @@
-"rofi -combi-modi run -show combi -dpi 136"
+"rofi -combi-modi run -show combi -dpi 142"
     Control + space
 
 "xbacklight -ctrl smc::kbd_backlight -inc 5 && xbacklight -ctrl smc::kbd_backlight -get > ~/.config/scripts/setting_kbd_backlight.txt"

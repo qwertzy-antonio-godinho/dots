@@ -12,7 +12,7 @@ theme=Default
 use_panel_specific_icons=false
 lmb_slider=true
 mmb_mute=false
-use_horizontal_slider=true
+use_horizontal_slider=false
 show_sound_level=true
 use_transparent_background=true
 

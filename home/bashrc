@@ -92,7 +92,7 @@ else
 	PS1='\[\033[01;30m\]$(virtualenv_info)\[\033[01;33m\][ \h\[\033[00m\]: \[\033[01;34m\]\w\]\033[01;33m\] ]$(__git_ps1) \[\033[01;32m\]\u\033[00m\] \$ \n`if [ $? -eq 0 ]; then printf "*"; else printf "ʭ"; fi` '
 fi
 
-[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
+#[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
 
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
@@ -113,7 +113,7 @@ export GDK_DPI_SCALE=1
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+#eval "$(pyenv init --path)"
 
 # SSH agent
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
