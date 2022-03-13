@@ -83,9 +83,11 @@ editor_backup_extension=~
 editor_filesize_threshold=64M
 editor_stop_format_chars=-+*\\,.;:&>
 mcview_eof=
-skin=nicedark
+#skin=nicedark
 
 filepos_max_saved_entries=1024
+
+skin=modarcon16-defbg
 
 [Layout]
 output_lines=0
@@ -115,7 +117,9 @@ clipboard_paste=
 [Colors]
 base_color=
 xterm-color=
-color_terminals=
+color_terminals=linux,xterm
+
+screen=
 
 [Panels]
 show_mini_info=true
