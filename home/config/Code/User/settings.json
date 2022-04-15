@@ -1,7 +1,6 @@
 {
     "workbench.startupEditor": "none",
     "editor.fontFamily": "'liga Mononoki', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    "editor.fontSize": 13,
     "workbench.sideBar.location": "right",
     "telemetry.telemetryLevel": "off",
     "editor.bracketPairColorization.enabled": true,
@@ -43,7 +42,7 @@
     ],
     "open-in-browser.default": "brave-browser",
     "gitlens.views.repositories.showContributors": false,
-    "python.linting.enabled": true,
+    "python.linting.enabled": false,
     "gitlens.views.repositories.showBranchComparison": false,
     "gitlens.views.repositories.showCommits": false,
     "gitlens.views.repositories.showTags": false,
@@ -55,5 +54,8 @@
     "markdown.preview.fontSize": 13,
     "gitlens.views.commits.avatars": false,
     "gitlens.views.fileHistory.avatars": false,
-    "gitlens.views.branches.avatars": false
+    "gitlens.views.branches.avatars": false,
+    "editor.fontSize": 13,
+    "window.autoDetectColorScheme": true,
+    "workbench.preferredLightColorTheme": "Default High Contrast Light"
 }

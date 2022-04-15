@@ -27,6 +27,7 @@ exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 exec xrdb ~/.Xresources &
 exec hsetroot -solid '#11122C' &
 exec ~/.config/scripts/set_wallpaper.sh &
+exec ~/.config/scripts/set_theme.sh &
 exec xbindkeys &
 exec picom --experimental-backends & 
 exec dbus-update-activation-environment --systemd --all &
