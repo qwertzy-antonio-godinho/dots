@@ -20,7 +20,7 @@ sleep 0.5
     blueman-applet &
     volumeicon &
     redshift-gtk &
-    solaar --window=hide &
+	solaar --window=hide &
 } &
 
 wait $fbpid

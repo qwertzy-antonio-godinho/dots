@@ -4,7 +4,5 @@
 [end]
 [group]
 [app] (name=caja) (class=Caja) 
-  [Workspace]   {0}
-  [Head]        {0}
   [Maximized]   {no}
 [end]

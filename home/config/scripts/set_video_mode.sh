@@ -4,14 +4,9 @@
 OUTPUT_TV="HDMI-0"
 OUTPUT_TV_SET_REFRESH_RATE="60"
 OUTPUT_TV_SET_RESOLUTION="1920x1080"
-
 OUTPUT_MONITOR="DP-4"
 OUTPUT_MONITOR_SET_REFRESH_RATE="144"
 OUTPUT_MONITOR_SET_RESOLUTION="3440x1440"
-
-# Temp
-#OUTPUT_TV_STATE=""
-#OUTPUT_MONITOR_STATE=""
 
 function get_details () {
 	local output_name="$1"
@@ -19,13 +14,6 @@ function get_details () {
 	local output_message=""; output_message="${output_name} :"
 
 	if [[ $(xrandr | awk -v monitor="${output_name}" '/connected/ {p = 0} $0 ~ monitor {p = 1} p' | grep -c "\*") -gt 0 ]]; then
-
-#		if [[ "${output_name}" == "${OUTPUT_TV}" ]]; then
-#			OUTPUT_TV_STATE="ON"
-#		elif [[ "${output_name}" == "${OUTPUT_MONITOR}" ]]; then
-#			OUTPUT_MONITOR_STATE="ON"
-#		fi
-
 		output_message="${output_message} $(xrandr | awk -v monitor="${output_name}" '/connected/ {p = 0} $0 ~ monitor {p = 1} p' | grep "\*" | awk '{ sub(/^[ \t]+/, ""); print $1}')"
 	else
 		output_message="${output_message} Off"
@@ -52,20 +40,13 @@ function set_primary () {
 }
 
 function enable_monitor () {
-#	if [[ "${OUTPUT_MONITOR_STATE}" == "" ]]; then 
-		printf "      - Turning On %s ${OUTPUT_MONITOR_SET_RESOLUTION} ${OUTPUT_MONITOR_SET_REFRESH_RATE}...\n" "${OUTPUT_MONITOR}"; 
-#		2>/dev/null 1>&2 xrandr --output "${OUTPUT_MONITOR}" --scale 1.1x1.1; # Hack
-#		xrandr --output "${OUTPUT_MONITOR}" --mode ${OUTPUT_MONITOR_SET_RESOLUTION} --rate ${OUTPUT_MONITOR_SET_REFRESH_RATE} --panning ${OUTPUT_MONITOR_SET_RESOLUTION} --scale 1x1; 
-#	else 
-		xrandr --output "${OUTPUT_MONITOR}" --mode ${OUTPUT_MONITOR_SET_RESOLUTION} --rate ${OUTPUT_MONITOR_SET_REFRESH_RATE}
-#	fi
+	printf "      - Turning On %s ${OUTPUT_MONITOR_SET_RESOLUTION} ${OUTPUT_MONITOR_SET_REFRESH_RATE}...\n" "${OUTPUT_MONITOR}"; 
+	xrandr --output "${OUTPUT_MONITOR}" --mode ${OUTPUT_MONITOR_SET_RESOLUTION} --rate ${OUTPUT_MONITOR_SET_REFRESH_RATE}
 }
 
 function enable_tv () {
-#	if [[ "${OUTPUT_TV_STATE}" == "" ]]; then 
-		printf "      - Turning On %s ${OUTPUT_TV_SET_RESOLUTION} ${OUTPUT_TV_SET_REFRESH_RATE}...\n" "${OUTPUT_TV}"; 
-		2>/dev/null 1>&2 nvidia-settings --assign CurrentMetaMode="${OUTPUT_TV}: ${OUTPUT_TV_SET_RESOLUTION}_${OUTPUT_TV_SET_REFRESH_RATE} +0+0 {viewportout=1840x1035+40+22} {ForceFullCompositionPipeline=On}"; 
-#	fi
+	printf "      - Turning On %s ${OUTPUT_TV_SET_RESOLUTION} ${OUTPUT_TV_SET_REFRESH_RATE}...\n" "${OUTPUT_TV}"; 
+	2>/dev/null 1>&2 nvidia-settings --assign CurrentMetaMode="${OUTPUT_TV}: ${OUTPUT_TV_SET_RESOLUTION}_${OUTPUT_TV_SET_REFRESH_RATE} +0+0 {viewportout=1840x1035+40+22} {ForceFullCompositionPipeline=On}"; 
 }
 
 function set_scale () {
@@ -80,16 +61,17 @@ function set_scale () {
 	printf "        * DPI=%s\n" "$dpi"
 	sed -i -E "s/Xft.dpi:.*/Xft.dpi: $dpi/" "$HOME/.Xresources"
 	sed -i -E "s/-dpi.[0-9]*/-dpi $dpi/" "$HOME/.xbindkeysrc"
-	#if [[ "${output_name}" == "${OUTPUT_MONITOR}" ]]; then xrandr --output "${output_name}" --scale 1x1; fi
 	export QT_FONT_DPI=${dpi}
 	
 	printf "        * Mouse=%s\n" "$mouse_size"
 	sed -i -E "s/Xcursor.size:.*/Xcursor.size: $mouse_size/" "$HOME/.Xresources"
+	sed -i -E "s/gtk-cursor-theme-size = .[0-9]/gtk-cursor-theme-size = $mouse_size/" "$HOME/.config/gtk-3.0/settings.ini"
 
 	printf "        * Font=%s\n" "$font_size"
 	sed -i -E "s/Liga mononoki-.[0-9]/Liga mononoki-$font_size/" "$HOME/.fluxbox/styles/lauzli/theme.cfg"
 	sed -i -E "s/liga Mononoki .[0-9]/liga Mononoki $font_size/" "$HOME/.config/rofi/themes/lauzli.rasi"
 	sed -i -E "s/faceSize: .[0-9]/faceSize: $font_size/" "$HOME/.Xresources"
+	sed -i -E "s/Zekton Regular .[0-9]/Zekton Regular $font_size/" "$HOME/.config/gtk-3.0/settings.ini"
 
 	printf "        * UI=%s\n" "$ui_height"
 	sed -i -E "s/.height: .[0-9]/.height: $ui_height/" "$HOME/.fluxbox/styles/lauzli/theme.cfg"
@@ -110,18 +92,18 @@ function set_resolution_scale () {
 
 	case $resolution in
 		"1920x1080")
-			local scale_dpi=122
+			local scale_dpi=142
 			local scale_mouse_size=32
-			local scale_font_size=10
-			local scale_ui_height=24
+			local scale_font_size=12
+			local scale_ui_height=30
 			local scale_ui_toolkit_scale=1
 			local scale_ui_dpi_scale=0.5
 		;;
 		"3440x1440")
 			local scale_dpi=142
-			local scale_mouse_size=32
+			local scale_mouse_size=48
 			local scale_font_size=11
-			local scale_ui_height=28
+			local scale_ui_height=34
 			local scale_ui_toolkit_scale=1
 			local scale_ui_dpi_scale=0.5
 		;;

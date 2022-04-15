@@ -45,7 +45,7 @@ Xterm*geometry: 120x40
 XTerm*scrollBar: off
 XTerm*rightScrollBar: on
 XTerm*title: XTerm
-XTerm*faceSize: 11
+XTerm*faceSize: 12
 XTerm*faceName: liga Mononoki
 XTerm*renderFont: true
 XTerm*selectToClipboard: true

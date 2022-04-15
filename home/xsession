@@ -29,6 +29,7 @@ exec hsetroot -solid '#11122C' &
 exec ~/.config/scripts/set_wallpaper.sh &
 exec xbindkeys &
 exec picom --experimental-backends & 
+exec dbus-update-activation-environment --systemd --all &
 
 # WM
 # -------------
