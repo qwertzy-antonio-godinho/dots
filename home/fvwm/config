@@ -1,0 +1,201 @@
+###################################
+# Paths                           #
+###################################
+ImagePath $FVWM_USERDIR/icons
+
+###################################
+# Initialization                  #
+###################################
+# InitFunction - executed only when FVWM is first initialised.
+DestroyFunc InitFunction
+AddToFunc InitFunction
+  + I Test (F $[FVWM_USERDIR]/autostart) \
+      Exec exec /bin/sh $[FVWM_USERDIR]/autostart
+
+# StartFunction - executed when FVWM is first initialised and on restarts.
+DestroyFunc StartFunction
+AddToFunc StartFunction
+  + I Module FvwmButtons
+  + I Module FvwmAnimate
+
+###################################
+# General configurations          #
+###################################
+DefaultFont        "xft:liga Mononoki:size=11"
+
+OpaqueMoveSize     -1	
+HideGeometryWindow Always
+SnapAttraction     5 SameType ScreenAll
+EdgeResistance     200 10
+EdgeScroll         0 0
+ClickTime          750
+
+IgnoreModifiers    L25
+
+DeskTopSize        2x2
+DesktopName        0 Workspace
+
+Style * ClickToFocus, \
+        MinOverlapPlacement, \
+        ResizeOpaque, \
+        SnapGrid, \
+        DecorateTransient, \
+        StackTransientParent, \
+        IconTitleRelief 0, \
+        IconBackgroundRelief 0, \
+        IconBackGroundPadding 0, \
+        BorderWidth 5, \
+        HandleWidth 5, \
+        MWMButtons, \
+        FvwmBorder, \
+        FirmBorder, \
+        SlipperyIcon, \
+        MWMFunctions, \
+        MWMDecor, \
+        HintOverride, \
+        ResizeHintOverride, \
+        UsePPosition, \
+        !FixedPPosition
+
+###################################
+# Applications                    #
+###################################
+InfoStoreAdd terminal    xterm
+InfoStoreAdd filemanager caja
+InfoStoreAdd browser     brave
+InfoStoreAdd email       thunderbird
+
+Style "*Term" IconOverride, Icon terminal.png
+Style "brave-bin" IconOverride, Icon browser.png
+
+###################################
+# Window configurations and style #
+###################################
+TitleStyle    LeftJustified -- Flat
+
+HilightColor  #3eace5 #0f4d6e
+
+Style *       BorderWidth 9, HandleWidth 9
+Style *       Color #7a7a7a/#2e2e2e
+
+ButtonStyle All ActiveUp Vector 5 \
+            15x15@4 15x85@3 85x85@3 85x15@3 15x15@3 -- Flat
+ButtonStyle All ToggledActiveUp Vector 5 \
+            15x15@4 15x85@3 85x85@3 85x15@3 15x15@3 -- Flat
+ButtonStyle All ActiveDown Vector 5 \
+            20x20@4 20x80@3 80x80@3 80x20@3 20x20@3 -- Flat
+ButtonStyle All ToggledActiveDown Vector 5 \
+            20x20@4 20x80@3 80x80@3 80x20@3 20x20@3 -- Flat
+ButtonStyle All ToggledInactive Vector 5 \
+            47x47@3 57x53@3 53x53@3 53x47@3 47x47@3 -- Flat
+ButtonStyle All Inactive Vector 5 \
+            47x47@3 57x53@3 53x53@3 53x47@3 47x47@3 -- Flat
+AddButtonStyle 1 Active Vector 5 \
+            45x45@3 55x45@3 55x55@3 45x55@3 45x45@3
+AddButtonStyle 2 Active Vector 4 \
+            35x35@3 65x65@3 65x35@4 35x65@3
+ButtonStyle All - Clear
+ButtonStyle 1 - MwmDecorMenu
+
+###################################
+# Pager                           #
+###################################
+*FvwmPager: Back     #000000
+*FvwmPager: Fore     #ffffff
+*FvwmPager: Hilight  #2d2d2d
+*FvwmPager: Geometry 240x1-1-1
+*FvwmPager: UseSkipList
+*FvwmPager: MiniIcons
+
+###################################
+# Buttons (Pager & Tray)          #
+###################################
+*FvwmButtons: Geometry 360x320-10-10
+*FvwmButtons: Rows     10
+*FvwmButtons: Back     #2d2d2d
+*FvwmButtons: (Swallow(UseOld, NoClose) "stalonetray" "Nop")
+*FvwmButtons: (1x6 Frame 0 Swallow(UseOld) "FvwmPager" "Module FvwmPager 0 0")
+
+Style "FvwmButtons" FixedSize, WindowListSkip, CirculateSkip, NeverFocus, NoTitle, NoHandles, Sticky, StaysOnBottom, !Iconifiable
+
+###################################
+# Desktop icons                   #
+###################################
+Style * IconBox none, IconFill right top
+
+###################################
+# Animations                      #
+###################################
+*FvwmAnimate: Color #6e6e6e
+*FvwmAnimate: Effect Turn
+*FvwmAnimate: Delay 4
+*FvwmAnimate: Iterations 60
+*FvwmAnimate: Width 5
+
+###################################
+# Menus style                     #
+###################################
+MenuStyle * Win
+MenuStyle * ActiveFore #ffffff, HilightBack #3eace5
+MenuStyle * Foreground #fafafa, Background #4e4e4e
+
+###################################
+# Menus                           #
+###################################
+AddToMenu RootMenu	
+  + "&Terminal"			  Exec exec $[infostore.terminal]
+  + "&File Manager"		Exec exec $[infostore.filemanager]
+  + "&Browser"			  Exec exec $[infostore.browser]
+  + "&E-Mail"         Exec exec $[infostore.email]
+  + ""                Nop
+  + "Restart FVWM"    Restart fvwm
+  + ""                Nop
+  + "Reboot"          Exec exec reboot
+  + "Shutdown"        Exec exec shutdown 0
+
+###################################
+# Functions                       #
+###################################
+DestroyFunc RaiseMoveX
+AddToFunc RaiseMoveX
+  + I Raise
+  + M $0
+  + D $1
+
+DestroyFunc RaiseMove
+AddToFunc RaiseMove
+  + I Raise
+  + M $0
+
+DestroyFunc WindowListFunc
+AddToFunc WindowListFunc
+  + I Iconify off
+  + I FlipFocus
+  + I Raise
+
+DestroyFunc GotoPageFocus
+AddToFunc GotoPageFocus
+  + I GotoPage $*
+  + I PointerWindow (CurrentPage, !Sticky, !Shaded, !Iconic) Focus
+  + I TestRc (!Match) Next (CurrentPage, !Sticky, !Shaded, !Iconic) Raise-and-Focus
+
+###################################
+# Mouse configurations            #
+###################################
+Mouse 1 1   A Iconify
+Mouse 1 2   A Close
+
+Mouse 1 R   A -
+Mouse 1	T   A RaiseMoveX Move Maximize
+Mouse 1	I   A RaiseMoveX Move "Iconify off"
+Mouse 1	FS  A RaiseMove Resize
+Mouse 3	R   A Menu RootMenu Nop
+Mouse 4	T   A WindowShade True
+Mouse 4 R   A GotoPageFocus +0p -1p
+Mouse 5	T   A WindowShade False
+Mouse 5 R   A GotoPageFocus +0p +1p
+
+#######################
+# Keyboard shortcuts  #
+#######################
+Silent Key Tab A M WindowList root c c CurrentDesk, !Iconic, NoGeometry, CurrentAtEnd, IconifiedAtEnd
