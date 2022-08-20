@@ -36,9 +36,9 @@ A symbolic link is created in the target location if the source file is a regula
 
 ### Usage tips
 
-- See changes to SOURCE: ```./setup_home_dots.sh | grep "UPDATE-SOURCE"```
+- See changes to SOURCE: ```./dots.sh | grep "UPDATE-SOURCE"```
 
-- See changes to TARGET: ```./setup_home_dots.sh | grep "UPDATE-TARGET"```
+- See changes to TARGET: ```./dots.sh | grep "UPDATE-TARGET"```
 
 ### Disclaimer
 
