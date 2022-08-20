@@ -191,6 +191,7 @@ function configure_user () {
 	mkdir -p ~/.ssh && touch ~/.ssh/known_hosts && ssh-keyscan -t Ed25519 github.com > ~/.ssh/known_hosts
     ssh-add /backup/.keys/qwertzy-antonio-godinho-github.com
 	sudo gpasswd -a $USER_NAME input
+	sudo gpasswd -a $USER_NAME libvirt
 }
 
 function cleanup () {
