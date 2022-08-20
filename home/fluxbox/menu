@@ -1,0 +1,19 @@
+[begin] (Menu)
+[encoding] {UTF-8}
+      [exec] (Xterm) {xterm}
+      [exec] (Caja) {caja}
+      [exec] (Brave) {brave}
+      [exec] (Thunderbird) {thunderbird}
+      [exec] (Code) {code}
+      [separator]
+      [submenu](System)
+            [reconfig] (Reload config)
+  		    [restart] (Restart Fluxbox)
+            [separator]
+            [exec] (Reboot) {reboot}
+            [exec] (Shutdown) {shutdown 0} 
+      [end] 
+      [separator]
+      [workspaces] (Workspaces)  
+[endencoding]
+[end]

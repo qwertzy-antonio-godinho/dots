@@ -1,0 +1,24 @@
+xlogin.Login.namePrompt: Login:
+xlogin.Login.passwdPrompt: \040\040\040Password:
+xlogin.Login.fail:AUTHENTICATION\040FAILURE
+xlogin.Login.changePasswdMessage:PASSWORD\040CHANGE\040REQUIRED
+xlogin.Login.echoPasswd:true
+xlogin.Login.background:black
+xlogin.Login.foreground:grey
+xlogin.Login.failColor:red
+xlogin.Login.inpColor:black
+xlogin.Login.promptColor:green
+xlogin.Login.width:500
+xlogin.Login.greetFont:-*-monospace-*-*-*-14-*-*-*-*-*-*-*
+xlogin.Login.font:-*-monospace-*-*-*-10-*-*-*-*-*-*-*
+xlogin.Login.promptFont:-*-monospace-*-*-*-14-*-*-*-*-*-*-*
+xlogin.Login.failFont:-*-monospace-*-*-*-10-*-*-*-*-*-*-*
+xlogin.Login.greetFace:Monospace-14:bold
+xlogin.Login.face:Monospace-10
+xlogin.Login.promptFace:Monospace-14:bold
+xlogin.Login.failFace:Monospace-10:bold
+xlogin.Login.echoPasswd:true
+xlogin.Login.logoFileName:
+xlogin.Login.greeting:
+xlogin.Login.hiColor:black
+xlogin.Login.shdColor:black

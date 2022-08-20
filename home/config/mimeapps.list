@@ -1,0 +1,40 @@
+[Default Applications]
+text/plain=pluma.desktop
+text/html=brave-browser.desktop
+x-scheme-handler/http=brave-browser.desktop
+x-scheme-handler/https=brave-browser.desktop
+x-scheme-handler/about=brave-browser.desktop
+x-scheme-handler/unknown=brave-browser.desktop
+x-scheme-handler/mailto=userapp-Thunderbird-STBPI1.desktop
+message/rfc822=userapp-Thunderbird-STBPI1.desktop
+x-scheme-handler/mid=userapp-Thunderbird-STBPI1.desktop
+x-scheme-handler/news=userapp-Thunderbird-3G7PI1.desktop
+x-scheme-handler/snews=userapp-Thunderbird-3G7PI1.desktop
+x-scheme-handler/nntp=userapp-Thunderbird-3G7PI1.desktop
+x-scheme-handler/feed=userapp-Thunderbird-S1MQI1.desktop
+application/rss+xml=userapp-Thunderbird-S1MQI1.desktop
+application/x-extension-rss=userapp-Thunderbird-S1MQI1.desktop
+x-scheme-handler/webcal=userapp-Thunderbird-7WCSI1.desktop
+text/calendar=userapp-Thunderbird-7WCSI1.desktop
+application/x-extension-ics=userapp-Thunderbird-7WCSI1.desktop
+x-scheme-handler/webcals=userapp-Thunderbird-7WCSI1.desktop
+application/xml=pluma.desktop
+
+[Added Associations]
+text/plain=pluma.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-STBPI1.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-STBPI1.desktop;
+x-scheme-handler/news=userapp-Thunderbird-3G7PI1.desktop;
+x-scheme-handler/snews=userapp-Thunderbird-3G7PI1.desktop;
+x-scheme-handler/nntp=userapp-Thunderbird-3G7PI1.desktop;
+x-scheme-handler/feed=userapp-Thunderbird-S1MQI1.desktop;
+application/rss+xml=userapp-Thunderbird-S1MQI1.desktop;
+application/x-extension-rss=userapp-Thunderbird-S1MQI1.desktop;
+x-scheme-handler/webcal=userapp-Thunderbird-7WCSI1.desktop;
+x-scheme-handler/webcals=userapp-Thunderbird-7WCSI1.desktop;
+application/xml=pluma.desktop;
+
+[Removed Associations]
+image/jpeg=brave-browser.desktop;
+image/png=brave-browser.desktop;
+application/xml=brave-browser.desktop;

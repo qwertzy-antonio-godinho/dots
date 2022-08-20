@@ -1,0 +1,260 @@
+{
+	"name": "shellcheck",
+	"displayName": "ShellCheck",
+	"description": "Integrates ShellCheck into VS Code, a linter for Shell scripts.",
+	"version": "0.18.9",
+	"publisher": "timonwong",
+	"author": "Timon Wong <timon86.wang@gmail.com> (https://github.com/timonwong)",
+	"contributors": [
+		"Felipe Santos (https://github.com/felipecrs)"
+	],
+	"license": "MIT",
+	"categories": [
+		"Linters",
+		"Programming Languages"
+	],
+	"keywords": [
+		"shell",
+		"shellscript",
+		"bash",
+		"linter",
+		"lint"
+	],
+	"homepage": "https://github.com/vscode-shellcheck/vscode-shellcheck#readme",
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/vscode-shellcheck/vscode-shellcheck.git"
+	},
+	"bugs": {
+		"url": "https://github.com/vscode-shellcheck/vscode-shellcheck/issues"
+	},
+	"icon": "shellcheck.png",
+	"activationEvents": [
+		"onLanguage:shellscript",
+		"workspaceContains:**/.shellcheckrc"
+	],
+	"main": "./dist/extension.js",
+	"capabilities": {
+		"untrustedWorkspaces": {
+			"supported": "limited",
+			"description": "Only the user defined shellcheck executable will be taken into account when running in untrusted mode.",
+			"restrictedConfigurations": [
+				"shellcheck.executablePath"
+			]
+		}
+	},
+	"contributes": {
+		"languages": [
+			{
+				"id": "shellcheckrc",
+				"extensions": [
+					".shellcheckrc"
+				],
+				"configuration": "./shellcheckrc/language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "shellcheckrc",
+				"scopeName": "source.shellcheckrc",
+				"path": "./shellcheckrc/tmLanguage.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "shellcheck.runLint",
+				"title": "ShellCheck: Run Linting"
+			}
+		],
+		"configuration": {
+			"title": "ShellCheck",
+			"type": "object",
+			"properties": {
+				"shellcheck.enable": {
+					"description": "Whether shellcheck is enabled or not.",
+					"type": "boolean",
+					"scope": "resource",
+					"default": true
+				},
+				"shellcheck.enableQuickFix": {
+					"description": "Whether to enable the \"Quick Fix\" feature.",
+					"type": "boolean",
+					"scope": "resource",
+					"default": true
+				},
+				"shellcheck.executablePath": {
+					"description": "Path to the shellcheck executable (builtin binaries will be used if empty).",
+					"examples": [
+						"shellcheck"
+					],
+					"type": "string",
+					"scope": "machine-overridable"
+				},
+				"shellcheck.run": {
+					"description": "Whether shellcheck is run on save or on type.",
+					"type": "string",
+					"enum": [
+						"onSave",
+						"onType",
+						"manual"
+					],
+					"scope": "resource",
+					"default": "onType"
+				},
+				"shellcheck.exclude": {
+					"description": "Exclude types of warnings, for example [\"1017\"].",
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"scope": "resource",
+					"default": []
+				},
+				"shellcheck.customArgs": {
+					"description": "Custom arguments to shellcheck.",
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"scope": "resource",
+					"default": []
+				},
+				"shellcheck.ignorePatterns": {
+					"markdownDescription": "Configure glob patterns for excluding files and folders by shellcheck. Glob patterns are interpreted relative to the workspace's root folder. Read more about glob patterns [here](https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options).",
+					"examples": [
+						{
+							"**/*.zsh": true,
+							"**/*.zsh*": true,
+							"**/.git/*.sh": true,
+							"**/folder/**/*.sh": true
+						}
+					],
+					"type": "object",
+					"scope": "resource",
+					"additionalProperties": {
+						"anyOf": [
+							{
+								"type": "boolean",
+								"description": "The glob pattern to match file paths against. Set to true or false to enable or disable the pattern."
+							}
+						]
+					},
+					"default": {
+						"**/*.xonshrc": true,
+						"**/*.xsh": true,
+						"**/*.zsh": true,
+						"**/*.zshrc": true,
+						"**/zshrc": true,
+						"**/*.zprofile": true,
+						"**/zprofile": true,
+						"**/*.zlogin": true,
+						"**/zlogin": true,
+						"**/*.zlogout": true,
+						"**/zlogout": true,
+						"**/*.zshenv": true,
+						"**/zshenv": true,
+						"**/*.zsh-theme": true
+					}
+				},
+				"shellcheck.ignoreFileSchemes": {
+					"description": "Matching file schemes are being ignored by shellcheck.",
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"scope": "application",
+					"default": [
+						"git",
+						"gitfs"
+					]
+				},
+				"shellcheck.useWorkspaceRootAsCwd": {
+					"description": "Whether to use the workspace root directory as the current working directory when launching ShellCheck.",
+					"type": "boolean",
+					"scope": "resource",
+					"default": false
+				},
+				"shellcheck.disableVersionCheck": {
+					"description": "Whether to disable shellcheck binary version check, which prompt for updating when outdated version found.",
+					"type": "boolean",
+					"scope": "application",
+					"default": false
+				}
+			}
+		}
+	},
+	"scripts": {
+		"prepare": "bindl",
+		"build": "webpack",
+		"build:watch": "webpack --watch",
+		"build:prod": "webpack --mode production --devtool hidden-source-map",
+		"build:test": "tsc --project tsconfig.test.json",
+		"build:test:watch": "tsc --project tsconfig.test.json --watch",
+		"build:all": "run-p build build:test",
+		"build:all:watch": "run-p build:watch build:test:watch",
+		"vscode:prepublish": "npm run build:prod",
+		"package": "vsce package",
+		"publish": "vsce publish",
+		"lint": "eslint .",
+		"lint:fix": "eslint --fix .",
+		"format": "prettier --write .",
+		"format:check": "prettier --check .",
+		"spell": "cspell \"**\"",
+		"pretest": "npm run build:all",
+		"test": "node ./out/test/runTest.js",
+		"posttest": "npm run lint && npm run format:check && npm run spell",
+		"release": "semantic-release"
+	},
+	"dependencies": {
+		"execa": "^5.0.0",
+		"lodash": "^4.17.19",
+		"minimatch": "^5.0.1",
+		"semver": "^7.3.4"
+	},
+	"devDependencies": {
+		"@semantic-release/changelog": "^6.0.1",
+		"@semantic-release/git": "^10.0.1",
+		"@types/glob": "^7.1.4",
+		"@types/lodash": "^4.14.172",
+		"@types/minimatch": "^3.0.3",
+		"@types/mocha": "^9.1.0",
+		"@types/node": "^14.18.12",
+		"@types/semver": "^7.3.4",
+		"@types/vscode": "~1.57.0",
+		"@typescript-eslint/eslint-plugin": "^5.12.1",
+		"@typescript-eslint/parser": "^5.12.1",
+		"bindl": "^2.0.0",
+		"conventional-changelog-conventionalcommits": "^4.5.0",
+		"cspell": "^5.18.5",
+		"eslint": "^8.9.0",
+		"eslint-config-prettier": "^8.4.0",
+		"glob": "^7.1.4",
+		"kind-of": "^6.0.3",
+		"mocha": "^9.2.1",
+		"npm-run-all": "^4.1.5",
+		"prettier": "^2.3.2",
+		"semantic-release": "^19.0.2",
+		"semantic-release-vsce": "^5.0.8",
+		"ts-loader": "^9.2.2",
+		"typescript": "^4.5.5",
+		"vscode-test": "^1.0.2",
+		"webpack": "^5.69.1",
+		"webpack-cli": "^4.9.2"
+	},
+	"engines": {
+		"vscode": "^1.57.0"
+	},
+	"volta": {
+		"node": "14.19.0",
+		"npm": "8.4.1"
+	},
+	"__metadata": {
+		"id": "f95d8fff-f70a-4ae5-bb06-5c47ddbc8fc6",
+		"publisherId": "04757770-dd50-443e-aae4-e1c7cf9c24f5",
+		"publisherDisplayName": "Timon Wong",
+		"isPreReleaseVersion": false,
+		"preRelease": false,
+		"installedTimestamp": 1646851213978
+	}
+}

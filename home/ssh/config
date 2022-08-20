@@ -1,0 +1,5 @@
+Host github.com github.com
+  HostName github.com
+  Preferredauthentications publickey
+  IdentityFile /backup/.keys/qwertzy-antonio-godinho-github.com
+  User qwertzy-antonio-godinho

@@ -1,0 +1,13 @@
+<!--
+WARNING: THIS IS AN AUTO-GENERATED FILE. CHANGES TO IT ARE LIKELY TO BE
+OVERWRITTEN AND LOST. Changes to this xml configuration should be made using:
+  virsh net-edit malnet-lan
+or other application using the libvirt API.
+-->
+
+<network ipv6='yes'>
+  <name>malnet-lan</name>
+  <uuid>722bdafe-f15f-43ef-9070-747e14f79a34</uuid>
+  <bridge name='malnet-internal' stp='on' delay='0'/>
+  <mac address='b4:2e:99:3d:a8:43'/>
+</network>

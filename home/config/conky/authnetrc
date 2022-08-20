@@ -1,0 +1,74 @@
+conky.config = {
+    default_color = 'ffffff',
+    color1 = 'green',
+    color2 = 'grey',
+    color3 = 'blue',
+    alignment = 'bottom_left',
+    background = true,
+    border_width = 0,
+    border_inner_margin = 0,
+    border_outer_margin = 0,
+    cpu_avg_samples = 2,
+    default_outline_color = 'yellow',
+    default_shade_color = 'black',
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = true,
+    use_xft = true,
+    font = 'liga Mononoki: size=7',
+    uppercase = false,
+    gap_x = 10,
+    gap_y = 10,
+    minimum_height = 5,
+    minimum_width = 350,
+    net_avg_samples = 2,
+    no_buffers = true,
+    double_buffer = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window_transparent = no,
+    own_window = false,
+    own_window_class = 'Conky',
+    own_window_type = 'desktop',
+    own_window_argb_visual = true,
+    own_window_argb_value = 0,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    own_window_colour = '#11122C',
+    stippled_borders = 0,
+    update_interval = 1,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    imlib_cache_size = 0,
+    show_graph_range = false,
+    text_buffer_size = 2048 
+}
+
+conky.text = [[
+${color1}NETWORK ${stippled_hr}
+${color2}Wired ${if_existing /proc/net/route enp3s0}@ ${texeci 300 wget http://ipinfo.io/ -qO - | jq -r '.city, .country, .ip' | sed ':a; N; $!ba; s/\n/-/g'}${alignr}ON
+${color3}${upspeedgraph enp3s0 24}
+${color3}${downspeedgraph enp3s0 24}
+${else}${alignr}OFF
+${endif}${color2}Wireless ${if_existing /proc/net/route wlp9s0f3u1}@ ${texeci 300 wget http://ipinfo.io/ -qO - | jq -r '.city, .country, .ip' | sed ':a; N; $!ba; s/\n/-/g'}${alignr}ON
+${color2}${wireless_essid wlp9s0f3u1}${alignr}${wireless_link_qual_perc wlp9s0f3u1}%
+${color3}${wireless_link_bar wlp9s0f3u1}
+${color3}${upspeedgraph wlp9s0f3u1 24}
+${color3}${downspeedgraph wlp9s0f3u1 24}
+${else}${alignr}OFF
+${endif}${color3}Inbound: ${tcp_portmon 1 32767 count} ${alignr} Local Service/Port${color2}
+${tcp_portmon 1 32767 rhost 0} ${alignr} ${tcp_portmon 1 32767 lservice 0}
+${tcp_portmon 1 32767 rhost 1} ${alignr} ${tcp_portmon 1 32767 lservice 1}
+${tcp_portmon 1 32767 rhost 2} ${alignr} ${tcp_portmon 1 32767 lservice 2}
+${color3}Outbound: ${tcp_portmon 32768 65535 count} ${alignr} Remote Service/Port${color2}
+${tcp_portmon 32768 61000 rhost 0} ${alignr} ${tcp_portmon 32768 61000 rservice 0}
+${tcp_portmon 32768 61000 rhost 1} ${alignr} ${tcp_portmon 32768 61000 rservice 1}
+${tcp_portmon 32768 61000 rhost 2} ${alignr} ${tcp_portmon 32768 61000 rservice 2}
+${tcp_portmon 32768 61000 rhost 3} ${alignr} ${tcp_portmon 32768 61000 rservice 3}
+${tcp_portmon 32768 61000 rhost 4} ${alignr} ${tcp_portmon 32768 61000 rservice 4}
+
+${color1}DATA ${stippled_hr}
+${color2}Today${alignr} ${execi 350 vnstat -i wlp9s0f3u1 | grep "today" | awk '{print $8" "substr($9,1,1)}'}
+${color2}Month${alignr} ${execi 350 vnstat -i wlp9s0f3u1 -m | grep "`date +%Y-%m`" | awk '{print $8" "substr($9,1,1)}'}
+]]

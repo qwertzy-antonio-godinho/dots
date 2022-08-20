@@ -1,0 +1,17 @@
+{
+    "ui": {
+        "width": 1076,
+        "height": 1275,
+        "separator": 489
+    },
+    "directories": {
+        "source_port": "/usr/bin",
+        "iwad": "/backup/Games/Doom/Doom 1/IWADS",
+        "logo": "/home/qwertzy/.config",
+        "wad_add": "/home/qwertzy/.config",
+        "wad_import": "/home/qwertzy/.config"
+    },
+    "settings": {
+        "save_session": false
+    }
+}

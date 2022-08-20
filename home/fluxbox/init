@@ -1,0 +1,88 @@
+session.screen0.tabs.usePixmap: false
+session.screen0.tabs.maxOver: false
+session.screen0.tabs.intitlebar: true
+session.screen0.slit.autoHide: false
+session.screen0.slit.layer: Dock
+session.screen0.slit.acceptKdeDockapps: true
+session.screen0.slit.alpha: 255
+session.screen0.slit.maxOver: false
+session.screen0.slit.onhead: 0
+session.screen0.slit.placement: RightTop
+session.screen0.slit.autoRaise: false
+session.screen0.toolbar.widthPercent: 100
+session.screen0.toolbar.autoHide: false
+session.screen0.toolbar.alpha: 255
+session.screen0.toolbar.placement: BottomRight
+session.screen0.toolbar.maxOver: false
+session.screen0.toolbar.tools: iconbar, systemtray, clock
+session.screen0.toolbar.height: 0
+session.screen0.toolbar.layer: Dock
+session.screen0.toolbar.autoRaise: false
+session.screen0.toolbar.onhead: 1
+session.screen0.toolbar.visible: false
+session.screen0.iconbar.alignment: Relative
+session.screen0.iconbar.usePixmap: false
+session.screen0.iconbar.iconWidth: 128
+session.screen0.iconbar.mode: {static groups}
+session.screen0.iconbar.iconTextPadding: 10
+session.screen0.titlebar.left: 
+session.screen0.titlebar.right: Stick Close 
+session.screen0.systray.pinLeft: 
+session.screen0.systray.pinRight: 
+session.screen0.clientMenu.usePixmap: false
+session.screen0.window.focus.alpha: 255
+session.screen0.window.unfocus.alpha: 255
+session.screen0.tab.placement: TopLeft
+session.screen0.tab.width: 64
+session.screen0.menu.alpha: 255
+session.screen0.workspacewarpingvertical: true
+session.screen0.rowPlacementDirection: LeftToRight
+session.screen0.workspacewarpinghorizontaloffset: 1
+session.screen0.clickRaises: true
+session.screen0.edgeResizeSnapThreshold: 0
+session.screen0.focusModel: ClickFocus
+session.screen0.maxDisableResize: false
+session.screen0.maxDisableMove: false
+session.screen0.allowRemoteActions: false
+session.screen0.tooltipDelay: 500
+session.screen0.workspacewarping: true
+session.screen0.workspacewarpinghorizontal: true
+session.screen0.noFocusWhileTypingDelay: 0
+session.screen0.menuDelay: 200
+session.screen0.edgeSnapThreshold: 10
+session.screen0.focusSameHead: false
+session.screen0.opaqueMove: true
+session.screen0.autoRaise: true
+session.screen0.maxIgnoreIncrement: true
+session.screen0.showwindowposition: false
+session.screen0.fullMaximization: false
+session.screen0.opaqueResizeDelay: 40
+session.screen0.defaultDeco: NORMAL
+session.screen0.workspacewarpingverticaloffset: 1
+session.screen0.tabFocusModel: ClickToTabFocus
+session.screen0.windowMenu: ~/.fluxbox/windowmenu
+session.screen0.workspaces: 3
+session.screen0.focusNewWindows: true
+session.screen0.workspaceNames: Desktop,Games,E-Mail,Workspace 4,
+session.screen0.colPlacementDirection: TopToBottom
+session.screen0.strftimeFormat: %a, %d %b %02k:%M
+session.screen0.demandsAttentionTimeout: 500
+session.screen0.opaqueResize: true
+session.screen0.windowPlacement: RowMinOverlapPlacement
+session.forcePseudoTransparency: false
+session.ignoreBorder: false
+session.styleOverlay: ~/.fluxbox/overlay
+session.cacheMax: 200
+session.doubleClickInterval: 250
+session.styleFile: ~/.fluxbox/styles/lauzli
+session.slitlistFile: ~/.fluxbox/slitlist
+session.autoRaiseDelay: 250
+session.tabsAttachArea: Window
+session.cacheLife: 5
+session.configVersion: 13
+session.menuSearch: itemstart
+session.tabPadding: 0
+session.colorsPerChannel: 4
+session.appsFile: ~/.fluxbox/apps
+session.menuFile: ~/.fluxbox/menu
+session.keyFile: ~/.fluxbox/keys

@@ -1,0 +1,86 @@
+conky.config = { 
+    default_color = 'ffffff',
+    color1 = 'green',
+    color2 = 'grey',
+    color3 = 'blue', 
+    alignment = 'top_right',
+    background = true,
+    border_width = 0,
+    border_inner_margin = 0,
+    border_outer_margin = 0,
+    cpu_avg_samples = 2,
+    default_outline_color = 'yellow',
+    default_shade_color = 'black',
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = true,
+    use_xft = true,
+    font = 'liga Mononoki: size=7',
+    uppercase = false,
+    gap_x = 10,
+    gap_y = 10,
+    minimum_height = 5,
+    minimum_width = 350,
+    net_avg_samples = 2,
+    no_buffers = true,
+    double_buffer = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window = true,
+    own_window_transparent = true,
+    own_window_class = 'Conky',
+    own_window_type = 'desktop',
+    own_window_argb_visual = true,
+    own_window_argb_value = 0,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    own_window_colour = '#11122C',
+    stippled_borders = 0,
+    update_interval = 1,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    imlib_cache_size = 0,
+    show_graph_range = false
+}
+
+conky.text = [[
+${color1}${time %A, %e %B %Y} ${alignr}${time %H:%M}
+
+${color1}SYSTEM ${stippled_hr}
+${color2}CPU${alignr}${cpu cpu0}%
+${color3}${cpubar cpu0 8}
+${color2}GPU${alignr}${execpi 10 (nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader) | awk '{print $1}'}%
+${color3}${execbar 8 (nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader) | awk '{print $1}'}
+${color2}RAM${alignr}${memperc}%
+${color3}${membar 8}
+${color2}SWAP${alignr}$swapperc%
+${color3}${swapbar 8}
+
+${color1}PROCESSES ${stippled_hr}
+${color2}CPU(1): ${top name 1}${alignr}${top cpu 1}%
+${color2}CPU(2): ${top name 2}${alignr}${top cpu 2}%
+${color2}CPU(3): ${top name 3}${alignr}${top cpu 3}%
+
+${color2}MEM(1): ${top_mem name 1}${alignr}${top_mem mem 1}%
+${color2}MEM(2): ${top_mem name 2}${alignr}${top_mem mem 2}%
+${color2}MEM(3): ${top_mem name 3}${alignr}${top_mem mem 3}%
+
+${color1}TEMPERATURES ${stippled_hr}
+${color2}CPU$alignr${hwmon temp 1}ºC
+${color2}GPU$alignr${nvidia temp}ºC
+
+${color1}STORAGE ${stippled_hr}
+${if_mounted /}${color2}/${alignr}${fs_free_perc /}%
+${color3}${fs_bar 8 /}
+${diskiograph /dev/sda 24 -t}${endif}
+${if_mounted /workbench}${color2}/workbench${alignr}${fs_free_perc /workbench}%
+${color3}${fs_bar 8 /workbench}
+${diskiograph /dev/sdb 24 -t}${endif}
+${if_mounted /backup}${color2}/backup${alignr}${fs_free_perc /backup}%
+${color3}${fs_bar 8 /backup}
+${diskiograph /dev/sdc 24 -t}${endif}
+
+${color1}WHO ${stippled_hr}
+${color2}${execi 05 who -l && who}
+]]

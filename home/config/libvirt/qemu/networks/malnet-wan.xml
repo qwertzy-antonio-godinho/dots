@@ -1,0 +1,23 @@
+<!--
+WARNING: THIS IS AN AUTO-GENERATED FILE. CHANGES TO IT ARE LIKELY TO BE
+OVERWRITTEN AND LOST. Changes to this xml configuration should be made using:
+  virsh net-edit malnet-wan
+or other application using the libvirt API.
+-->
+
+<network>
+  <name>malnet-wan</name>
+  <uuid>0d968071-c4bd-4e52-aebe-61255b4c9bc8</uuid>
+  <forward mode='nat'>
+    <nat>
+      <port start='1024' end='65535'/>
+    </nat>
+  </forward>
+  <bridge name='malnet-wan' stp='on' delay='0'/>
+  <mac address='52:54:00:27:6d:1f'/>
+  <ip address='192.168.200.1' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='192.168.200.2' end='192.168.200.254'/>
+    </dhcp>
+  </ip>
+</network>
