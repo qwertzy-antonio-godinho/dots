@@ -3,89 +3,133 @@
 WINBIN="/backup/Games/winbin"
 WINERUNTIME="${WINBIN}/runtime"
 WINEPREFIXES="${WINBIN}/prefixes"
+WINETRICKS="${WINBIN}/winetricks"
 
 # 32 Bits
 WINE32="${WINBIN}/wine32"
 WINEDLLPATH32="${WINBIN}/lib32"
 WINESERVER32="${WINBIN}/wineserver32"
+WINERUNTIME32="${WINERUNTIME}/32bits"
 
 # 64 Bits
 WINE64="${WINBIN}/wine64"
 WINEDLLPATH64="${WINBIN}/lib64"
 WINESERVER64="${WINBIN}/wineserver64"
+WINERUNTIME64="${WINERUNTIME}/64bits"
 
 function setup () {
 	# 32 Bits
-	RUNTIME32=$(find ${WINERUNTIME}/32bits/* -maxdepth 1 -mindepth 1 -type d | fzf --prompt "Select 32 Bits runtime > ")
-	if [ ! -z ${RUNTIME32} ]; then
-		ln -sf ${RUNTIME32}/bin/wine ${WINE32}
-		ln -sf ${RUNTIME32}/bin/wineserver ${WINESERVER32}
+	runtime32=$(find "${WINERUNTIME32}" -maxdepth 1 -mindepth 1 -type d | fzf --prompt "Select 32 Bits runtime > ")
+	if [ ! -z "${runtime32}" ]; then
+		ln -sf "${runtime32}/bin/wine" "${WINE32}"
+		ln -sf "${runtime32}/bin/wineserver" "${WINESERVER32}"
 		if [ -d "${WINEDLLPATH32}" ]; then
-			unlink ${WINEDLLPATH32}
+			rm -rf "${WINEDLLPATH32}"
 		fi
-		ln -s ${RUNTIME32}/lib ${WINEDLLPATH32}
+		ln -s "${runtime32}/lib" "${WINEDLLPATH32}"
 	else
-		printf "ERROR : Missing 32 Bits Runtime variable\n"
-		exit 127
+		printf "ERROR : Missing 32 Bits runtime, use --download-runtime\n"
+		exit 1
 	fi
 	# 64 Bits
-	RUNTIME64=$(find ${WINERUNTIME}/64bits/* -maxdepth 1 -mindepth 1 -type d | fzf --prompt "Select 64 Bits runtime > ")
-	if [ ! -z ${RUNTIME64} ]; then
-		ln -sf ${RUNTIME64}/bin/wine ${WINE64}
-		ln -sf ${RUNTIME64}/bin/wineserver ${WINESERVER64}
+	runtime64=$(find "${WINERUNTIME64}" -maxdepth 1 -mindepth 1 -type d | fzf --prompt "Select 64 Bits runtime > ")
+	if [ ! -z "${runtime64}" ]; then
+		ln -sf "${runtime64}/bin/wine" "${WINE64}"
+		ln -sf "${runtime64}/bin/wineserver" "${WINESERVER64}"
 		if [ -d "${WINEDLLPATH64}" ]; then
-			unlink ${WINEDLLPATH64}
+			rm -rf "${WINEDLLPATH64}"
 		fi
-		ln -s ${RUNTIME64}/lib ${WINEDLLPATH64}
+		ln -s "${runtime64}/lib" "${WINEDLLPATH64}"
 	else
-		printf "ERROR : Missing 64 Bits Runtime variable\n"
-		exit 127		
+		printf "ERROR : Missing 64 Bits runtime, use --download-runtime\n"
+		exit 1		
 	fi
 }
 
 function show_config () {
-	ls -la lib32 lib64 wine32 wine64 wineserver32 wineserver64| awk '{ print $9, "---> " $NF }'
+	symlinks=("${WINE32}" "${WINE64}" "${WINEDLLPATH32}" "${WINEDLLPATH64}" "${WINESERVER32}" "${WINESERVER64}")
+	for symlink in "${symlinks[@]}"; do
+		if [ -e "${symlink}" ]; then
+			ls -la "${symlink}" | awk '{ print $9, "---> " $NF }'
+		else
+			printf "ERROR : Symlink ${symlink} is broken, run --setup\n"
+		fi
+	done
 }
 
 function print_runtime () {
 	printf "WINE ARCH        : ${WINEARCH}\n"
 	if [ "${WINEARCH}" == "win32" ]; then
-		WINE=${WINE32}
-		WINESERVER=${WINESERVER32}
+		WINE="${WINE32}"
+		WINESERVER="${WINESERVER32}"
 	elif [ "${WINEARCH}" == "win64" ]; then
-		WINE=${WINE64}
-		WINESERVER=${WINESERVER64}
+		WINE="${WINE64}"
+		WINESERVER="${WINESERVER64}"
 	else
 		printf "ERROR : Unknown ${WINEARCH} architecture\n"
-		exit 127
+		exit 1
 	fi
-	printf "WINE PATH        : $(realpath $WINE)\n"
-	printf "WINE SERVER PATH : $(realpath $WINESERVER)\n"
+	printf "WINE PATH        : $(realpath ${WINE})\n"
+	printf "WINE SERVER PATH : $(realpath ${WINESERVER})\n"
 	printf "WINE PREFIX      : ${WINEPREFIX}\n"
 }
 
 function run_executable () {
 	printf "EXECUTABLE       : ${executable}\n"
 	printf "PARAMETERS       : ${parameters}\n\n"
+	restore_path="${PATH}"
 	wine_runtime_path="$(realpath "${WINE}")" 
 	PATH="${wine_runtime_path%/*}:${PATH}"
-	/bin/sh -c "WINEPREFIX=\"${WINEPREFIX}\" WINEARCH=\"${WINEARCH}\" WINESERVER=\"$(realpath "${WINESERVER}")\" $(realpath "${WINE}") "${executable}" "${parameters}""
+	/bin/sh -c "WINEPREFIX=\"${WINEPREFIX}\" WINEARCH=\"${WINEARCH}\" WINESERVER=\"$(realpath ${WINESERVER})\" \"$(realpath ${WINE})\" \"${executable}\" \"${parameters}\""
 	PATH="${restore_path}"
 }
 
+function download_runtime () {
+	runtimedownload=$(curl -s https://api.github.com/repos/Kron4ek/Wine-Builds/releases | grep "browser_download_url" | cut -d\" -f4 | fzf --prompt "Select runtime to download > ")
+	if [ ! -z "${runtimedownload}" ]; then
+		case "${runtimedownload}" in
+			*amd64*|*AMD64*)
+				runtime="${WINERUNTIME64}/runtime64.tar.xz"
+				wget ${runtimedownload} -O "${runtime}"
+				tar xvf "${runtime}" --directory "${WINERUNTIME64}"
+			;;
+			*x86*|*X86*)
+				runtime="${WINERUNTIME32}/runtime32.tar.xz"
+				wget ${runtimedownload} -O "${runtime}"
+				tar xvf "${runtime}" --directory "${WINERUNTIME32}"
+			;;
+			*)
+				printf "ERROR : Not a supported architecture (AMD64 or X86)\n"
+				exit 1
+			;;
+		esac
+		rm "${runtime}"
+	else
+		printf "ERROR : Missing download runtime variable\n"
+		exit 1		
+	fi
+}
+
 function show_usage () {
-	printf "USAGE : ${0} <32|64> EXECUTABLE {PARAMS}   : Runs executable with optional params in 32 or 64 bits mode\n"
-	printf "USAGE : ${0} <32|64> EXECUTABLE winecfg    : Runs winecfg inside the executable prefix\n"
-	printf "USAGE : ${0} <32|64> EXECUTABLE winetricks : Runs winetricks GUI inside the executable prefix\n"
-	printf "        ${0} --setup                       : Sets up 32 and 64 Bits Runtimes\n"
-	printf "        ${0} --show                        : Shows current Runtime configuration\n"
-	printf "        ${0} --install-winetricks          : Installs WineTricks\n"
-	printf "        ${0} --help                        : Displays this message\n"
-	exit 127
+	printf "USAGE : ${0}\n"
+	printf "        <32|64> EXECUTABLE {PARAMS}   : Runs executable with optional params in 32 or 64 bits mode\n"
+	printf "        <32|64> EXECUTABLE winecfg    : Runs winecfg inside the executable prefix\n"
+	printf "        <32|64> EXECUTABLE winetricks : Runs winetricks GUI inside the executable prefix\n"
+	printf "        --setup                       : Sets up 32 and 64 Bits Runtimes\n"
+	printf "        --show                        : Shows current Runtime configuration\n"
+	printf "        --install-winetricks          : Installs winetricks\n"
+	printf "        --download-runtime            : Downloads a runtime\n"
+	printf "        --help                        : Displays this message\n"
+	printf "\n"
+	printf "* WINERUNTIME = ${WINERUNTIME}\n"
+	printf "* WINEPREFIXES = ${WINEPREFIXES}\n"
+	printf "* WINETRICKS = ${WINETRICKS}\n"
+	exit 1
 }
 
 function main () {
-	mkdir -p "${WINEPREFIXES}" && mkdir -p "${WINERUNTIME}"
+	type -P fzf &>/dev/null && continue || { printf "ERROR : fzf was not found, install (https://github.com/junegunn/fzf) to continue\n"; exit 1; }
+	mkdir -p "${WINEPREFIXES}" && mkdir -p "${WINERUNTIME}" && mkdir -p "${WINERUNTIME32}" && mkdir -p "${WINERUNTIME64}"
 	if [ ! -z "${option}" ]; then
 		case "${option}" in
 			"32"|"64")
@@ -101,7 +145,8 @@ function main () {
 				if [ "${parameters}" == "winecfg" ]; then
 					executable="winecfg"
 				elif [ "${parameters}" == "winetricks" ]; then
-					executable="winetricks"
+					if [ ! -f "${WINETRICKS}" ]; then printf "ERROR : winetricks was not found, use --install-winetricks to install\n"; exit 1; fi
+					executable="${WINETRICKS}"
 					parameters="--gui"
 				fi
 				print_runtime
@@ -113,9 +158,12 @@ function main () {
 				exit 0
 			;;
 			"--install-winetricks")
-				winetricks_path="${WINBIN}/winetricks"
-				wget -nv https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks -O "${winetricks_path}"
-				chmod +x "${winetricks_path}"
+				wget -nv https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks -O "${WINETRICKS}"
+				chmod +x "${WINETRICKS}"
+				exit 0
+			;;
+			"--download-runtime")
+				download_runtime
 				exit 0
 			;;
 			"--show")
