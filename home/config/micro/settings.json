@@ -1,1 +1,8 @@
-{}
+{
+    "colorscheme": "cmc-16",
+    "diffgutter": true,
+    "mkparents": true,
+    "saveundo": true,
+    "scrollbar": true,
+    "softwrap": true
+}
