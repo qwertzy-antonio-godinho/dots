@@ -1,4 +1,0 @@
-HISTCONTROL=ignoreboth
-HISTTIMEFORMAT="%Y/%m/%d %T "
-PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
-ALERT="${RED}"

@@ -1,18 +1,21 @@
+# Interactive shell
 [[ $- != *i* ]] && return
 
-source $HOME/.bash.d/shopt.sh
-source $HOME/.bash.d/colors.sh
-source $HOME/.bash.d/variables.sh
-source $HOME/.bash.d/export.sh
-source $HOME/.bash.d/alias.sh
-source $HOME/.bash.d/functions.sh
-source $HOME/.bash.d/prompt.sh
+# Imports
+source "${HOME}"/.bash.d/shopt.sh
+source "${HOME}"/.bash.d/colors.sh
+source "${HOME}"/.bash.d/export.sh
+source "${HOME}"/.bash.d/alias.sh
+source "${HOME}"/.bash.d/functions.sh
+source "${HOME}"/.bash.d/prompt.sh
 
-run_ssh_agent
-apply_dircolors
-run_bash_completion
-run_git_bash_prompt
+# Call functions
+__run_ssh_agent
+__apply_dircolors
+__run_bash_completion
+__run_git_bash_prompt
 
+# Set PATH
 if [ -d "$HOME/.local/bin" ]; then 
 	PATH="$HOME/.local/bin:$PATH"
 fi
