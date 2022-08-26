@@ -51,6 +51,7 @@ function enable_tv () {
 
 function set_scale () {
 	local dpi="$1"
+	local dpi_xsettingsd="$1*1024"
 	local mouse_size="$2"
 	local font_size="$3"
 	local ui_height="$4"
@@ -63,7 +64,9 @@ function set_scale () {
 	printf "        * DPI=%s\n" "$dpi"
 	sed -i --follow-symlinks -E "s/Xft.dpi:.*/Xft.dpi: $dpi/" "$HOME/.Xresources.d/dpi"
 	sed -i --follow-symlinks -E "s/-dpi.[0-9]*/-dpi $dpi/" "$HOME/.xbindkeysrc"
+	sed -i --follow-symlinks -E "/DPI/s/[0-9.]+/${dpi_xsettingsd}/" "$HOME/.xsettingsd"
 	export QT_FONT_DPI=${dpi}
+	killall -HUP xsettingsd
 
 	# --- [ MOUSE ] ------------------------------------------------------------------
 	printf "        * Mouse=%s\n" "$mouse_size"

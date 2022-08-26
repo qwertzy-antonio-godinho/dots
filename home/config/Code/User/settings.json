@@ -2,7 +2,7 @@
     "workbench.startupEditor": "none",
     "workbench.editor.wrapTabs": true,
     "workbench.sideBar.location": "right",
-    "workbench.colorTheme": "inkSea Theme Hacker",
+    "workbench.colorTheme": "phocus-variant",
 
     "window.title": "${dirty}${separator}${rootName} [${activeFolderLong}/${activeEditorMedium}] ${remoteName}",
     "window.autoDetectColorScheme": true,
@@ -97,5 +97,6 @@
     ],
 
     "markdown.preview.fontSize": 13,
-    "git.autofetch": false
+    "git.autofetch": false,
+    "workbench.iconTheme": "bearded-icons"
 }

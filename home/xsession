@@ -1,6 +1,5 @@
 # DISPLAY
 # -------------
-exec ~/.config/scripts/set_video_mode.sh &
 exec systemctl --user import-environment DISPLAY &
 
 # SOUND
@@ -23,6 +22,8 @@ exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 
 # SETTINGS
 # -------------
+exec xsettingsd &
+exec ~/.config/scripts/set_video_mode.sh &
 exec xrdb ~/.Xresources &
 exec hsetroot -solid '#11122C' &
 exec ~/.config/scripts/set_wallpaper.sh &
