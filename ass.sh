@@ -184,7 +184,8 @@ function configure_user () {
     pactl set-sink-mute @DEFAULT_SINK@ toggle
     pactl -- set-sink-volume @DEFAULT_SINK@ 80%
     eval $(ssh-agent)
-	systemctl --user enable gpg-agent.socket
+	#systemctl --user enable gpg-agent.socket
+	systemctl --user enable dirmngr.socket gpg-agent.socket gpg-agent-ssh.socket gpg-agent-browser.socket gpg-agent-extra.socket
 	mkdir -p ~/.gnupg && chmod 700 ~/.gnupg
 #	gpg --import /backup/.keys/privkey.asc
 #	gpg --import /backup/.keys/public.key
