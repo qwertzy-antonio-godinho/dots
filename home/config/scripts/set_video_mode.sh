@@ -51,7 +51,7 @@ function enable_tv () {
 
 function set_scale () {
 	local dpi="$1"
-	local dpi_xsettingsd="$1*1024"
+	local dpi_xsettingsd="$(expr $1 '*' 1024)"
 	local mouse_size="$2"
 	local font_size="$3"
 	local ui_height="$4"
