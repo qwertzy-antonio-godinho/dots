@@ -1,3 +1,5 @@
+Compression yes
+
 Host github.com github.com
   HostName github.com
   Preferredauthentications publickey
