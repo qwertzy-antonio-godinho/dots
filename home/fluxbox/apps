@@ -6,3 +6,7 @@
 [app] (name=caja) (class=Caja) 
   [Maximized]   {no}
 [end]
+[group]
+[app] (name=xterm) (class=XTerm) 
+  [Maximized]   {no}
+[end]
