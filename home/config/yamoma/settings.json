@@ -6,7 +6,7 @@
     },
     "directories": {
         "source_port": "/usr/bin",
-        "iwad": "/backup/Games/Doom/Doom 1/IWADS",
+        "iwad": "/backup/Games/Doom/IWADS",
         "logo": "/home/qwertzy/.config",
         "wad_add": "/home/qwertzy/.config",
         "wad_import": "/home/qwertzy/.config"

@@ -4,69 +4,69 @@
             "name": "Brutal Doom",
             "icon": "",
             "size": 24,
-            "sourceport": "/usr/bin/gzdoom",
+            "sourceport": "/backup/Games/Doom/gzdoom",
             "arguments": "",
-            "iwad": "/backup/Games/Doom/Doom 1/IWADS/doom_complete.pk3",
+            "iwad": "/backup/Games/Doom/IWADS/doom_complete.pk3",
             "pwads": [
                 {
                     "pwad": "BrutalDoomPlatinumv2.0.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "e1m4b.wad",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "e1m8b.wad",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "relighting v3.31b.pk3",
                     "enabled": false,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "nashmove.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "DoomParallaxRelief.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "M_DOOM-Animated-Classic.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "1 Universal Ambience.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "2 CosmoAmbience Script edited.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "3 Ambient decorations.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 }
             ],
             "selected": false
@@ -75,123 +75,123 @@
             "name": "BTSX1",
             "icon": "",
             "size": 24,
-            "sourceport": "/usr/bin/gzdoom",
+            "sourceport": "/backup/Games/Doom/gzdoom",
             "arguments": "",
-            "iwad": "/backup/Games/Doom/Doom 1/IWADS/doom_complete.pk3",
+            "iwad": "/backup/Games/Doom/IWADS/doom_complete.pk3",
             "pwads": [
                 {
                     "pwad": "SmoothDoom.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "btsx_e1a.wad",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "btsx_e1b.wad",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "btsx-fluids.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "deadbaronsv3.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "btsx-BloodFixer.wad",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "btsx1-intermission-v1.0.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "dD-nashgore-edited.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "dD-bolov3-edited.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "reikalldoomvoxels.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "btsx_rvaddon.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "z.BTSXHUD-Vanilla.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "immerse_v104.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "effects.wad",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "torches.wad",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "doomrla_kinsie_metaprops.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "1 Universal Ambience.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "2 CosmoAmbience Script edited.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "3 Ambient decorations.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 }
             ],
             "selected": false
@@ -200,129 +200,129 @@
             "name": "BTSX2",
             "icon": "",
             "size": 24,
-            "sourceport": "/usr/bin/gzdoom",
+            "sourceport": "/backup/Games/Doom/gzdoom",
             "arguments": "",
-            "iwad": "/backup/Games/Doom/Doom 1/IWADS/doom_complete.pk3",
+            "iwad": "/backup/Games/Doom/IWADS/doom_complete.pk3",
             "pwads": [
                 {
                     "pwad": "SmoothDoom.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "btsx_e2a.wad",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "btsx_e2b.wad",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "deadbaronsv3.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "btsx-fluids.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "btsx-BloodFixer.wad",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "btsx2-intermission-v1.1.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "sky-btsx2.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "dD-nashgore-edited.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "dD-bolov3-edited.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "reikalldoomvoxels.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "btsx_rvaddon.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "z.BTSXHUD-Vanilla.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "immerse_v104.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "effects.wad",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "torches.wad",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "doomrla_kinsie_metaprops.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "1 Universal Ambience.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "2 CosmoAmbience Script edited.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "3 Ambient decorations.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 }
             ],
             "selected": false
@@ -331,51 +331,51 @@
             "name": "Heretic/Hexen",
             "icon": "",
             "size": 24,
-            "sourceport": "/usr/bin/gzdoom",
+            "sourceport": "/backup/Games/Doom/gzdoom",
             "arguments": "",
-            "iwad": "/backup/Games/Doom/Doom 1/IWADS/HXDD.ipk3",
+            "iwad": "/backup/Games/Doom/IWADS/HXDD.ipk3",
             "pwads": [
                 {
                     "pwad": "Heretic - HQ Sountrack by Aethun.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "HexenCDMusic.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "nashgore.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "immerse_v104.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "1 Universal Ambience.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "2 CosmoAmbience Script edited.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "3 Ambient decorations.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 }
             ],
             "selected": false
@@ -384,27 +384,27 @@
             "name": "Ashes 2063",
             "icon": "",
             "size": 24,
-            "sourceport": "/usr/bin/gzdoom",
+            "sourceport": "/backup/Games/Doom/gzdoom",
             "arguments": "",
-            "iwad": "/backup/Games/Doom/Doom 1/IWADS/doom_complete.pk3",
+            "iwad": "/backup/Games/Doom/IWADS/doom_complete.pk3",
             "pwads": [
                 {
                     "pwad": "Ashes2063Enriched.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "AshesDMWstart.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
                     "pwad": "immerse_v104.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
                 }
             ],
             "selected": false
@@ -413,21 +413,55 @@
             "name": "Ashes Afterglow",
             "icon": "",
             "size": 24,
-            "sourceport": "/usr/bin/gzdoom",
+            "sourceport": "/backup/Games/Doom/gzdoom",
             "arguments": "",
-            "iwad": "/backup/Games/Doom/Doom 1/IWADS/doom_complete.pk3",
+            "iwad": "/backup/Games/Doom/IWADS/doom_complete.pk3",
             "pwads": [
                 {
-                    "pwad": "AshesAfterglow1_10.pk3",
+                    "pwad": "bastion low spec v0.3.pk3",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/MODS"
+                }
+            ],
+            "selected": false
+        },
+        {
+            "name": "Bastion of Chaos",
+            "icon": "",
+            "size": 24,
+            "sourceport": "/backup/Games/Doom/gzdoom",
+            "arguments": "",
+            "iwad": "/backup/Games/Doom/IWADS/doom_complete.pk3",
+            "pwads": [
+                {
+                    "pwad": "DOOM64RM_RELOADED.wad",
+                    "enabled": true,
+                    "merge": false,
+                    "location": "/backup/Games/Doom/MODS"
                 },
                 {
-                    "pwad": "immerse_v104.pk3",
+                    "pwad": "DOOM64.WAD",
                     "enabled": true,
                     "merge": false,
-                    "location": "/backup/Games/Doom/Doom 1/MODS"
+                    "location": "/backup/Games/Doom/IWADS/hxdd/wads"
+                }
+            ],
+            "selected": false
+        },
+        {
+            "name": "Walpurigis",
+            "icon": "",
+            "size": 24,
+            "sourceport": "/backup/Games/Doom/gzdoom",
+            "arguments": "",
+            "iwad": "/backup/Games/Doom/IWADS/HXDD.ipk3",
+            "pwads": [
+                {
+                    "pwad": "+Walpurgis-JT-0.96A.pk3",
+                    "enabled": true,
+                    "merge": false,
+                    "location": "/backup/Games/Doom/MODS"
                 }
             ],
             "selected": true
