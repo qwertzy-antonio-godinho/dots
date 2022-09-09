@@ -1,0 +1,63 @@
+[general]
+distance = 100
+useNetWMFullscreen = true
+ignoreSkipTaskbar = true
+updateFreq = 60.0
+lazyTrans = true
+pipePath = /tmp/skippy-xd-fifo
+movePointerOnStart = false
+movePointerOnSelect = false
+movePointerOnRaise = false
+switchDesktopOnActivate = true
+useNameWindowPixmap = false
+forceNameWindowPixmap = false
+includeFrame = true
+allowUpscale = false
+showAllDesktops = true
+showUnmapped = true
+preferredIconSize = 48
+clientDisplayModes = thumbnail thumbnail-icon icon filled none
+iconFillSpec = orig mid mid #C0C0C0
+fillSpec = orig mid mid #FFFFFF
+background = orig #11122C
+
+[xinerama]
+showAll = true
+
+[normal]
+tint = black
+tintOpacity = 0
+opacity = 200
+
+[highlight]
+tint = #101020
+tintOpacity = 64
+opacity = 255
+
+[tooltip]
+show = false
+followsMouse = false
+offsetX = 20
+offsetY = 20
+align = left
+border = #ffffff
+background = #404040
+opacity = 128
+text = #ffffff
+textShadow = black
+font = fixed-11:weight=bold
+
+[bindings]
+miwMouse1 = focus
+miwMouse2 = close-ewmh
+miwMouse3 = iconify
+keysUp = Up w
+keysDown = Down s
+keysLeft = Left b a
+keysRight = Right Tab f d
+keysExitCancelOnPress = Escape BackSpace x q
+keysExitCancelOnRelease =
+keysExitSelectOnPress = Return space
+keysExitSelectOnRelease = Super_L Super_R Alt_L Alt_R ISO_Level3_Shift
+keysReverseDirection = Tab
+modifierKeyMasksReverseDirection = ShiftMask ControlMask

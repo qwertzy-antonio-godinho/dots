@@ -14,6 +14,8 @@ sleep 0.5
     unclutter --timeout 3 --start-hidden &
     conky -c ~/.config/conky/inforc &
     conky -c ~/.config/conky/authnetrc &
+    skippy-xd --config ~/.config/skyppy-xd/skippy-xd.rc --start-daemon &
+    fittstool &
 
     # APPLETS
     # -------------

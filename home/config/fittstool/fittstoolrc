@@ -1,0 +1,6 @@
+#Available positions: Left, TopLeft, etc, TopCenter, BottomCenter, Right, TopRight, BottomRight, etc...
+#Available events: LeftButton, RightButton, MiddleButton, WheelUp, WheelDown, WheelUpOnce, WheelDownOnce, Enter, Leave 
+
+[TopRight]
+Enter=~/.config/scripts/run_skippy.sh
+

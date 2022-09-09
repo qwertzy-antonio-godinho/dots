@@ -6,6 +6,7 @@ exec ~/.config/scripts/set_video_mode.sh &
 # SOUND
 # -------------
 exec start-pulseaudio-x11 &
+exec $(echo "Initializing session. Welcome" $(whoami) | festival --tts) &
 
 # PC
 # -------------
