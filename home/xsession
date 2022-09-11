@@ -10,7 +10,7 @@ exec $(echo "Initializing session. Welcome" $(whoami) | festival --tts) &
 
 # PC
 # -------------
-exec setxkbmap -layout us &
+exec setxkbmap -layout gb &
 
 # LAPTOP
 # -------------
