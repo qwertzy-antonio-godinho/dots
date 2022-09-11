@@ -54,6 +54,7 @@ declare -a PACKAGES=(
 	"mpg123"
 	"mpv"
 	"ncdu"
+	"nmap"
 	"network-manager-applet"
 	"ntfs-3g"
 	"nvidia$LTS_SUPPORT"
