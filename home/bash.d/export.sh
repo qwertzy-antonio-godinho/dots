@@ -1,4 +1,6 @@
-# Bash history
+#!/bin/bash
+
+# History
 export HISTIGNORE="&:ls:[bf]g:pwd:exit:cd .."
 export HISTCONTROL="ignoreboth"
 export HISTTIMEFORMAT="%Y/%m/%d %T "

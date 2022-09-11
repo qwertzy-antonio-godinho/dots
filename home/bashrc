@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Interactive shell
 [[ $- != *i* ]] && return
 
@@ -14,8 +16,9 @@ __run_ssh_agent
 __apply_dircolors
 __run_bash_completion
 __run_git_bash_prompt
+__validate_java
 
 # Set PATH
-if [ -d "$HOME/.local/bin" ]; then 
+if [ -d "$HOME/.local/bin" ]; then
 	PATH="$HOME/.local/bin:$PATH"
 fi
