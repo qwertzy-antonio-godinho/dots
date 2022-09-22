@@ -56,6 +56,10 @@ __run_git_bash_prompt () {
 		source /usr/share/git/completion/git-prompt.sh
 		export GIT_PS1_SHOWSTASHSTATE=true
 		export GIT_PS1_SHOWDIRTYSTATE=true
+		export GIT_PS1_SHOWUPSTREAM=auto
+		export GIT_PS1_SHOWUNTRACKEDFILES=true
+		export GIT_PS1_SHOWCONFLICTSTATE=yes
+		export GIT_PS1_SHOWCOLORHINTS=true
 	else
 		printf "${MAGENTA}${0} ${YELLOW}WARNING ${BLUE}__run_git_bash_prompt: ${NC}git command not found\n"
 	fi
