@@ -179,6 +179,7 @@ function configure_system () {
     sudo vnstat --add -i $(ip -o link show | awk '{print $2,$9}' | grep UP | awk '{print $1}' | sed 's/://')
     sudo systemctl enable vnstat
     sudo systemctl restart vnstat
+	sudo setcap cap_net_raw,cap_net_admin,cap_net_bind_service+eip /usr/bin
     sudo mkinitcpio -p linux$LTS_SUPPORT
 }
 
