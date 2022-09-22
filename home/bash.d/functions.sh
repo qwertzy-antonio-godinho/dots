@@ -65,6 +65,15 @@ __run_git_bash_prompt () {
 	fi
 }
 
+# Delete git branches
+__delete_git_branches() {
+  git branch |
+    grep --invert-match '\*' |
+    cut -c 3- |
+    fzf --multi --preview="git log {} --" |
+    xargs --no-run-if-empty git branch --delete --force
+}
+
 # Validate pyenv
 __validate_pyenv () {
 	if command -v pyenv >/dev/null 2>&1; then
