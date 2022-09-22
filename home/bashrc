@@ -10,6 +10,7 @@ source "${HOME}"/.bash.d/export.sh
 source "${HOME}"/.bash.d/alias.sh
 source "${HOME}"/.bash.d/functions.sh
 source "${HOME}"/.bash.d/prompt.sh
+source "${HOME}"/.bash.d/binds.sh
 
 # Call functions
 __run_ssh_agent
