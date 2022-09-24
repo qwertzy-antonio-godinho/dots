@@ -16,7 +16,6 @@
     "editor.guides.bracketPairs": true,
     "editor.fontFamily": "'liga Mononoki', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.wordWrap": "on",
-    "editor.minimap.enabled": false,
     "editor.cursorStyle": "block",
     "editor.tokenColorCustomizations": {
         "textMateRules": [
@@ -94,5 +93,8 @@
     "git.autofetch": false,
     "workbench.iconTheme": "bearded-icons",
     "scm.inputFontSize": 14,
-    "workbench.editor.highlightModifiedTabs": true
+    "workbench.editor.highlightModifiedTabs": true,
+    "editor.minimap.autohide": true,
+    "workbench.editor.enablePreview": false,
+    "editor.stickyScroll.enabled": true
 }
