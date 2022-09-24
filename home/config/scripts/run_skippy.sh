@@ -2,7 +2,7 @@
 
 IS_RUNNING="$(pgrep skippy-xd)"
 
-if [ "${IS_RUNNING}" -eq 0 ]; then
+if [ -z "${IS_RUNNING}" ]; then
 	skippy-xd --config ~/.config/skyppy-xd/skippy-xd.rc --start-daemon /dev/null 2>&1 & disown 
 fi
 
