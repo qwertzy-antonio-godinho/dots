@@ -4,3 +4,7 @@
 [TopRight]
 Enter=~/.config/scripts/run_skippy.sh
 
+[BottomRight]
+WheelUp=~/.config/scripts/manage_window_shade.sh --shade
+WheelDown=~/.config/scripts/manage_window_shade.sh --unshade
+MiddleButton=~/.config/scripts/manage_window_shade.sh --shade-others
