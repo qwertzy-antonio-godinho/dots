@@ -133,7 +133,7 @@ Control Mod4 F10 :TakeToWorkspace 10
 Control Mod4 F11 :TakeToWorkspace 11
 Control Mod4 F12 :TakeToWorkspace 12
 
-# Tiling
+# keyboard tiling
 Control Mod1 Mod4 Left :MacroCmd {ResizeTo 50% 100%} {MoveTo 00 00 Left}
 Control Mod1 Mod4 Right :MacroCmd {ResizeTo 50% 100%} {MoveTo 00 00 Right}
 Control Mod1 Mod4 Up :MacroCmd {ResizeTo 100% 50%} {MoveTo 00 00 Up}
@@ -147,3 +147,6 @@ Control Mod1 Mod4 Next :MacroCmd {ResizeTo 50% 50%} {MoveTo 00 00 BottomRight}
 
 Control Mod1 Mod4 Home :ArrangeWindowsStackRight
 
+# mouse tiling 
+Control Mouse1 :MacroCmd {ResizeTo 50% 100%} {MoveTo 00 00 Left}
+Control Mouse3 :MacroCmd {ResizeTo 50% 100%} {MoveTo 00 00 Right}
