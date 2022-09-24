@@ -93,5 +93,6 @@
     ],
     "git.autofetch": false,
     "workbench.iconTheme": "bearded-icons",
-    "scm.inputFontSize": 14
+    "scm.inputFontSize": 14,
+    "workbench.editor.highlightModifiedTabs": true
 }
