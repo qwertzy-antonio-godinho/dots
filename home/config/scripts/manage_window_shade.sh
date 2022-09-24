@@ -12,7 +12,7 @@ main () {
 	local action="${1}"
 	if [ ! -z "${action}" ]; then 
 		local CURRENT_WINDOW=$(xprop -root 32x '\t$0' _NET_ACTIVE_WINDOW | cut -f 2 | awk '{gsub("0x","0x0"); print $0}')
-		local WORKSPACE=$(wmctrl -l | grep "${CURRENT_WINDOW}" | grep $(hostname) | awk '{print $2}')
+		local WORKSPACE=$(wmctrl -l | grep "${CURRENT_WINDOW}" | grep "$(hostname)" | awk '{print $2}')
 		wmctrl -l | while read -r i; do 
 			local WINDOW_WORKSPACE=$(printf "${i}" | awk '{print $2}')  
 			if [ "${WINDOW_WORKSPACE}" = "${WORKSPACE}" ]; then
