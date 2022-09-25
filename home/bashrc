@@ -3,6 +3,8 @@
 # Interactive shell
 [[ $- != *i* ]] && return
 
+set -o nounset
+
 # Imports
 source "${HOME}"/.bash.d/shopt.sh
 source "${HOME}"/.bash.d/colors.sh
