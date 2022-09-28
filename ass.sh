@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 PROJECT_ROOT="${PWD}"
 SCRIPT_NAME=$(basename "$0")
@@ -123,20 +123,20 @@ declare -a ABS=(
     "wd719x-firmware"
 )
 
-function check_previleges () {
-    printf "\nValidating run previleges... user $USER_NAME ("$EUID")\n"
+check_previleges () {
+    printf "\nValidating run previleges... user $USER_NAME ($EUID)\n"
     if [ "$EUID" -eq 0 ]
       then printf "Please run as a regular user to continue...\n\n"
       exit
     fi
 }
 
-function update_system () {
+update_system () {
     printf "\nUpdating system...\n"
     sudo pacman -Suyq --color=always --noconfirm
 }
 
-function process_pacman () {
+process_pacman () {
     printf "\nInstalling Pacman packages...\n"
     for PACKAGE in "${PACKAGES[@]}"; do
         printf "$PACKAGE\n"
@@ -144,16 +144,16 @@ function process_pacman () {
     done
 }
 
-function install_yay () {
+install_yay () {
     printf "\nInstalling yay...\n"
-    cd "${PROJECT_ROOT}"
+    cd "${PROJECT_ROOT}" || exit
     git clone https://aur.archlinux.org/yay 
-    cd yay
+    cd yay || exit
     makepkg -sirc --noconfirm
-    cd "${PROJECT_ROOT}"
+    cd "${PROJECT_ROOT}" || exit
 }
 
-function process_abs () {
+process_abs () {
     printf "\nInstalling ABS (yay) packages...\n"
     for PACKAGE in "${ABS[@]}"; do
         printf "$PACKAGE\n"
@@ -165,7 +165,7 @@ function process_abs () {
 #
 #
 
-function configure_system () {
+configure_system () {
     printf "\nConfiguring system...\n"
     sudo cp -r -v "${PROJECT_ROOT}"/etc/* /etc/
     sudo cp -r -v "${PROJECT_ROOT}"/usr/* /usr/
@@ -176,20 +176,20 @@ function configure_system () {
     sudo systemctl enable ufw
     sudo systemctl enable libvirtd
     sudo systemctl enable NetworkManager
-    sudo vnstat --add -i $(ip -o link show | awk '{print $2,$9}' | grep UP | awk '{print $1}' | sed 's/://')
+    sudo vnstat --add -i "$(ip -o link show | awk '{print $2,$9}' | grep UP | awk '{print $1}' | sed 's/://')"
     sudo systemctl enable vnstat
     sudo systemctl restart vnstat
 	sudo setcap cap_net_raw,cap_net_admin,cap_net_bind_service+eip /usr/bin
-    sudo mkinitcpio -p linux$LTS_SUPPORT
+    sudo mkinitcpio -p linux"$LTS_SUPPORT"
 }
 
-function configure_user () {
+configure_user () {
     printf "\nConfiguring user accounts...\n"
     systemctl --user enable pulseaudio
     systemctl --user start pulseaudio
     pactl set-sink-mute @DEFAULT_SINK@ toggle
     pactl -- set-sink-volume @DEFAULT_SINK@ 80%
-    eval $(ssh-agent)
+    eval "$(ssh-agent)"
 	#systemctl --user enable gpg-agent.socket
 	systemctl --user enable dirmngr.socket gpg-agent.socket gpg-agent-ssh.socket gpg-agent-browser.socket gpg-agent-extra.socket
 	mkdir -p ~/.gnupg && chmod 700 ~/.gnupg
@@ -197,11 +197,11 @@ function configure_user () {
 #	gpg --import /backup/.keys/public.key
 	mkdir -p ~/.ssh && touch ~/.ssh/known_hosts && ssh-keyscan -t Ed25519 github.com > ~/.ssh/known_hosts
     ssh-add /backup/.keys/qwertzy-antonio-godinho-github.com
-	sudo gpasswd -a $USER_NAME input
-	sudo gpasswd -a $USER_NAME libvirt
+	sudo gpasswd -a "$USER_NAME" input
+	sudo gpasswd -a "$USER_NAME" libvirt
 }
 
-function cleanup () {
+cleanup () {
     printf "\nCleaning up the system...\n"
     sudo pacman -Rus --color=always --noconfirm vim
     rm -rf "${PROJECT_ROOT}"/yay
@@ -219,7 +219,7 @@ configure_user
 cleanup
 printf "\n /// FINISHED ${SCRIPT_NAME} ///\n\n"
 while true; do
-    read -p "Do you wish to reboot the system? " yn
+    read -rp "Do you wish to reboot the system? " yn
     case $yn in
         [Yy]* ) reboot; break;;
         [Nn]* ) exit;;
