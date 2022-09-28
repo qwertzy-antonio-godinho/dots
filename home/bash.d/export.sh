@@ -22,7 +22,7 @@ export GDK_DPI_SCALE=1
 
 # X session
 export XDG_SESSION_TYPE="x11"
-export XDG_CURRENT_DESKTOP="fluxbox"
+export XDG_CURRENT_DESKTOP="compiz"
 
 # Extra
 export ALERT="${RED}"
