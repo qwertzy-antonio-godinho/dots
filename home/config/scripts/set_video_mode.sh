@@ -63,7 +63,6 @@ function set_scale () {
 	# --- [ DPI ] --------------------------------------------------------------------
 	printf "        * DPI=%s\n" "$dpi"
 	sed -i --follow-symlinks -E "s/Xft.dpi:.*/Xft.dpi: $dpi/" "$HOME/.Xresources.d/dpi"
-	sed -i --follow-symlinks -E "s/-dpi.[0-9]*/-dpi $dpi/" "$HOME/.xbindkeysrc"
 	sed -i --follow-symlinks -E "/DPI/s/[0-9.]+/${dpi_xsettingsd}/" "$HOME/.config/xsettingsd/xsettingsd.conf"
 	export QT_FONT_DPI=${dpi}
 
@@ -74,7 +73,6 @@ function set_scale () {
 
 	# --- [ FONTS ] ------------------------------------------------------------------
 	printf "        * Font=%s\n" "$font_size"
-	sed -i --follow-symlinks -E "s/liga Mononoki-.[0-9]/liga Mononoki-$font_size/" "$HOME/.fluxbox/styles/lauzli/theme.cfg"
 	sed -i --follow-symlinks -E "s/liga Mononoki .[0-9]/liga Mononoki $font_size/" "$HOME/.config/rofi/themes/lauzli.rasi"
 	sed -i --follow-symlinks -E "s/XTerm.faceSize:.*/XTerm*faceSize: $font_size/" "$HOME/.Xresources.d/xterm"
 	sed -i --follow-symlinks -E "s/Zekton Regular .[0-9]/Zekton Regular $font_size/" "$HOME/.config/gtk-3.0/settings.ini"
@@ -82,7 +80,6 @@ function set_scale () {
 
 	# --- [ UI ] ---------------------------------------------------------------------
 	printf "        * UI=%s\n" "$ui_height"
-	sed -i --follow-symlinks -E "s/.height: .[0-9]/.height: $ui_height/" "$HOME/.fluxbox/styles/lauzli/theme.cfg"
 
 	# --- [ TRAY ] -------------------------------------------------------------------
 	printf "        * TRAY=%s\n" "$stalonetray_icon_size"
