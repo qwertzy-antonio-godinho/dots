@@ -96,5 +96,9 @@
     "workbench.editor.highlightModifiedTabs": true,
     "editor.minimap.autohide": true,
     "workbench.editor.enablePreview": false,
-    "editor.stickyScroll.enabled": true
+    "editor.stickyScroll.enabled": true,
+    "shellcheck.exclude": [
+        "SC2059",
+        "SC2164"
+    ]
 }
