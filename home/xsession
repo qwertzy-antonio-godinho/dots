@@ -42,7 +42,7 @@ exec conky -c ~/.config/conky/authnetrc &
 nm-applet &
 blueman-applet &
 volumeicon &
-redshift-gtk &
+# redshift-gtk &
 solaar --window=hide &
 
 # WM
