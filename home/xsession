@@ -47,5 +47,4 @@ solaar --window=hide &
 
 # WM
 # -------------
-exec xterm &
 exec compiz
