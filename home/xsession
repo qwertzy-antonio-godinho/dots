@@ -26,6 +26,7 @@ exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 # -------------
 exec xsettingsd &
 exec xrdb ~/.Xresources &
+exec hsetroot -solid '#11122C' &
 exec ~/.config/scripts/set_trackball.sh &
 exec dbus-update-activation-environment --systemd --all &
 
