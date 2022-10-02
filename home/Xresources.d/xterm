@@ -1,8 +1,9 @@
 XTerm*termName: xterm-256color
+XTerm*loginshell: true
 XTerm*geometry: 110x30
 XTerm*scrollBar: off
 XTerm*rightScrollBar: on
-XTerm*savelines: 4096
+XTerm*savelines: 16384
 XTerm*title: XTerm
 XTerm*faceSize: 11
 XTerm*faceName: liga Mononoki
@@ -20,7 +21,7 @@ XTerm*colorULMode: on
 XTerm*colorUL: magenta
 XTerm*vt100.cursorBlink: true
 XTerm*scrollTtyOutput: false
-XTerm*vt100.translations: #override \
+XTerm*vt100.translations: #override \n\
     Shift Ctrl <Key> C: copy-selection(CLIPBOARD) \n\
-    Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
+    Shift Ctrl <Key> V: insert-selection(CLIPBOARD) \n\
     Ctrl <Btn1Up>: exec-formatted("xdg-open '%t'", PRIMARY)
