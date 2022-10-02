@@ -2,7 +2,7 @@
 
 # History
 export HISTIGNORE="&:ls:[bf]g:pwd:exit:cd .."
-export HISTCONTROL="ignoreboth"
+export HISTCONTROL="erasedups:ignoredups:ignorespace"
 export HISTTIMEFORMAT="%Y/%m/%d %T "
 export PROMPT_COMMAND="history -a;${PROMPT_COMMAND}"
 
