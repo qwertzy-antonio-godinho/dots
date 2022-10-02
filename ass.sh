@@ -199,6 +199,10 @@ cleanup () {
     yay -Yc --noconfirm
 }
 
+# --- MAIN ------------------------------------------------------------------------------------
+#
+#
+
 main () {
 	printf "\n${SCRIPT_NAME} - Automated System Setup\n"
 	printf "\n /// IMPORTANT: This script should be used after a fresh archlinux installation.///\n\n"
