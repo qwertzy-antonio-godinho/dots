@@ -32,7 +32,7 @@ exec dbus-update-activation-environment --systemd --all &
 
 # APPLICATIONS
 # -------------
-exec stalonetray &
+exec mate-panel &
 exec dunst &
 exec conky -c ~/.config/conky/inforc &
 exec conky -c ~/.config/conky/authnetrc &
@@ -47,4 +47,5 @@ solaar --window=hide &
 
 # WM
 # -------------
+exec xterm &
 exec compiz
