@@ -6,6 +6,8 @@ LTS_SUPPORT="" #-lts
 USER_NAME=$(whoami)
 YAY="https://aur.archlinux.org/yay"
 
+trap "printf '\n\nUser aborted, exiting...\n\n'; exit 127" SIGINT
+
 declare -a PACKAGES=(
 	"archlinux-keyring"
 	"atril"
@@ -205,7 +207,8 @@ cleanup () {
 
 main () {
 	printf "\n${SCRIPT_NAME} - Automated System Setup\n"
-	printf "\n /// IMPORTANT: This script should be used after a fresh archlinux installation.///\n\n"
+	printf "\n/// IMPORTANT /// : This script should be used after a fresh archlinux installation.
+	            Use <CTRL>+c to abort the script execution anytime.\n\n"
 	while true; do
 		read -r -p "Do you wish to continue with the installation? " yn
 		case $yn in
@@ -218,7 +221,7 @@ main () {
 				configure_system
 				configure_user
 				cleanup
-				printf "\n /// FINISHED ${SCRIPT_NAME} ///\n\n"
+				printf "\n/// FINISHED ${SCRIPT_NAME} ///\n\n"
 				while true; do
 					read -r -p "Do you wish to reboot the system? " yn
 					case $yn in
