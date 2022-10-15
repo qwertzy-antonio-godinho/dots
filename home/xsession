@@ -32,18 +32,18 @@ exec dbus-update-activation-environment --systemd --all &
 
 # APPLICATIONS
 # -------------
-exec mate-panel &
+exec stalonetray &
 exec dunst &
 exec conky -c ~/.config/conky/inforc &
 exec conky -c ~/.config/conky/authnetrc &
 
 # APPLETS
 # -------------
-nm-applet &
-blueman-applet &
-volumeicon &
-# redshift-gtk &
-solaar --window=hide &
+exec nm-applet &
+exec blueman-applet &
+exec volumeicon &
+exec redshift-gtk &
+exec solaar --window=hide &
 
 # WM
 # -------------
