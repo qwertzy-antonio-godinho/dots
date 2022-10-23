@@ -74,7 +74,7 @@ function set_scale () {
 	# --- [ FONTS ] ------------------------------------------------------------------
 	printf "        * Font=%s\n" "$font_size"
 	sed -i --follow-symlinks -E "s/liga Mononoki .[0-9]/liga Mononoki $font_size/" "$HOME/.config/rofi/themes/lauzli.rasi"
-	sed -i --follow-symlinks -E "s/XTerm.faceSize:.*/XTerm*faceSize: $font_size/" "$HOME/.Xresources.d/xterm"
+	sed -i --follow-symlinks -E "s/Liga mononoki .[0-9]/Liga mononoki $font_size/" "$HOME/.config/terminator/config"
 	sed -i --follow-symlinks -E "s/Zekton Regular .[0-9]/Zekton Regular $font_size/" "$HOME/.config/gtk-3.0/settings.ini"
 	gsettings set org.mate.pluma editor-font "Liga mononoki $font_size"
 
@@ -83,7 +83,6 @@ function set_scale () {
 
 	# --- [ TRAY ] -------------------------------------------------------------------
 	printf "        * TRAY=%s\n" "$stalonetray_icon_size"
-	sed -i --follow-symlinks -E "s/icon_size .[0-9]/icon_size $stalonetray_icon_size/" "$HOME/.config/stalonetrayrc"
 
 	# --- [ TOOLKIT ] ----------------------------------------------------------------
 	printf "        * Toolkit=%s\n" "$ui_toolkit_scale"

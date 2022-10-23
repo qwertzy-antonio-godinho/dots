@@ -12,12 +12,6 @@ exec $(echo "Initializing session. Welcome" $(whoami) | festival --tts) &
 # -------------
 exec setxkbmap -layout us &
 
-# LAPTOP
-# -------------
-#exec xbacklight -ctrl intel_backlight -set $(cat ~/.config/scripts/setting_intel_backlight.txt || echo 100) &
-#exec xbacklight -ctrl smc::kbd_backlight -set $(cat ~/.config/scripts/setting_kbd_backlight.txt || echo 100) &
-#exec setxkbmap -layout us -variant mac &
-
 # START-UP
 # -------------
 exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
@@ -32,7 +26,7 @@ exec dbus-update-activation-environment --systemd --all &
 
 # APPLICATIONS
 # -------------
-exec stalonetray &
+exec trayer --edge top --align left --widthtype request --SetDockType true --transparent true --alpha 256 --expand false  --height 32 &
 exec dunst &
 exec conky -c ~/.config/conky/inforc &
 exec conky -c ~/.config/conky/authnetrc &
