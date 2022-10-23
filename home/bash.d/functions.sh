@@ -34,15 +34,6 @@ __apply_dircolors () {
 	fi
 }
 
-# Runs Tmux
-__run_tmux () {
-	if command -v tmux >/dev/null 2>&1; then
-		[ -z "${TMUX}" ] && { tmux attach || exec tmux new-session && exit;}
-	else
-		printf "${MAGENTA}${0} ${YELLOW}WARNING ${BLUE}__runs_tmux: ${NC}tmux command not found\n"
-	fi
-}
-
 # Runs bash completion
 __run_bash_completion () {
 	[ -r /usr/share/bash-completion/bash_completion ] \
