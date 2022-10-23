@@ -34,7 +34,6 @@ declare -a PACKAGES=(
 	"gsimplecal"
 	"gufw"
 	"htop"
-	"hsetroot"
 	"jq"
 	"linux${LTS_SUPPORT}"
 	"linux${LTS_SUPPORT}-headers"
