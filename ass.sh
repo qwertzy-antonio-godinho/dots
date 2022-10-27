@@ -110,6 +110,7 @@ declare -a ABS=(
     "aic94xx-firmware"
     "brave-bin"
 	"bluetooth-autoconnect"
+	"clipit"
 	"compiz"
 	"emerald-gtk3"
 	"trayer-srg-git"
