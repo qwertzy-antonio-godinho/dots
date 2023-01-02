@@ -1,7 +1,6 @@
 {
     "workbench.sideBar.location": "right",
-    "workbench.colorTheme": "1Dark RainCoat Bright Italic",
-    "workbench.iconTheme": "bearded-icons",
+    "workbench.colorTheme": "1Dark RainCoat Bright",
     "editor.cursorStyle": "block",
     "editor.wordWrap": "wordWrapColumn",
     "editor.cursorSmoothCaretAnimation": true,
