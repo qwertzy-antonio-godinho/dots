@@ -28,6 +28,7 @@ declare -a PACKAGES=(
 	"elinks"
 	"elogind"
 	"emerald"
+	"engrampa"
 	"eom"
 	"ffmpegthumbnailer"
 	"firefox-esr"

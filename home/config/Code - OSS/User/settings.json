@@ -9,5 +9,6 @@
     "breadcrumbs.enabled": false,
     "workbench.editor.scrollToSwitchTabs": true,
     "workbench.editor.wrapTabs": true,
-    "editor.stickyScroll.enabled": true
+    "editor.stickyScroll.enabled": true,
+    "workbench.startupEditor": "none"
 }
