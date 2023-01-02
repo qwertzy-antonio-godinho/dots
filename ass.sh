@@ -59,6 +59,7 @@ declare -a PACKAGES=(
 	"qemu"
 	"redshift-gtk"
 	"rofi"
+	"setxkbmap"
 	"stalonetray"
 	"thunderbird"
 	"tmux"
