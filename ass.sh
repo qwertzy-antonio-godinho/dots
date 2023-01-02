@@ -117,6 +117,12 @@ copy_system_configuration () {
     sudo cp -r -v "${PROJECT_ROOT}"/usr/* /usr/
 }
 
+disable_system_services () {
+	printf "\nDisabling system services...\n"
+ 	sudo rm /var/service/dhcpcd
+	sudo rm /var/service/wpa_suplicant
+}
+
 enable_system_services () {
     printf "\nEnabling system services...\n"
 	sudo ln -s /etc/sv/NetworkManager /var/service
@@ -163,6 +169,7 @@ main () {
 				install_packages
 				configure_user
 				copy_system_configuration
+				disable_system_services
 				enable_system_services
 				printf "\n/// FINISHED ${SCRIPT_NAME} ///\n\n"
 				while true; do
