@@ -131,6 +131,8 @@ enable_system_services () {
 	sudo ln -s /etc/sv/xdm /var/service
 	sudo ln -s /etc/sv/bluetoothd /var/service
 	sudo ln -s /etc/sv/libvirtd /var/service
+	sudo ln -s /etc/sv/virtlockd /var/service
+	sudo ln -s /etc/sv/virtlogd /var/service
 	sudo ln -s /etc/sv/udevd /var/service
 }
 
