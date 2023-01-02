@@ -1,10 +1,10 @@
 # dots
 
-This repository contains my dot configuration files and a simple installer script that I use to install and setup an archlinux system.
+This repository contains my dot configuration files and a simple installer script that I use to install and setup a voidlinux system.
 
 ## Setting up the system
 
-A fresh archlinux installation can be setup by using the ```ass.sh``` script. This script installs software packages and sets up the current logged in user with prefered settings.
+A fresh voidlinux installation can be setup by using the ```ass.sh``` script. This script installs software packages and sets up the current logged in user with prefered settings.
 
 ## Managing the dots
 
