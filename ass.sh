@@ -153,7 +153,8 @@ configure_user () {
 		&& chmod 700 ~/.ssh \
 		&& touch ~/.ssh/known_hosts \
 		&& ssh-keyscan -t Ed25519 github.com > ~/.ssh/known_hosts
-    [ -f /backup/.keys/qwertzy-antonio-godinho-github.com ] && ssh-add /backup/.keys/qwertzy-antonio-godinho-github.com
+    [ -f /backup/.keys/qwertzy-antonio-godinho-github.com ] \
+		&& ssh-add /backup/.keys/qwertzy-antonio-godinho-github.com
 	sudo gpasswd -a "${USER_NAME}" wheel
 	sudo gpasswd -a "${USER_NAME}" audio
 	sudo gpasswd -a "${USER_NAME}" optical
