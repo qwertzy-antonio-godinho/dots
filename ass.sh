@@ -55,6 +55,7 @@ declare -a PACKAGES=(
 	"p7zip"
 	"pavucontrol"
 	"pluma"
+	"psmisc"
 	"pulseaudio"
 	"qemu"
 	"redshift-gtk"
