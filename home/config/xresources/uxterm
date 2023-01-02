@@ -1,0 +1,28 @@
+UXTerm*termName: xterm-256color
+UXTerm*loginshell: true
+UXTerm*vt100.curses: true
+UXTerm*geometry: 110x30
+UXTerm*scrollBar: off
+UXTerm*rightScrollBar: on
+UXTerm*savelines: 16384
+UXTerm*title: UXTerm
+UXTerm*faceSize: 11
+UXTerm*faceName: liga Mononoki
+UXTerm*renderFont: true
+UXTerm*selectToClipboard: true
+UXTerm*highlightSelection: true
+UXTerm*trimSelection: true
+UXTerm*background: #011627
+UXTerm*foreground: #ffffff
+UXTerm*cursorColor: #289c93
+UXTerm*colorMode: on
+UXTerm*dynamicColors: on
+UXTerm*underLine: off
+UXTerm*colorULMode: on
+UXTerm*colorUL: magenta
+UXTerm*vt100.cursorBlink: true
+UXTerm*scrollTtyOutput: false
+UXTerm*vt100.translations: #override \n\
+    Shift Ctrl <Key> C: copy-selection(PRIMARY, CLIPBOARD) \n\
+    Shift Ctrl <Key> V: insert-selection(PRIMARY, CLIPBOARD) \n\
+    Ctrl <Btn1Up>: exec-formatted("xdg-open '%t'", PRIMARY)

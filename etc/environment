@@ -1,3 +1,2 @@
 QT_QPA_PLATFORMTHEME=qt5ct
 EDITOR=micro
-_JAVA_OPTIONS=-Dawt.useSystemAAFontSettings=on

@@ -8,7 +8,7 @@ OUTPUT_MONITOR="DP-4"
 OUTPUT_MONITOR_SET_REFRESH_RATE="144"
 OUTPUT_MONITOR_SET_RESOLUTION="3440x1440"
 
-function get_details () {
+get_details () {
 	local output_name="$1"
 	local output_number="$2"
 	local output_message=""; output_message="${output_name} :"
@@ -26,30 +26,30 @@ function get_details () {
 	printf "[ ${output_number} ] = %s\n" "${output_message}"
 }
 
-function print_detected_outputs () {
+print_detected_outputs () {
     printf "\nOutputs detected: %s\n\n" "${#available_outputs[@]}"
     for (( output_number=0; output_number<${#available_outputs[@]}; output_number++ )); do 
         get_details "${available_outputs[$output_number]}" "$((output_number + 1))"
     done
 }
 
-function set_primary () {
+set_primary () {
 	local output_name="$1"
     printf "      - Setting %s as Primary output...\n" "${output_name}"
     xrandr --output "${output_name}" --primary
 }
 
-function enable_monitor () {
+enable_monitor () {
 	printf "      - Turning On %s ${OUTPUT_MONITOR_SET_RESOLUTION} ${OUTPUT_MONITOR_SET_REFRESH_RATE}...\n" "${OUTPUT_MONITOR}"; 
 	xrandr --output "${OUTPUT_MONITOR}" --mode ${OUTPUT_MONITOR_SET_RESOLUTION} --rate ${OUTPUT_MONITOR_SET_REFRESH_RATE}
 }
 
-function enable_tv () {
+enable_tv () {
 	printf "      - Turning On %s ${OUTPUT_TV_SET_RESOLUTION} ${OUTPUT_TV_SET_REFRESH_RATE}...\n" "${OUTPUT_TV}"; 
 	2>/dev/null 1>&2 nvidia-settings --assign CurrentMetaMode="${OUTPUT_TV}: ${OUTPUT_TV_SET_RESOLUTION}_${OUTPUT_TV_SET_REFRESH_RATE} +0+0 {viewportout=1840x1035+40+22} {ForceFullCompositionPipeline=On}"; 
 }
 
-function set_scale () {
+set_scale () {
 	local dpi="$1"
 	local dpi_xsettingsd="$(expr $1 '*' 1024)"
 	local mouse_size="$2"
@@ -62,19 +62,20 @@ function set_scale () {
 
 	# --- [ DPI ] --------------------------------------------------------------------
 	printf "        * DPI=%s\n" "$dpi"
-	sed -i --follow-symlinks -E "s/Xft.dpi:.*/Xft.dpi: $dpi/" "$HOME/.Xresources.d/dpi"
+	sed -i --follow-symlinks -E "s/Xft.dpi:.*/Xft.dpi: $dpi/" "$HOME/.config/xresources/dpi"
 	sed -i --follow-symlinks -E "/DPI/s/[0-9.]+/${dpi_xsettingsd}/" "$HOME/.config/xsettingsd/xsettingsd.conf"
 	export QT_FONT_DPI=${dpi}
 
 	# --- [ MOUSE ] ------------------------------------------------------------------
 	printf "        * Mouse=%s\n" "$mouse_size"
-	sed -i --follow-symlinks -E "s/Xcursor.size:.*/Xcursor.size: $mouse_size/" "$HOME/.Xresources.d/cursors"
+	sed -i --follow-symlinks -E "s/Xcursor.size:.*/Xcursor.size: $mouse_size/" "$HOME/.config/xresources/cursors"
 	sed -i --follow-symlinks -E "s/gtk-cursor-theme-size = .[0-9]/gtk-cursor-theme-size = $mouse_size/" "$HOME/.config/gtk-3.0/settings.ini"
 
 	# --- [ FONTS ] ------------------------------------------------------------------
 	printf "        * Font=%s\n" "$font_size"
 	sed -i --follow-symlinks -E "s/liga Mononoki .[0-9]/liga Mononoki $font_size/" "$HOME/.config/rofi/themes/lauzli.rasi"
-	sed -i --follow-symlinks -E "s/Liga mononoki .[0-9]/Liga mononoki $font_size/" "$HOME/.config/terminator/config"
+	sed -i --follow-symlinks -E "s/XTerm.faceSize:.*/XTerm*faceSize: $font_size/" "$HOME/.config/xresources/xterm"
+	sed -i --follow-symlinks -E "s/UXTerm.faceSize:.*/UXTerm*faceSize: $font_size/" "$HOME/.config/xresources/uxterm"
 	sed -i --follow-symlinks -E "s/Zekton Regular .[0-9]/Zekton Regular $font_size/" "$HOME/.config/gtk-3.0/settings.ini"
 	gsettings set org.mate.pluma editor-font "Liga mononoki $font_size"
 
@@ -83,6 +84,7 @@ function set_scale () {
 
 	# --- [ TRAY ] -------------------------------------------------------------------
 	printf "        * TRAY=%s\n" "$stalonetray_icon_size"
+	sed -i --follow-symlinks -E "s/icon_size .[0-9]/icon_size $stalonetray_icon_size/" "$HOME/.config/stalonetrayrc"
 
 	# --- [ TOOLKIT ] ----------------------------------------------------------------
 	printf "        * Toolkit=%s\n" "$ui_toolkit_scale"
@@ -95,7 +97,7 @@ function set_scale () {
 	export QT_AUTO_SCREEN_SET_FACTOR=0
 }
 
-function set_resolution_scale () {
+set_resolution_scale () {
 	local resolution="$1"
 	local output="$2"
 	printf "      - Scaling $output UI to %s resolution:\n" "${resolution}"
@@ -128,7 +130,7 @@ function set_resolution_scale () {
 	set_scale $scale_dpi $scale_mouse_size $scale_font_size $scale_ui_height $scale_ui_toolkit_scale $scale_ui_dpi_scale $scale_stalonetray_icon_size $output
 }
 
-function main () {
+main () {
     local available_outputs=""; available_outputs=( $(xrandr | grep -w "connected" | awk '{print $1}') )
 	if [[ ${#available_outputs[@]} -gt 0 ]]; then
         print_detected_outputs

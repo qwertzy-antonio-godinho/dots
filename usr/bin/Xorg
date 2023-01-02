@@ -9,7 +9,7 @@ else
 	sed -i -E 's/-dpi .([0-9]+)/-dpi '$DPI_MONITOR'/' /etc/X11/xdm/Xservers
 fi
 
-basedir="/usr/lib"
+basedir="/usr/libexec"
 if [ -x "$basedir"/Xorg.wrap ]; then
 	exec "$basedir"/Xorg.wrap "$@"
 else

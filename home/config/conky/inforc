@@ -67,19 +67,19 @@ ${color2}MEM(2): ${top_mem name 2}${alignr}${top_mem mem 2}%
 ${color2}MEM(3): ${top_mem name 3}${alignr}${top_mem mem 3}%
 
 ${color1}TEMPERATURES ${stippled_hr}
-${color2}CPU$alignr${hwmon temp 1}ºC
-${color2}GPU$alignr${nvidia temp}ºC
+${color2}CPU$alignr${hwmon temp 1}C
+${color2}GPU$alignr${execi 60 nvidia-settings -query [gpu:0]/GPUCoreTemp -t}C
 
 ${color1}STORAGE ${stippled_hr}
 ${if_mounted /}${color2}/${alignr}${fs_free_perc /}%
 ${color3}${fs_bar 8 /}
-${diskiograph /dev/sda 24 -t}${endif}
+${diskiograph /dev/sdb 24 -t}${endif}
 ${if_mounted /workbench}${color2}/workbench${alignr}${fs_free_perc /workbench}%
 ${color3}${fs_bar 8 /workbench}
-${diskiograph /dev/sdb 24 -t}${endif}
+${diskiograph /dev/sdc 24 -t}${endif}
 ${if_mounted /backup}${color2}/backup${alignr}${fs_free_perc /backup}%
 ${color3}${fs_bar 8 /backup}
-${diskiograph /dev/sdc 24 -t}${endif}
+${diskiograph /dev/sda 24 -t}${endif}
 
 ${color1}WHO ${stippled_hr}
 ${color2}${execi 05 who -l && who}

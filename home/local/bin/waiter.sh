@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /usr/bin/bash
 
 WINBIN="/backup/Games/winbin"
 WINERUNTIME="${WINBIN}/runtime"
@@ -17,7 +17,7 @@ WINEDLLPATH64="${WINBIN}/lib64"
 WINESERVER64="${WINBIN}/wineserver64"
 WINERUNTIME64="${WINERUNTIME}/64bits"
 
-function setup () {
+setup () {
 	# 32 Bits
 	runtime32=$(find "${WINERUNTIME32}" -maxdepth 1 -mindepth 1 -type d | fzf --prompt "Select 32 Bits runtime > ")
 	if [ ! -z "${runtime32}" ]; then
@@ -46,7 +46,7 @@ function setup () {
 	fi
 }
 
-function show_config () {
+show_config () {
 	symlinks=("${WINE32}" "${WINE64}" "${WINEDLLPATH32}" "${WINEDLLPATH64}" "${WINESERVER32}" "${WINESERVER64}")
 	for symlink in "${symlinks[@]}"; do
 		if [ -e "${symlink}" ]; then
@@ -57,7 +57,7 @@ function show_config () {
 	done
 }
 
-function print_runtime () {
+print_runtime () {
 	printf "WINE ARCH        : ${WINEARCH}\n"
 	if [ "${WINEARCH}" == "win32" ]; then
 		WINE="${WINE32}"
@@ -74,7 +74,7 @@ function print_runtime () {
 	printf "WINE PREFIX      : ${WINEPREFIX}\n"
 }
 
-function run_executable () {
+run_executable () {
 	printf "EXECUTABLE       : ${executable}\n"
 	printf "PARAMETERS       : ${parameters}\n\n"
 	restore_path="${PATH}"
@@ -84,7 +84,7 @@ function run_executable () {
 	PATH="${restore_path}"
 }
 
-function download_runtime () {
+download_runtime () {
 	runtimedownload=$(curl -s https://api.github.com/repos/Kron4ek/Wine-Builds/releases | grep "browser_download_url" | cut -d\" -f4 | fzf --prompt "Select runtime to download > ")
 	if [ ! -z "${runtimedownload}" ]; then
 		case "${runtimedownload}" in
@@ -110,7 +110,7 @@ function download_runtime () {
 	fi
 }
 
-function show_usage () {
+show_usage () {
 	printf "USAGE : ${0}\n"
 	printf "        <32|64> EXECUTABLE {PARAMS}   : Runs executable with optional params in 32 or 64 bits mode\n"
 	printf "        <32|64> EXECUTABLE winecfg    : Runs winecfg inside the executable prefix\n"
@@ -127,8 +127,8 @@ function show_usage () {
 	exit 1
 }
 
-function main () {
-	type -P fzf &>/dev/null && continue || { printf "ERROR : fzf was not found, install (https://github.com/junegunn/fzf) to continue\n"; exit 1; }
+main () {
+	type -P fzf &>/dev/null || { printf "ERROR : fzf was not found, install (https://github.com/junegunn/fzf) to continue\n"; exit 1; }
 	mkdir -p "${WINEPREFIXES}" && mkdir -p "${WINERUNTIME}" && mkdir -p "${WINERUNTIME32}" && mkdir -p "${WINERUNTIME64}"
 	if [ ! -z "${option}" ]; then
 		case "${option}" in
@@ -172,7 +172,7 @@ function main () {
 			;;
 			"--help")
 				show_usage
-				exit0
+				exit 0
 			;;
 			*)
 				printf "ERROR : Invalid option \"${option}\"\n"

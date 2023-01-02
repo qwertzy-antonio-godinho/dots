@@ -1,27 +1,13 @@
-#!/bin/bash
-
-# Interactive shell
 [[ $- != *i* ]] && return
-
-set -o nounset
-
-# Imports
-source "${HOME}"/.bash.d/shopt.sh
-source "${HOME}"/.bash.d/colors.sh
-source "${HOME}"/.bash.d/export.sh
-source "${HOME}"/.bash.d/alias.sh
-source "${HOME}"/.bash.d/functions.sh
-source "${HOME}"/.bash.d/prompt.sh
-source "${HOME}"/.bash.d/binds.sh
-
-# Call functions
-__run_ssh_agent
+source "${HOME}"/.config/bash/shopts.sh
+source "${HOME}"/.config/bash/colors.sh
+source "${HOME}"/.config/bash/exports.sh
+source "${HOME}"/.config/bash/alias.sh
+source "${HOME}"/.config/bash/functions.sh
+source "${HOME}"/.config/bash/prompt.sh
+source "${HOME}"/.config/bash/binds.sh
+source "${HOME}"/.config/bash/path.sh
 __apply_dircolors
-__run_bash_completion
-__run_git_bash_prompt
-__validate_java
-
-# Set PATH
-if [ -d "$HOME/.local/bin" ]; then
-	PATH="$HOME/.local/bin:$PATH"
-fi
+__run_ssh_agent
+__get_git_bash_prompt
+__source_bash_completions

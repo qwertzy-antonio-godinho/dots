@@ -67,10 +67,4 @@ ${tcp_portmon 32768 61000 rhost 1} ${alignr} ${tcp_portmon 32768 61000 rservice 
 ${tcp_portmon 32768 61000 rhost 2} ${alignr} ${tcp_portmon 32768 61000 rservice 2}
 ${tcp_portmon 32768 61000 rhost 3} ${alignr} ${tcp_portmon 32768 61000 rservice 3}
 ${tcp_portmon 32768 61000 rhost 4} ${alignr} ${tcp_portmon 32768 61000 rservice 4}
-${color1}DEVICES ${stippled_hr}
-${color2}${execi 400 nmap --privileged -sn 192.168.1.0/24 | grep "Nmap scan report for" | awk -F ' '  '{print $5}'}
-
-${color1}DATA ${stippled_hr}
-${color2}Today${alignr} ${execi 350 vnstat -i wlp9s0f3u1 | grep "today" | awk '{print $8" "substr($9,1,1)}'}
-${color2}Month${alignr} ${execi 350 vnstat -i wlp9s0f3u1 -m | grep "`date +%Y-%m`" | awk '{print $8" "substr($9,1,1)}'}
 ]]

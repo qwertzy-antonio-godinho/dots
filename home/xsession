@@ -1,12 +1,10 @@
 # DISPLAY
 # -------------
-exec systemctl --user import-environment DISPLAY &
 exec ~/.config/scripts/set_video_mode.sh &
 
 # SOUND
 # -------------
 exec start-pulseaudio-x11 &
-exec $(echo "Initializing session. Welcome" $(whoami) | festival --tts) &
 
 # PC
 # -------------
@@ -14,18 +12,17 @@ exec setxkbmap -layout us &
 
 # START-UP
 # -------------
-exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
+exec /usr/libexec/polkit-mate-authentication-agent-1 &
 
 # SETTINGS
 # -------------
+exec hsetroot -solid '#11122C' &
 exec xsettingsd &
 exec xrdb ~/.Xresources &
-exec ~/.config/scripts/set_trackball.sh &
-exec dbus-update-activation-environment --systemd --all &
 
 # APPLICATIONS
 # -------------
-exec trayer --edge top --align left --widthtype request --SetDockType true --transparent true --alpha 256 --expand false  --height 32 &
+exec stalonetray -c ~/.config/stalonetrayrc &
 exec dunst &
 exec conky -c ~/.config/conky/inforc &
 exec conky -c ~/.config/conky/authnetrc &
@@ -33,12 +30,9 @@ exec conky -c ~/.config/conky/authnetrc &
 # APPLETS
 # -------------
 exec nm-applet &
-exec blueman-applet &
-exec volumeicon &
-exec clipit &
 exec redshift-gtk &
-exec solaar --window=hide &
+exec blueman-applet &
 
 # WM
 # -------------
-exec compiz
+exec dbus-run-session compiz
