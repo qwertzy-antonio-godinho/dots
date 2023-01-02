@@ -115,6 +115,7 @@ copy_system_configuration () {
     printf "\nCopying system configurations...\n"
     sudo cp -r -v "${PROJECT_ROOT}"/etc/* /etc/
     sudo cp -r -v "${PROJECT_ROOT}"/usr/* /usr/
+	sudo update-grub
 }
 
 disable_system_services () {
