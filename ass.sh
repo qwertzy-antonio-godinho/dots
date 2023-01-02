@@ -75,6 +75,7 @@ declare -a PACKAGES=(
 	"xdm"
 	"xorg-minimal"
 	"xrandr"
+	"xrdb"
 	"xsel"
 	"xsettingsd"
 	"xterm"
@@ -120,8 +121,10 @@ copy_system_configuration () {
 
 disable_system_services () {
 	printf "\nDisabling system services...\n"
- 	sudo rm /var/service/dhcpcd
-	sudo rm /var/service/wpa_suplicant
+ 	[ -r /var/service/dhcpcd ] \
+		&& sudo rm /var/service/dhcpcd
+	[ -r /var/service/wpa_suplicant ] \
+		&& sudo rm /var/service/wpa_suplicant
 }
 
 enable_system_services () {
@@ -141,6 +144,8 @@ configure_user () {
     printf "\nConfiguring user...\n"
     pactl set-sink-mute @DEFAULT_SINK@ toggle
     pactl -- set-sink-volume @DEFAULT_SINK@ 80%
+	mkdir -p ~/.config/ssh$(id -u) \
+		&& chmod 700 ~/.config/ssh$(id -u)
     eval "$(ssh-agent)"
 	mkdir -p ~/.ssh \
 		&& chmod 700 ~/.ssh \

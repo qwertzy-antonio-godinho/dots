@@ -2,6 +2,11 @@
 
 This repository contains my dot configuration files and a simple installer script that I use to install and setup a voidlinux system.
 
+*Note:*
+Using the voidlinux installer, the installer does not create a regular user (might be a bug with the installer or maybe just me), I have to create a user after installation by issuing the command ```useradd -m <USER_NAME>```, add the user to the wheel group ```gpasswd --add <USER_NAME> wheel``` and add a password to the new user ```passwd <USER_NAME>```. 
+
+After login as the new user, delete all existing dots ```rm -rf ~* && rm -rf ~/.*```, install git ```sudo xbps-install git --yes```, clone this repository ```git clone https://github.com/qwertzy-antonio-godinho/dots``` and run ```dots.sh``` script. Next step is to run the ```ass.sh``` script to setup the system.
+
 ## Setting up the system
 
 A fresh voidlinux installation can be setup by using the ```ass.sh``` script. This script installs software packages and sets up the current logged in user with prefered settings.
