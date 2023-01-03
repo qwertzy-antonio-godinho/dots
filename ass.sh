@@ -84,6 +84,7 @@ declare -a PACKAGES=(
 	"xterm"
 	"xz"
 	"youtube-dl"
+	"zstd"
 )
 
 check_previleges () {

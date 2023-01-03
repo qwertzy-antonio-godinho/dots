@@ -8,6 +8,10 @@ man () {
 	command man "$@"
 }
 
+hist () {
+	$(cat ~/.bash_history | fzf -i --exact)
+}
+
 __run_ssh_agent () {
 	if command -v ssh-agent >/dev/null 2>&1; then
 		if ! pgrep -u "${USER}" ssh-agent > /dev/null; then
