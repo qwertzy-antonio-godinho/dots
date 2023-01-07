@@ -156,6 +156,9 @@ configure_user () {
 		&& ssh-keyscan -t Ed25519 github.com > ~/.ssh/known_hosts
     [ -f /backup/.keys/qwertzy-antonio-godinho-github.com ] \
 		&& ssh-add /backup/.keys/qwertzy-antonio-godinho-github.com
+	[ -d /run/user/"$(id -u)" ] \
+		&& mkdir /run/user/"$(id -u)" \
+		&& chmod 700 /run/user/"$(id -u)"
 	sudo gpasswd -a "${USER_NAME}" wheel
 	sudo gpasswd -a "${USER_NAME}" audio
 	sudo gpasswd -a "${USER_NAME}" optical
