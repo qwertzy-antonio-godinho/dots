@@ -21,7 +21,9 @@ XTerm*underLine: off
 XTerm*colorULMode: on
 XTerm*colorUL: magenta
 XTerm*vt100.cursorBlink: true
+XTerm*fullscreen: never
 XTerm*scrollTtyOutput: false
+XTerm*selectToClipboard: true
 XTerm*vt100.translations: #override \n\
     Shift Ctrl <Key> C: copy-selection(PRIMARY, CLIPBOARD) \n\
     Shift Ctrl <Key> V: insert-selection(PRIMARY, CLIPBOARD) \n\
