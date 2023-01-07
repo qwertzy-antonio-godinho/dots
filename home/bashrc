@@ -1,4 +1,7 @@
+#! /usr/bin/env bash
+
 [[ $- != *i* ]] && return
+
 source "${HOME}"/.config/bash/shopts.sh
 source "${HOME}"/.config/bash/colors.sh
 source "${HOME}"/.config/bash/exports.sh
@@ -7,6 +10,7 @@ source "${HOME}"/.config/bash/functions.sh
 source "${HOME}"/.config/bash/prompt.sh
 source "${HOME}"/.config/bash/binds.sh
 source "${HOME}"/.config/bash/path.sh
+
 __apply_dircolors
 __run_ssh_agent
 __get_git_bash_prompt

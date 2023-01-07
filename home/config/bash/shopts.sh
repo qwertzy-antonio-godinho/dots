@@ -1,3 +1,5 @@
+#! /usr/bin/env bash
+
 shopt -s histappend
 shopt -s cmdhist
 shopt -s checkwinsize
