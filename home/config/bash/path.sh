@@ -1,3 +1,4 @@
 #! /usr/bin/env bash
 
-PATH=$PATH:~/.local/bin
+[ -d "${HOME}/.local/bin" ] \
+    && PATH=$PATH:${HOME}/.local/bin

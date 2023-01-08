@@ -11,7 +11,8 @@ export EDITOR="micro"
 export BROWSER="brave"
 export PAGER="less"
 
-export XDG_RUNTIME_DIR="${HOME}/.config/$(whoami)-$(id -u)"
+XDG_RUNTIME_DIR="${HOME}/.config/$(whoami)-$(id -u)" \
+    && export XDG_RUNTIME_DIR
 export XDG_SESSION_TYPE="x11"
 export XDG_CURRENT_DESKTOP="compiz"
 
