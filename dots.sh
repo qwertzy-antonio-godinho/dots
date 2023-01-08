@@ -39,11 +39,11 @@ main () {
             printf "[ File was not found -> UPDATE-TARGET : ${DOTS_TARGET} ] ./%s\n" "${dot}"
             if [ "${dry_run}" == "--no-dry-run" ]; then update_target; fi
         else
-            if [ $(date +%s -r "${DOTS_TARGET}/.$dot") -lt $(date +%s -r "${DOTS_SOURCE}/${dot}") ]; then
+            if [ $(date +%s -r "${DOTS_TARGET}/.${dot}") -lt $(date +%s -r "${DOTS_SOURCE}/${dot}") ]; then
                 printf "[ Date target older -> UPDATE-TARGET : ${DOTS_TARGET} ] ./%s\n" "${dot}"
                 if [ "${dry_run}" == "--no-dry-run" ]; then update_target; fi
             fi
-            if [ $(date +%s -r "${DOTS_TARGET}/.$dot") -gt $(date +%s -r "${DOTS_SOURCE}/${dot}") ]; then
+            if [ $(date +%s -r "${DOTS_TARGET}/.${dot}") -gt $(date +%s -r "${DOTS_SOURCE}/${dot}") ]; then
                 printf "[ Date target newer -> UPDATE-SOURCE : ${DOTS_SOURCE} ] %s\n" "${dot}"
                 if [ "${dry_run}" == "--no-dry-run" ]; then update_source; fi
             fi
