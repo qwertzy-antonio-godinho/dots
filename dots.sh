@@ -35,7 +35,7 @@ main () {
         printf "***\nExecuting in Dry Run mode, no changes will be made\nUse --no-dry-run to apply updates to source and target locations\n***\n"
     fi
     find "${DOTS_SOURCE}" -name '*' -type f,l -printf '%P\n' | while read -r dot; do
-        if [ ! -f "${DOTS_TARGET}/.$dot" ]; then
+        if [ ! -f "${DOTS_TARGET}/.${dot}" ]; then
             printf "[ File was not found -> UPDATE-TARGET : ${DOTS_TARGET} ] ./%s\n" "${dot}"
             if [ "${dry_run}" == "--no-dry-run" ]; then update_target; fi
         else
