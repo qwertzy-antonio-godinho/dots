@@ -89,7 +89,7 @@ __get_git_bash_prompt () {
 __source_bash_completions () {
 	local bash_completions_dir="/usr/share/bash-completion/completions"
 	if [ -d "${bash_completions_dir}" ]; then
-		declare COMPLETIONS=(
+		declare -a COMPLETIONS=(
 			"git"
 		)
 		for completion_file in "${COMPLETIONS[@]}"; do
