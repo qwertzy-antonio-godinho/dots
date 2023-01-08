@@ -127,8 +127,8 @@ disable_system_services () {
 	printf "\nDisabling system services...\n"
  	[ -r /var/service/dhcpcd ] \
 		&& sudo rm /var/service/dhcpcd
-	[ -r /var/service/wpa_suplicant ] \
-		&& sudo rm /var/service/wpa_suplicant
+	[ -r /var/service/wpa_supplicant ] \
+		&& sudo rm /var/service/wpa_supplicant
 }
 
 enable_system_services () {
