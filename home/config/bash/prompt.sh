@@ -3,8 +3,9 @@
 __get_git_prompt_details () {
 	if command -v git >/dev/null 2>&1; then
 		local git_stash_size=$( (git stash list 2> /dev/null || :) | wc -l )
+		printf "$(__git_ps1)"
 		if [ $git_stash_size -gt 0 ]; then
-			printf "$(__git_ps1)+${git_stash_size}"
+			printf "+${git_stash_size}"
 		fi
 	fi
 }
