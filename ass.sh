@@ -30,6 +30,7 @@ declare -a PACKAGES=(
 	"emerald"
 	"engrampa"
 	"eom"
+	"flatpak"
 	"ffmpegthumbnailer"
 	"firefox-esr"
 	"freetype-32bit"
@@ -167,6 +168,20 @@ configure_user () {
 	sudo gpasswd -a "${USER_NAME}" polkitd
 }
 
+add_extras () {
+	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+ 	# flatpak install flathub com.github.tchx84.Flatseal -y
+	flatpak install flathub org.duckstation.DuckStation -y
+  	flatpak install flathub io.github.shiiion.primehack -y
+  	flatpak install flathub org.DolphinEmu.dolphin-emu -y
+  	flatpak install flathub org.flycast.Flycast -y
+	flatpak install flathub org.ryujinx.Ryujinx -y
+  	flatpak install flathub org.mamedev.MAME -y
+  	flatpak install flathub net.rpcs3.RPCS3 -y
+  	flatpak install flathub net.pcsx2.PCSX2 -y
+  	flatpak install flathub app.xemu.xemu -y
+}
+
 main () {
 	printf "\n${SCRIPT_NAME} - Automated System Setup\n"
 	printf "\n/// IMPORTANT /// : This script should be used after a fresh voidlinux installation.
@@ -184,6 +199,7 @@ main () {
 				copy_system_configuration
 				disable_system_services
 				enable_system_services
+#				add_extras
 				printf "\n/// FINISHED ${SCRIPT_NAME} ///\n\n"
 				while true; do
 					read -r -p "Reboot the system? " yn
