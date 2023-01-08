@@ -89,8 +89,8 @@ declare -a PACKAGES=(
 
 check_previleges () {
     printf "\nValidating run previleges... user ${USER_NAME} (${EUID})\n"
-    if [ "${EUID}" -eq 0 ]
-      then printf "Please run as a regular user to continue...\n\n"
+    if [ "${EUID}" -eq 0 ]; then
+      printf "Please run as a regular user to continue...\n\n"
       exit 127
     fi
 }
@@ -118,9 +118,9 @@ install_packages () {
 
 copy_system_configuration () {
     printf "\nCopying system configurations...\n"
-    sudo cp -r -v "${PROJECT_ROOT}"/etc/* /etc/
+    sudo cp -r -v "${PROJECT_ROOT}"/etc/* /etc/ \
+		&& sudo update-grub
     sudo cp -r -v "${PROJECT_ROOT}"/usr/* /usr/
-	sudo update-grub
 }
 
 disable_system_services () {
@@ -145,11 +145,11 @@ enable_system_services () {
 
 configure_user () {
     printf "\nConfiguring user...\n"
-    pactl set-sink-mute @DEFAULT_SINK@ toggle
-    pactl -- set-sink-volume @DEFAULT_SINK@ 80%
+    pactl set-sink-mute @DEFAULT_SINK@ toggle \
+    	&& pactl -- set-sink-volume @DEFAULT_SINK@ 80%
 	mkdir -p ~/.config/"$(whoami)-$(id -u)" \
 		&& chmod 700 ~/.config/"$(whoami)-$(id -u)"
-    eval "$(ssh-agent)"
+	eval "$(ssh-agent)"
 	mkdir -p ~/.ssh \
 		&& chmod 700 ~/.ssh \
 		&& touch ~/.ssh/known_hosts \
@@ -171,10 +171,10 @@ configure_user () {
 
 main () {
 	printf "\n${SCRIPT_NAME} - Automated System Setup\n"
-	printf "\n/// IMPORTANT /// : This script should be used after a fresh archlinux installation.
-	            Use <CTRL>+c to abort the script execution anytime.\n\n"
+	printf "\n/// IMPORTANT /// : This script should be used after a fresh voidlinux installation.
+	            Use <CTRL>+C to abort the script executing anytime.\n\n"
 	while true; do
-		read -r -p "Do you wish to continue with the installation? " yn
+		read -r -p "Do you wish to continue? " yn
 		case $yn in
 			[Yy]*) 
 				check_previleges
@@ -188,7 +188,7 @@ main () {
 				enable_system_services
 				printf "\n/// FINISHED ${SCRIPT_NAME} ///\n\n"
 				while true; do
-					read -r -p "Do you wish to reboot the system? " yn
+					read -r -p "Reboot the system? " yn
 					case $yn in
 						[Yy]*) 
 							sudo reboot
@@ -197,7 +197,7 @@ main () {
 							exit 0
 						;;
 						*) 
-							echo "Please use [Y/y] for 'Yes' or [N/n] for 'No'."
+							echo "Use [Y/y] for 'Yes' or [N/n] for 'No'."
 						;;
 					esac
 				done
@@ -206,7 +206,7 @@ main () {
 				exit 0
 			;;
 			*) 
-				echo "Please use [Y/y] for 'Yes' or [N/n] for 'No'."
+				echo "Use [Y/y] for 'Yes' or [N/n] for 'No'."
 			;;
 		esac
 	done
