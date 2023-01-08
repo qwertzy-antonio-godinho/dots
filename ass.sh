@@ -170,18 +170,19 @@ configure_user () {
 
 install_extras () {
     printf "\nInstalling extras...\n"
-	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
- 	# flatpak install flathub com.github.tchx84.Flatseal -y
-	flatpak install flathub org.duckstation.DuckStation -y
-  	flatpak install flathub io.github.shiiion.primehack -y
-  	flatpak install flathub org.DolphinEmu.dolphin-emu -y
-  	flatpak install flathub org.flycast.Flycast -y
-	flatpak install flathub org.ryujinx.Ryujinx -y
-  	flatpak install flathub org.mamedev.MAME -y
-  	flatpak install flathub net.rpcs3.RPCS3 -y
-  	flatpak install flathub net.pcsx2.PCSX2 -y
-  	flatpak install flathub app.xemu.xemu -y
-	flatpak install flathub io.github.simple64.simple64 -y
+	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo \
+		&& flatpak install flathub org.duckstation.DuckStation -y \
+  		&& flatpak install flathub io.github.shiiion.primehack -y \
+  		&& flatpak install flathub org.DolphinEmu.dolphin-emu -y \
+  		&& flatpak install flathub org.flycast.Flycast -y \
+		&& flatpak install flathub org.ryujinx.Ryujinx -y \
+  		&& flatpak install flathub org.mamedev.MAME -y \
+  		&& flatpak install flathub net.pcsx2.PCSX2 -y \
+  		&& flatpak install flathub app.xemu.xemu -y \
+  		&& flatpak install flathub net.rpcs3.RPCS3 -y \
+			&& sudo flatpak override net.rpcs3.RPCS3 --filesystem=host \
+		&& flatpak install flathub io.github.simple64.simple64 -y \
+			&& sudo flatpak override io.github.simple64.simple64 --filesystem=host
 }
 
 main () {
