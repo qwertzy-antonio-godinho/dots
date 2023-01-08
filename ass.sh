@@ -147,8 +147,9 @@ configure_user () {
     printf "\nConfiguring user...\n"
     pactl set-sink-mute @DEFAULT_SINK@ toggle \
     	&& pactl -- set-sink-volume @DEFAULT_SINK@ 80%
-	mkdir -p ~/.config/"$(whoami)-$(id -u)" \
-		&& chmod 700 ~/.config/"$(whoami)-$(id -u)"
+	[ ! -d /run/user/"$(id -u)" ] \
+		&& mkdir /run/user/"$(id -u)" \
+		&& chmod 700 /run/user/"$(id -u)"
 	eval "$(ssh-agent)"
 	mkdir -p ~/.ssh \
 		&& chmod 700 ~/.ssh \
@@ -156,9 +157,6 @@ configure_user () {
 		&& ssh-keyscan -t Ed25519 github.com > ~/.ssh/known_hosts
     [ -f /backup/.keys/qwertzy-antonio-godinho-github.com ] \
 		&& ssh-add /backup/.keys/qwertzy-antonio-godinho-github.com
-	[ -d /run/user/"$(id -u)" ] \
-		&& mkdir /run/user/"$(id -u)" \
-		&& chmod 700 /run/user/"$(id -u)"
 	sudo gpasswd -a "${USER_NAME}" wheel
 	sudo gpasswd -a "${USER_NAME}" audio
 	sudo gpasswd -a "${USER_NAME}" optical
