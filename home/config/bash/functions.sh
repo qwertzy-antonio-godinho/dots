@@ -91,6 +91,9 @@ __source_bash_completions () {
 	if [ -d "${bash_completions_dir}" ]; then
 		declare -a COMPLETIONS=(
 			"git"
+			"docker"
+			"mount"
+			"umount"
 		)
 		for completion_file in "${COMPLETIONS[@]}"; do
 			local bash_completion="${bash_completions_dir}/${completion_file}"
