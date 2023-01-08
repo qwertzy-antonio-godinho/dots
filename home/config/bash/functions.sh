@@ -12,7 +12,7 @@ man () {
 
 hist () {
 	if command -v fzf >/dev/null 2>&1; then
-		eval cat "${HOME}/.bash_history" | fzf -i --exact
+		eval "$(fzf -i --exact < "${HOME}/.bash_history")"
 	else
 		printfl E "${RED}(${BASH_SOURCE}:hist) ${NC}fzf command not found\n"
 	fi
