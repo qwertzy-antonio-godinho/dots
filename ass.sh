@@ -148,9 +148,6 @@ configure_user () {
     printf "\nConfiguring user...\n"
     pactl set-sink-mute @DEFAULT_SINK@ toggle \
     	&& pactl -- set-sink-volume @DEFAULT_SINK@ 80%
-	[ ! -d /run/user/"$(id -u)" ] \
-		&& mkdir /run/user/"$(id -u)" \
-		&& chmod 700 /run/user/"$(id -u)"
 	eval "$(ssh-agent)"
 	mkdir -p ~/.ssh \
 		&& chmod 700 ~/.ssh \
