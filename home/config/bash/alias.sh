@@ -22,6 +22,7 @@ alias git-log-summary="git log --stat --graph --color"
 alias git-follow-file="git log --follow --stat -p --"
 alias git-search-message="git log --stat -i --grep"
 alias git-search-message-all-branches="git log --stat -i --all --grep"
+alias git-stash-save="git stash push -um"
 
 # TV
 alias tv-small="nvidia-settings --assign CurrentMetaMode='HDMI-0: 1920x1080_60 +0+0 {viewportout=1840x1035+40+22} {ForceFullCompositionPipeline=On}'"
