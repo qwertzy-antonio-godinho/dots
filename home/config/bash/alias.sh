@@ -19,7 +19,9 @@ alias git-status="git status -sb --show-stash --ahead-behind"
 alias git-commit-dry="git commit --dry-run --short --branch"
 alias git-log="git log --graph --pretty=format:'%Cred%h%Creset %ad %s%C(yellow) %d%Creset %C(bold blue)<%an>%Creset' --date=short"
 alias git-log-summary="git log --stat --graph --color"
-alias git-follow="git log --follow --stat -p --"
+alias git-follow-file="git log --follow --stat -p --"
+alias git-search="git log --stat -i --grep"
+alias git-search-all="git log --stat -i --all --grep"
 
 # TV
 alias tv-small="nvidia-settings --assign CurrentMetaMode='HDMI-0: 1920x1080_60 +0+0 {viewportout=1840x1035+40+22} {ForceFullCompositionPipeline=On}'"
