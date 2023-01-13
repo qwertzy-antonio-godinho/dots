@@ -61,6 +61,7 @@ declare -a PACKAGES=(
 	"pulseaudio"
 	"qemu"
 	"redshift-gtk"
+	"ripgrep"
 	"rofi"
 	"setxkbmap"
 	"stalonetray"
