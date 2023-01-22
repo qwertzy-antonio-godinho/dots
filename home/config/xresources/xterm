@@ -9,7 +9,6 @@ XTerm*title: XTerm
 XTerm*faceSize: 11
 XTerm*faceName: liga Mononoki
 XTerm*renderFont: true
-XTerm*selectToClipboard: true
 XTerm*highlightSelection: true
 XTerm*trimSelection: true
 XTerm*background: #011627

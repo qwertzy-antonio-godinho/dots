@@ -9,7 +9,6 @@ UXTerm*title: UXTerm
 UXTerm*faceSize: 11
 UXTerm*faceName: liga Mononoki
 UXTerm*renderFont: true
-UXTerm*selectToClipboard: true
 UXTerm*highlightSelection: true
 UXTerm*trimSelection: true
 UXTerm*background: #011627
