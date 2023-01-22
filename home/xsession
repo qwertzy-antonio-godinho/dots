@@ -19,6 +19,9 @@ exec /usr/libexec/polkit-mate-authentication-agent-1 &
 exec hsetroot -solid '#11122C' &
 exec xsettingsd &
 exec xrdb ~/.Xresources &
+#exec xset s off &
+exec xset -dpms &
+#exec xset s noblank &
 
 # APPLICATIONS
 # -------------
