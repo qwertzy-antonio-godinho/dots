@@ -3,7 +3,7 @@
     "workbench.colorTheme": "1Dark RainCoat Bright",
     "editor.cursorStyle": "block",
     "editor.wordWrap": "wordWrapColumn",
-    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorSmoothCaretAnimation": "on",
     "editor.minimap.autohide": true,
     "breadcrumbs.enabled": false,
     "workbench.editor.scrollToSwitchTabs": true,
