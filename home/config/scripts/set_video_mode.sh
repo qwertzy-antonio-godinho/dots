@@ -64,6 +64,7 @@ set_scale () {
 	printf "        * DPI=%s\n" "$dpi"
 	sed -i --follow-symlinks -E "s/Xft.dpi:.*/Xft.dpi: $dpi/" "$HOME/.config/xresources/dpi"
 	sed -i --follow-symlinks -E "/DPI/s/[0-9.]+/${dpi_xsettingsd}/" "$HOME/.config/xsettingsd/xsettingsd.conf"
+	sed -i --follow-symlinks -E "s/^as_command0.*$/as_command0 = rofi -combi-modi run -show combi -dpi $dpi/" "$HOME/.config/compiz/compizconfig/Default.ini"
 	export QT_FONT_DPI=${dpi}
 
 	# --- [ MOUSE ] ------------------------------------------------------------------
