@@ -114,7 +114,7 @@ set_resolution_scale () {
 			local scale_stalonetray_icon_size=32
 		;;
 		"3440x1440")
-			local scale_dpi=142
+			local scale_dpi=152
 			local scale_mouse_size=48
 			local scale_font_size=11
 			local scale_ui_height=34
