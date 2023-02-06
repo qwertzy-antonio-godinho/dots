@@ -7,7 +7,7 @@ XTerm*rightScrollBar: on
 XTerm*savelines: 16384
 XTerm*title: XTerm
 XTerm*faceSize: 11
-XTerm*faceName: liga Mononoki
+XTerm*faceName: Mononoki Nerd Font
 XTerm*renderFont: true
 XTerm*highlightSelection: true
 XTerm*trimSelection: true
