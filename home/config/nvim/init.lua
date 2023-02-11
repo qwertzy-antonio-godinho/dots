@@ -10,92 +10,6 @@ end
 require('packer').startup(function(use)
   -- Package manager
   use 'wbthomason/packer.nvim'
- 
- use {
-  'nvim-tree/nvim-tree.lua',
-  requires = {
-    'nvim-tree/nvim-web-devicons', -- optional, for file icons
-  },
-}
-require("nvim-tree").setup{
-  filters = { custom = { "^.git$", "^.pytest_cache$", "^__pycache__$" } },
-    view = {
-		adaptive_size = true,
-		width = 25,
-    },
-        actions = {
-      change_dir = {
-        enable = false,
-        restrict_above_cwd = true,
-      },
-      }
-}
-
-local function open_nvim_tree(data)
-  local IGNORED_FT = {
-    "markdown",
-  }
-
-  -- buffer is a real file on the disk
-  local real_file = vim.fn.filereadable(data.file) == 1
-
-  -- buffer is a [No Name]
-  local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
-
-  -- &ft
-  local filetype = vim.bo[data.buf].ft
-
-  -- only files please
-  if not real_file and not no_name then
-    return
-  end
-
-  -- skip ignored filetypes
-  if vim.tbl_contains(IGNORED_FT, filetype) then
-    return
-  end
-
-  -- open the tree but don't focus it
-  require("nvim-tree.api").tree.toggle({ focus = false })
-end
-
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
-vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
-
-  use 'mhinz/vim-startify'
-  use 'RRethy/vim-illuminate'
-  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
-
-diagnostics_indicator = function(count, level, diagnostics_dict, context)
-  local s = " "
-  for e, n in pairs(diagnostics_dict) do
-    local sym = e == "error" and " "
-      or (e == "warning" and " " or "" )
-    s = s .. n .. sym
-  end
-  return s
-end
-
-require("bufferline").setup({
-  options = {
-    show_close_icon = false,
-	show_buffer_close_icons = true,
-	diagnostics = "nvim_lsp",
-	diagnostics_indicator = diagnostics_indicator,
-    offsets = {
-      {
-        filetype = "NvimTree",
-        text = "File Explorer",
-        text_align = "center",
-        separator = true,
-      }
-    }
-  }
-})
-
-  use 'xiyaowong/nvim-transparent'
 
   use { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -141,7 +55,7 @@ require("bufferline").setup({
   use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
 
   -- Fuzzy Finder (files, lsp, etc)
-  use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
+  use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' }, lazymod = 'telescope' }
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
@@ -206,7 +120,7 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme sonokai]]
+vim.cmd [[colorscheme kanagawa]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -237,12 +151,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
--- Transparent theme
-require("transparent").setup({
-  enable = true, -- boolean: enable transparent
-  exclude = {}, -- table: groups you don't want to clear
-})
-
 -- Set lualine as statusline
 -- See `:help lualine.txt`
 require('lualine').setup {
@@ -253,27 +161,13 @@ require('lualine').setup {
     section_separators = '',
   },
   sections = {
-	  lualine_c = {
-		{
-		  'filename',
-		  file_status = true,      -- Displays file status (readonly status, modified status)
-		  newfile_status = false,  -- Display new file status (new file means no write after created)
-		  path = 3,                -- 0: Just the filename
-		                           -- 1: Relative path
-		                           -- 2: Absolute path
-		                           -- 3: Absolute path, with tilde as the home directory
-
-		  shorting_target = 40,    -- Shortens path to leave 40 spaces in the window
-		                           -- for other components. (terrible name, any suggestions?)
-		  symbols = {
-		    modified = '[+]',      -- Text to show when the file is modified.
-		    readonly = '[-]',      -- Text to show when the file is non-modifiable or readonly.
-		    unnamed = '[No Name]', -- Text to show for unnamed buffers.
-		    newfile = '[New]',     -- Text to show for newly created file before first write
-		  }
-		}
-	  }
-	}
+    lualine_c = {
+      {
+        'filename',
+        path = 3,   
+      }
+    }
+  }
 }
 
 -- Enable Comment.nvim
@@ -289,15 +183,15 @@ require('indent_blankline').setup {
 -- Gitsigns
 -- See `:help gitsigns.txt`
 require('gitsigns').setup {
-	signs = {
-		add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-		change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-		delete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-		topdelete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-		changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-	},
-	numhl = true,
-	current_line_blame = true,
+  signs = {
+    add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+    change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+    delete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+    topdelete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+    changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+  },
+  numhl = true,
+  current_line_blame = true,
 }
 
 -- [[ Configure Telescope ]]
@@ -337,7 +231,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'python', 'bash', 'proto', 'markdown', 'lua', 'yaml', 'toml', 'help', 'vim', 'ini', 'diff', 'dockerfile', 'json', 'json5', 'regex', 'terraform' },
+  ensure_installed = { 'python', 'bash', 'proto', 'markdown', 'lua', 'yaml', 'toml', 'help', 'vim', 'ini', 'diff', 'dockerfile', 'json', 'regex', },
 
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
@@ -456,7 +350,6 @@ local servers = {
   -- clangd = {},
   -- gopls = {},
   -- pyright = {},
-  pylsp = {},
   -- rust_analyzer = {},
   -- tsserver = {},
 
@@ -469,10 +362,7 @@ local servers = {
 }
 
 -- Setup neovim lua configuration
-require("neodev").setup({
-  library = { plugins = { "nvim-dap-ui" }, types = true },
-})
-
+require('neodev').setup()
 --
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
