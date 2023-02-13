@@ -101,3 +101,33 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
+
+-- Functional wrapper for mapping custom keybindings
+function map(mode, lhs, rhs, opts)
+    local options = { noremap = true }
+    if opts then
+        options = vim.tbl_extend("force", options, opts)
+    end
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+map("n", "<C-q>", ":qa<CR>", { silent = true })
+map("i", "<C-q>", "<cmd>qa<CR>", { silent = true })
+map("v", "<C-q>", "<cmd>qa<CR>", { silent = true })
+
+map("n", "<C-S-q>", ":qa!<CR>", { silent = true })
+map("i", "<C-S-q>", "<cmd>qa!<CR>", { silent = true })
+map("v", "<C-S-q>", "<cmd>qa!<CR>", { silent = true })
+
+map("n", "<C-s>", ":w<CR>", { silent = true })
+map("i", "<C-s>", "<cmd>w<CR>", { silent = true })
+map("v", "<C-s>", "<cmd>w<CR>", { silent = true })
+
+map("n", "<C-z>", ":u<CR>", { silent = true })
+map("i", "<C-z>", "<cmd>u<CR>", { silent = true })
+map("v", "<C-z>", "<cmd>u<CR>", { silent = true })
+
+map("n", "<C-S-z>", "<C-R>", { silent = true })
+map("i", "<C-S-z>", "<cmd>redo<CR>", { silent = true })
+map("v", "<C-S-z>", "<cmd>redo<CR>", { silent = true })
+
