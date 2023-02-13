@@ -92,7 +92,7 @@ return function(use)
       end
   })
   use({
-    "rebelot/kanagawa.nvim", 
+    "flazz/vim-colorschemes", 
   })
   use({
     "kevinhwang91/nvim-ufo", 
