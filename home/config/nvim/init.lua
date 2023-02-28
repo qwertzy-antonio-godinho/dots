@@ -120,8 +120,23 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme kanagawa]]
-
+vim.cmd [[colorscheme PaperColor]]
+--PaperColor
+--argonaut asu1dark
+--SerialExperimentsLain
+--SlateDark
+--Tomorrow-Night-Bright
+--BlackSea
+--adventurous
+--afterglow.
+-- tchaba2
+-- vorange
+-- tigrana-256-dark
+-- two2tango
+----underwater-mod
+--valloric
+--vimbrains
+-- znake
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 

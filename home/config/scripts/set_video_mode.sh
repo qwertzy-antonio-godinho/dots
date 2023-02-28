@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /bin/env bash
 
 # Settings
 OUTPUT_TV="HDMI-0"
