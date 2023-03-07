@@ -7,8 +7,12 @@ if status_ok then
 				"williamboman/mason.nvim",
 				"williamboman/mason-lspconfig.nvim",
 				"j-hui/fidget.nvim",
-				"WhoIsSethDaniel/mason-tool-installer.nvim",
 			},
+		}
+		use {
+			"jose-elias-alvarez/null-ls.nvim",
+			"jay-babu/mason-null-ls.nvim",
+			requires = "williamboman/mason.nvim",
 		}
 		use {
 			"mfussenegger/nvim-dap",
@@ -31,7 +35,7 @@ if status_ok then
 			lazymod = "aerial",
 			telescope_ext = "aerial",
 		}
-		use "Pocco81/auto-save.nvim"
+--		use "Pocco81/auto-save.nvim"
 		use "s1n7ax/nvim-window-picker"
 		use {
 			"folke/trouble.nvim",

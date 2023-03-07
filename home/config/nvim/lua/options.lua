@@ -1,4 +1,9 @@
+local global = vim.g
 local option = vim.opt
+local diagnostics = vim.diagnostic
+
+global.loaded_netrw = 1
+global.loaded_netrwPlugin = 1
 
 -- Mouse
 option.mouse = "a"
@@ -14,7 +19,6 @@ option.wrap = true
 
 -- Tabs
 option.shiftwidth = 4
---option.softtabstop = 4
 option.tabstop = 4
 option.expandtab = true
 option.breakindent = true
@@ -24,6 +28,10 @@ option.autoindent = true
 option.ignorecase = true
 option.smartcase = true
 option.incsearch = true
+
+-- Format
+option.encoding = "utf8" 
+option.fileencoding = "utf8"
 
 -- New buffers
 option.splitbelow = true
@@ -68,21 +76,3 @@ option.iskeyword:append("-")
 
 -- Cursor
 option.guicursor = "n-v-c-sm:block,i:ver20/lCursor"
-
--- Diagnostics
-vim.diagnostic.config({
-	virtual_text = {
-		prefix = '∎',
-	},
-	severity_sort = true,
-	signs = false,
-	underline = true,
-	float = {
-		source = "always",
-	},
-	update_in_insert = true,
-})
-vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
-
--- Python format
-vim.cmd [[au BufWritePost *.py :silent !black %]]

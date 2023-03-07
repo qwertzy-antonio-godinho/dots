@@ -1,10 +1,10 @@
-local keymap = vim.keymap
-
 -- Set leader
 vim.g.mapleader = " "
 
 -- Test keys
 vim.cmd [[ :map <C-x> :echo "Key press is working!"<CR> ]]
+
+local keymap = vim.keymap
 
 -- Window management
 keymap.set("n", "<C-w>|", "<C-w>v")
