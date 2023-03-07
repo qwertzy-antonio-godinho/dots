@@ -22,6 +22,12 @@ if not status_ok then
 	return
 end
 
+vim.fn.sign_define("DapBreakpoint", { text="", texthl="DapBreakpoint", linehl="DapBreakpoint", numhl="DapBreakpoint" })
+vim.fn.sign_define("DapBreakpointCondition", { text="ﳁ", texthl="DapBreakpoint", linehl="DapBreakpoint", numhl="DapBreakpoint" })
+vim.fn.sign_define("DapBreakpointRejected", { text="", texthl="DapBreakpoint", linehl="DapBreakpoint", numhl= "DapBreakpoint" })
+vim.fn.sign_define("DapLogPoint", { text="", texthl="DapLogPoint", linehl="DapLogPoint", numhl= "DapLogPoint" })
+vim.fn.sign_define("DapStopped", { text="", texthl="DapStopped", linehl="Search", numhl= "DapStopped" })
+
 dap_virtual_text.setup()
 
 local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")

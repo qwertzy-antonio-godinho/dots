@@ -9,6 +9,7 @@ if status_ok then
 				"j-hui/fidget.nvim",
 			},
 		}
+		use "Shatur/neovim-session-manager"
 		use {
 			"jose-elias-alvarez/null-ls.nvim",
 			"jay-babu/mason-null-ls.nvim",
@@ -22,6 +23,7 @@ if status_ok then
 				"theHamsta/nvim-dap-virtual-text",
 			},
 		}
+		use "nvim-telescope/telescope-dap.nvim"
 		use "mhinz/vim-startify"
 		use "tyrannicaltoucan/vim-deep-space"
 		use "lukas-reineke/indent-blankline.nvim"
@@ -78,6 +80,7 @@ if status_ok then
 			requires = "nvim-lua/plenary.nvim",
 			lazymod = "telescope",
 		}
+		use "nvim-telescope/telescope-ui-select.nvim"
 		use {
 			"nvim-neo-tree/neo-tree.nvim",
 			branch = "v2.x",

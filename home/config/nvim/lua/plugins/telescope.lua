@@ -5,6 +5,10 @@ if not status_ok then
 end
 
 telescope.setup({
+	extensions = {
+		["ui-select"] = { require("telescope.themes").get_dropdown {} },
+		["dap"] = { require("telescope.themes").get_dropdown {} },
+	},
 	defaults = {
 		path_display = { "smart" },
 		file_ignore_patterns = {
@@ -62,3 +66,6 @@ telescope.setup({
 		},
 	}
 })
+
+telescope.load_extension("dap")
+telescope.load_extension("ui-select")
