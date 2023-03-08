@@ -20,7 +20,6 @@ option.wrap = true
 -- Tabs
 option.shiftwidth = 4
 option.tabstop = 4
-option.expandtab = true
 option.breakindent = true
 option.autoindent = true
 
@@ -54,7 +53,7 @@ option.laststatus = 3
 option.fillchars = [[foldopen:-,foldclose:+,eob: ]]
 
 -- Code column
-option.colorcolumn = "120"
+option.colorcolumn = "121"
 
 -- Folds
 option.foldcolumn = "5"
@@ -63,7 +62,7 @@ option.foldlevelstart = 99
 option.foldenable = true
 
 -- Signs
-option.signcolumn = "yes:1"
+option.signcolumn = "yes:2"
 
 -- Backspace
 option.backspace = "indent,eol,start"

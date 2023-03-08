@@ -5,11 +5,11 @@ if not status_ok then
 end
 
 vim.diagnostic.config({
-	virtual_text = {
-		prefix = "∎",
-	},
+	virtual_text = false, --{
+--		prefix = "∎»",
+--	},
 	severity_sort = true,
-	signs = false,
+	signs = true,
 	underline = true,
 	float = {
 		source = "always",
