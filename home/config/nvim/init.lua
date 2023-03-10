@@ -7,7 +7,7 @@ require "keymaps"
 
 require "plugins.aerial"
 --require "plugins.auto_save"
-require "plugins.bufferline"
+--require "plugins.bufferline"
 require "plugins.cmp"
 require "plugins.dap"
 require "plugins.diffview"

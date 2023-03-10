@@ -6,11 +6,14 @@ end
 
 bufferline.setup({
 	options = {
+		indicator = {
+			style = "none",
+		},
 		offsets = {
-			{ filetype = "neo-tree", text = "Explorer", },
+			{ filetype = "neo-tree", text = "Explorer", highlight = "PanelHeading", padding = 1, },
 			{ filetype = "dapui", text = "Debug", },
 			{ filetype = "Trouble",  text = "Problems", },
-			{ filetype = "aerial",   text = "Symbols", },
+			{ filetype = "aerial",   text = "Symbols", highlight = "PanelHeading", padding = 1, },
 		},
 		custom_filter = function(buf_number, buf_numbers)
 			local buf_name = vim.fn.bufname(buf_number)

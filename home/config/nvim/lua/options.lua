@@ -10,6 +10,10 @@ option.mouse = "a"
 
 -- Line numbers
 option.number = true
+option.numberwidth = 2
+
+-- Editor
+option.whichwrap:append "<>[]"
 
 -- Cursor line
 option.cursorline = true
@@ -51,6 +55,8 @@ option.updatetime = 50
 option.showmode = false
 option.laststatus = 3
 option.fillchars = [[foldopen:-,foldclose:+,eob: ]]
+option.shortmess:append "sI"
+option.title = true
 
 -- Code column
 option.colorcolumn = "121"
@@ -62,7 +68,7 @@ option.foldlevelstart = 99
 option.foldenable = true
 
 -- Signs
-option.signcolumn = "yes:2"
+option.signcolumn = "yes:1"
 
 -- Backspace
 option.backspace = "indent,eol,start"

@@ -33,7 +33,10 @@ treesitter_config.setup({
 	},
 	auto_install = true,
 	highlight = { enable = true },
-	indent = { enable = true },
+	indent = { 
+		enable = true, 
+		use_languagetree = true, 
+	},
 	textobjects = {
 		lsp_interop = {
 			enable = true,

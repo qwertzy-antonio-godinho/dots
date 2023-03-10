@@ -5,11 +5,9 @@ if not status_ok then
 end
 
 vim.diagnostic.config({
-	virtual_text = false, --{
---		prefix = "∎»",
---	},
+	virtual_text = false,
 	severity_sort = true,
-	signs = true,
+	signs = false,
 	underline = true,
 	float = {
 		source = "always",
@@ -17,6 +15,8 @@ vim.diagnostic.config({
 	update_in_insert = true,
 })
 vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+
+vim.cmd [[autocmd ColorScheme * call v:lua.vim.lsp.diagnostic._define_default_signs_and_highlights()]]
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
@@ -54,4 +54,3 @@ null_ls.setup({
 		end
 	end,
 })
-

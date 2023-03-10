@@ -4,7 +4,29 @@ if not status_ok then
 	return
 end
 
+local function border(hl_name)
+	return {
+		{ "╭", hl_name },
+		{ "─", hl_name },
+		{ "╮", hl_name },
+		{ "│", hl_name },
+		{ "╯", hl_name },
+		{ "─", hl_name },
+		{ "╰", hl_name },
+		{ "│", hl_name },
+	}
+end
+
 cmp.setup({
+	window = {
+		completion = {
+			border = border "CmpBorder",
+			winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
+		},
+		documentation = {
+			border = border "CmpDocBorder",
+		},
+	},
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "path" },

@@ -16,10 +16,11 @@ UXTerm*foreground: #ffffff
 UXTerm*cursorColor: #289c93
 UXTerm*colorMode: on
 UXTerm*dynamicColors: on
-UXTerm*underLine: off
+UXTerm*underLine: on
 UXTerm*colorULMode: on
 UXTerm*colorUL: magenta
 UXTerm*vt100.cursorBlink: true
+UXTerm*vt100.metaSendsEscape: true
 UXTerm*fullscreen: never
 UXTerm*scrollTtyOutput: false
 UXTerm*selectToClipboard: true

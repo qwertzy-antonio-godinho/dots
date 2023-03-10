@@ -22,6 +22,8 @@ if not status_ok then
 	return
 end
 
+local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
+
 vim.fn.sign_define("DapBreakpoint", { text="", texthl="DapBreakpoint", linehl="DapBreakpoint", numhl="DapBreakpoint" })
 vim.fn.sign_define("DapBreakpointCondition", { text="ﳁ", texthl="DapBreakpoint", linehl="DapBreakpoint", numhl="DapBreakpoint" })
 vim.fn.sign_define("DapBreakpointRejected", { text="", texthl="DapBreakpoint", linehl="DapBreakpoint", numhl= "DapBreakpoint" })
@@ -30,32 +32,51 @@ vim.fn.sign_define("DapStopped", { text="", texthl="DapStopped", linehl="Sear
 
 dap_virtual_text.setup()
 
-local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
-dap_python.setup(mason_path .. "packages/debugpy/venv/bin/python")
-dap_python.test_runner = "pytest"
-
 dap.adapters.python = {
 	type = "executable",
 	command = "python",
 	args = { "-m", "debugpy.adapter" },
 }
 
-dap.configurations.python = {
-	{
-		type = "python",
-		request = "launch",
-		name = "My py",
-		console = "integratedTerminal",
-		program = "${file}",
-		pythonPath = function()
-			return "python"
-		end,
---		pythonPath = "/usr/bin/python"
+dap_python.setup(mason_path .. "packages/debugpy/venv/bin/python")
+dap_python.test_runner = "pytest"
+
+-- Variables ----------------------
+local env_variables = {}
+local default_python_binary_path = "/usr/bin/python"
+local default_automation_path = "~/nvim-test/"
+env_variables["PYTHONPATH"] = "${PYTHONPATH}:" .. default_automation_path
+env_variables["PYTHONTRACEMALLOC"] = "1"
+
+python_binary_path = function()
+	local venv_path = os.getenv("VIRTUAL_ENV")
+	if venv_path then
+		return venv_path .. "/bin/python"
+	else
+		return default_python_binary_path
+	end
+end
+-- --------------------------------
+
+table.insert(dap.configurations.python, {
+	type = "python",
+	request = "launch",
+	name = "My py",
+--	program = "${file}",
+	module = "pytest",
+	args = {
+		"--verbosity=2",
+		"--color=yes",
+		"${file}",
 	},
-}
+	env = env_variables,
+	console = "integratedTerminal",
+	pythonPath = python_binary_path,
+	justMyCode = true,
+})
 
 dapui.setup({
-	icons = { expanded = "-", collapsed = "+", current_frame = "" },
+	icons = { expanded = "-", collapsed = "+", current_frame = ">" },
 	layouts = {
 		{
 			elements = {

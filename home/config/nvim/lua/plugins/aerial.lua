@@ -5,6 +5,7 @@ if not status_ok then
 end
 
 aerial.setup({
+	backends = { "lsp", "treesitter", },
 	layout = {
 		default_direction = "left",
 	},

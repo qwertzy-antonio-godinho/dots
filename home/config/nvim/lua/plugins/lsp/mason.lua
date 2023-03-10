@@ -16,8 +16,6 @@ if not status_ok then
   return
 end
 
-mason.setup()
-
 local servers = {
 	pylsp = {
 		Python = {
@@ -26,6 +24,8 @@ local servers = {
 		},
 	},
 }
+
+mason.setup()
 
 mason_lspconfig.setup({
 	ensure_installed = vim.tbl_keys(servers),
