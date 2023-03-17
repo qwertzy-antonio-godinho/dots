@@ -16,7 +16,7 @@ conky.config = {
     draw_outline = false,
     draw_shades = true,
     use_xft = true,
-    font = 'liga Mononoki: size=7',
+    font = 'Mononoki Nerd Font Mono: size=7',
     uppercase = false,
     gap_x = 10,
     gap_y = 10,

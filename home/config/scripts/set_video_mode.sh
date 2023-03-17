@@ -74,11 +74,11 @@ set_scale () {
 
 	# --- [ FONTS ] ------------------------------------------------------------------
 	printf "        * Font=%s\n" "$font_size"
-	sed -i --follow-symlinks -E "s/liga Mononoki .[0-9]/liga Mononoki $font_size/" "$HOME/.config/rofi/themes/lauzli.rasi"
+	sed -i --follow-symlinks -E "s/Mononoki Nerd Font Mono .[0-9]/Mononoki Nerd Font Mono $font_size/" "$HOME/.config/rofi/themes/lauzli.rasi"
 	sed -i --follow-symlinks -E "s/XTerm.faceSize:.*/XTerm*faceSize: $font_size/" "$HOME/.config/xresources/xterm"
 	sed -i --follow-symlinks -E "s/UXTerm.faceSize:.*/UXTerm*faceSize: $font_size/" "$HOME/.config/xresources/uxterm"
 	sed -i --follow-symlinks -E "s/Zekton Regular .[0-9]/Zekton Regular $font_size/" "$HOME/.config/gtk-3.0/settings.ini"
-	gsettings set org.mate.pluma editor-font "Liga mononoki $font_size"
+	gsettings set org.mate.pluma editor-font "Mononoki Nerd Font Mono $font_size"
 
 	# --- [ UI ] ---------------------------------------------------------------------
 	printf "        * UI=%s\n" "$ui_height"

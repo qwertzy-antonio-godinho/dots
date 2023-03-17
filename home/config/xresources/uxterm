@@ -7,7 +7,7 @@ UXTerm*rightScrollBar: on
 UXTerm*savelines: 16384
 UXTerm*title: UXTerm
 UXTerm*faceSize: 11
-UXTerm*faceName: Mononoki Nerd Font
+UXTerm*faceName: Mononoki Nerd Font Mono
 UXTerm*renderFont: true
 UXTerm*highlightSelection: true
 UXTerm*trimSelection: true

@@ -28,7 +28,7 @@
     ### Text ###
 
     # Set font of notifications
-    font = liga Mononoki 8
+    font = Mononoki Nerd Font Mono 8
     # Markup parsing
     markup = full
     # Message format:
