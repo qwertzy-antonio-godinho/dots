@@ -42,6 +42,7 @@ declare -a PACKAGES=(
 	"jq"
 	"lm_sensors"
 	"mate-polkit"
+	"mc"
 	"micro"
 	"most"
 	"mpg123"
