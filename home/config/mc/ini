@@ -21,7 +21,7 @@ mouse_move_pages_viewer=true
 mouse_close_dialog=false
 fast_refresh=false
 drop_menus=false
-wrap_mode=false
+wrap_mode=true
 old_esc_mode=true
 cd_symlinks=true
 show_all_if_ambiguous=false
@@ -87,14 +87,14 @@ skin=dracula_edited
 
 [Layout]
 output_lines=0
-left_panel_size=38
+left_panel_size=37
 top_panel_size=25
 message_visible=false
 keybar_visible=false
 xterm_title=true
 command_prompt=false
 menubar_visible=false
-free_space=false
+free_space=true
 horizontal_split=false
 vertical_equal=false
 horizontal_equal=true
