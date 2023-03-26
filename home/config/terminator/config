@@ -12,14 +12,14 @@
   inactive_color_offset = 0.40375586854460094
   enabled_plugins = ,
   title_use_system_font = False
-  title_font = Zekton 11
+  title_font = Zekton Bold 11
 [keybindings]
   split_horiz = <Primary>underscore
   split_vert = <Primary>bar
 [profiles]
   [[default]]
     background_color = "#011627"
-    background_darkness = 0.95
+    background_darkness = 0.85
     background_type = transparent
     cursor_color = "#15795f"
     cursor_color_fg = False

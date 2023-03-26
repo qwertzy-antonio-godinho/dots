@@ -76,7 +76,7 @@ set_scale () {
 	printf "        * Font=%s\n" "$font_size"
 	sed -i --follow-symlinks -E "s/Mononoki Nerd Font Mono .[0-9]/Mononoki Nerd Font Mono $font_size/" "$HOME/.config/rofi/themes/lauzli.rasi"
 	sed -i --follow-symlinks -E "s/Zekton Regular .[0-9]/Zekton Regular $font_size/" "$HOME/.config/gtk-3.0/settings.ini"
-	sed -i --follow-symlinks -E "s/Zekton .[0-9]/Zekton $font_size/" "$HOME/.config/terminator/config"
+	sed -i --follow-symlinks -E "s/Zekton Bold .[0-9]/Zekton Bold $font_size/" "$HOME/.config/terminator/config"
 	sed -i --follow-symlinks -E "s/Mononoki Nerd Font Mono .[0-9]/Mononoki Nerd Font Mono $font_size/" "$HOME/.config/terminator/config"
 	gsettings set org.mate.pluma editor-font "Mononoki Nerd Font Mono $font_size"
 
