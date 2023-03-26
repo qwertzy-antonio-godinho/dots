@@ -6,21 +6,28 @@ exec ~/.config/scripts/set_video_mode.sh &
 # -------------
 exec start-pulseaudio-x11 &
 
-# PC
+# KEYBOARD
 # -------------
 exec setxkbmap -layout us &
 
-# START-UP
+# WALLPAPER
 # -------------
-exec /usr/libexec/polkit-mate-authentication-agent-1 &
+#exec hsetroot -solid '#11122C' &
+#exec ~/.config/scripts/set_wallpaper.sh &
+exec xwinwrap -ovr -- /usr/libexec/xscreensaver/glmatrix -density 6 -root -window-id WID &
 
 # SETTINGS
 # -------------
-exec hsetroot -solid '#11122C' &
-exec ~/.config/scripts/set_wallpaper.sh &
 exec xsettingsd &
 exec xrdb ~/.Xresources &
 exec xset -dpms &
+exec /usr/libexec/polkit-mate-authentication-agent-1 &
+
+# APPLETS
+# -------------
+exec nm-applet &
+exec redshift-gtk &
+exec blueman-applet &
 
 # APPLICATIONS
 # -------------
@@ -28,12 +35,6 @@ exec stalonetray -c ~/.config/stalonetrayrc &
 exec dunst &
 exec conky -c ~/.config/conky/inforc &
 exec conky -c ~/.config/conky/authnetrc &
-
-# APPLETS
-# -------------
-exec nm-applet &
-exec redshift-gtk &
-exec blueman-applet &
 
 # WM
 # -------------

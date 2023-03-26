@@ -54,15 +54,6 @@ __run_ssh_agent () {
 	fi
 }
 
-__enable_tmux () {
-	if command -v tmux >/dev/null 2>&1; then
-		[ -z "${TMUX}" ] \
-			&& { tmux attach || exec tmux new-session && exit; }
-	else
-		printfl E "${RED}(${BASH_SOURCE}:__enable_tmux) ${NC}tmux command not found\n"
-	fi
-}
-
 __apply_dircolors () {
 	if command -v dircolors >/dev/null 2>&1; then
 		[ -r "${HOME}/.config/dircolors" ] \

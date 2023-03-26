@@ -28,7 +28,7 @@ get_details () {
 
 print_detected_outputs () {
     printf "\nOutputs detected: %s\n\n" "${#available_outputs[@]}"
-    for (( output_number=0; output_number<${#available_outputs[@]}; output_number++ )); do 
+    for (( output_number=0; output_number<${#available_outputs[@]}; output_number++ )); do
         get_details "${available_outputs[$output_number]}" "$((output_number + 1))"
     done
 }
@@ -40,13 +40,13 @@ set_primary () {
 }
 
 enable_monitor () {
-	printf "      - Turning On %s ${OUTPUT_MONITOR_SET_RESOLUTION} ${OUTPUT_MONITOR_SET_REFRESH_RATE}...\n" "${OUTPUT_MONITOR}"; 
+	printf "      - Turning On %s ${OUTPUT_MONITOR_SET_RESOLUTION} ${OUTPUT_MONITOR_SET_REFRESH_RATE}...\n" "${OUTPUT_MONITOR}";
 	xrandr --output "${OUTPUT_MONITOR}" --mode ${OUTPUT_MONITOR_SET_RESOLUTION} --rate ${OUTPUT_MONITOR_SET_REFRESH_RATE}
 }
 
 enable_tv () {
-	printf "      - Turning On %s ${OUTPUT_TV_SET_RESOLUTION} ${OUTPUT_TV_SET_REFRESH_RATE}...\n" "${OUTPUT_TV}"; 
-	2>/dev/null 1>&2 nvidia-settings --assign CurrentMetaMode="${OUTPUT_TV}: ${OUTPUT_TV_SET_RESOLUTION}_${OUTPUT_TV_SET_REFRESH_RATE} +0+0 {viewportout=1840x1035+40+22} {ForceFullCompositionPipeline=On}"; 
+	printf "      - Turning On %s ${OUTPUT_TV_SET_RESOLUTION} ${OUTPUT_TV_SET_REFRESH_RATE}...\n" "${OUTPUT_TV}";
+	2>/dev/null 1>&2 nvidia-settings --assign CurrentMetaMode="${OUTPUT_TV}: ${OUTPUT_TV_SET_RESOLUTION}_${OUTPUT_TV_SET_REFRESH_RATE} +0+0 {viewportout=1840x1035+40+22} {ForceFullCompositionPipeline=On}";
 }
 
 set_scale () {
@@ -75,9 +75,9 @@ set_scale () {
 	# --- [ FONTS ] ------------------------------------------------------------------
 	printf "        * Font=%s\n" "$font_size"
 	sed -i --follow-symlinks -E "s/Mononoki Nerd Font Mono .[0-9]/Mononoki Nerd Font Mono $font_size/" "$HOME/.config/rofi/themes/lauzli.rasi"
-	sed -i --follow-symlinks -E "s/XTerm.faceSize:.*/XTerm*faceSize: $font_size/" "$HOME/.config/xresources/xterm"
-	sed -i --follow-symlinks -E "s/UXTerm.faceSize:.*/UXTerm*faceSize: $font_size/" "$HOME/.config/xresources/uxterm"
 	sed -i --follow-symlinks -E "s/Zekton Regular .[0-9]/Zekton Regular $font_size/" "$HOME/.config/gtk-3.0/settings.ini"
+	sed -i --follow-symlinks -E "s/Zekton .[0-9]/Zekton $font_size/" "$HOME/.config/terminator/config"
+	sed -i --follow-symlinks -E "s/Mononoki Nerd Font Mono .[0-9]/Mononoki Nerd Font Mono $font_size/" "$HOME/.config/terminator/config"
 	gsettings set org.mate.pluma editor-font "Mononoki Nerd Font Mono $font_size"
 
 	# --- [ UI ] ---------------------------------------------------------------------

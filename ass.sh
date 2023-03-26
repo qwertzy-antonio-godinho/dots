@@ -67,8 +67,8 @@ declare -a PACKAGES=(
 	"rofi"
 	"setxkbmap"
 	"stalonetray"
+	"terminator"
 	"thunderbird"
-	"tmux"
 	"tree"
 	"tty-clock"
 	"unzip"
@@ -85,9 +85,10 @@ declare -a PACKAGES=(
 	"xorg-minimal"
 	"xrandr"
 	"xrdb"
+	"xscreensaver"
 	"xsel"
 	"xsettingsd"
-	"xterm"
+	"xwinwrap"
 	"xz"
 	"youtube-dl"
 	"zstd"
@@ -170,7 +171,7 @@ configure_user () {
 	sudo gpasswd -a "${USER_NAME}" polkitd
 }
 
-install_extras () {
+install_flatpaks () {
     printf "\nInstalling extras...\n"
 	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo \
 		&& flatpak install flathub org.duckstation.DuckStation -y \
@@ -201,7 +202,7 @@ main () {
 				enable_repos
 				update_system
 				install_packages
-				install_extras
+				install_flatpaks
 				configure_user
 				copy_system_configuration
 				disable_system_services

@@ -1,6 +1,4 @@
 #include ".config/xresources/dpi"
 #include ".config/xresources/fonts"
 #include ".config/xresources/colors"
-#include ".config/xresources/xterm"
-#include ".config/xresources/uxterm"
 #include ".config/xresources/cursors"
