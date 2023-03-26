@@ -74,6 +74,7 @@ set_scale () {
 
 	# --- [ FONTS ] ------------------------------------------------------------------
 	printf "        * Font=%s\n" "$font_size"
+	sed -i --follow-symlinks -E "s/Zekton Bold .[0-9]/Zekton Bold $font_size/" "$HOME/.emerald/themes/Balue/theme.ini"
 	sed -i --follow-symlinks -E "s/Mononoki Nerd Font Mono .[0-9]/Mononoki Nerd Font Mono $font_size/" "$HOME/.config/rofi/themes/lauzli.rasi"
 	sed -i --follow-symlinks -E "s/Zekton Regular .[0-9]/Zekton Regular $font_size/" "$HOME/.config/gtk-3.0/settings.ini"
 	sed -i --follow-symlinks -E "s/Zekton Bold .[0-9]/Zekton Bold $font_size/" "$HOME/.config/terminator/config"
@@ -107,7 +108,7 @@ set_resolution_scale () {
 		"1920x1080")
 			local scale_dpi=142
 			local scale_mouse_size=32
-			local scale_font_size=11
+			local scale_font_size=10
 			local scale_ui_height=30
 			local scale_ui_toolkit_scale=1
 			local scale_ui_dpi_scale=0.5
