@@ -9,7 +9,7 @@
   title_transmit_bg_color = "#011627"
   title_inactive_fg_color = "#3d3846"
   title_inactive_bg_color = "#011627"
-  inactive_color_offset = 0.40375586854460094
+  inactive_color_offset = 0.6052631578947368
   enabled_plugins = ,
   title_use_system_font = False
   title_font = Zekton Bold 10
