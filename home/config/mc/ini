@@ -87,7 +87,7 @@ skin=dracula_edited
 
 [Layout]
 output_lines=0
-left_panel_size=31
+left_panel_size=32
 top_panel_size=25
 message_visible=false
 keybar_visible=false
