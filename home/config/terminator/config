@@ -16,6 +16,7 @@
 [keybindings]
   split_horiz = <Primary>underscore
   split_vert = <Primary>bar
+  help = ""
 [profiles]
   [[default]]
     icon_bell = False
