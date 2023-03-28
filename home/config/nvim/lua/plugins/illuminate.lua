@@ -9,4 +9,12 @@ else
 	vim.cmd("hi IlluminatedWordText guibg=#525252")
 	vim.cmd("hi IlluminatedWordRead guibg=#525252")
 	vim.cmd("hi IlluminatedWordWrite guibg=#525252")
+
+	illuminate.configure({
+		providers = {
+			"treesitter",
+			"regex",
+		},
+		min_count_to_highlight = 2,
+	})
 end
