@@ -7,13 +7,13 @@ end
 -- Mason LSP
 local status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not status_ok then
-  return
+	return
 end
 
 -- Mason null LS
 local status_ok, mason_null_ls = pcall(require, "mason-null-ls")
 if not status_ok then
-  return
+	return
 end
 
 local servers = {

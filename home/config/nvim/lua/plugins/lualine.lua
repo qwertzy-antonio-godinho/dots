@@ -25,7 +25,7 @@ lualine.setup({
 	},
 	sections = {
 		lualine_a = {},
-		lualine_b = {virtualenv, "branch", "diff", "diagnostics"},
+		lualine_b = { virtualenv, "branch", "diff", "diagnostics" },
 		lualine_c = {
 			{
 				"aerial",

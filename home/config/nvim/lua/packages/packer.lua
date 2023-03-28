@@ -29,14 +29,13 @@ else
 end
 
 require("packer").startup(function(use)
-use "wbthomason/packer.nvim"
-local has_plugins, plugins = pcall(require, "packages.install_plugins")
-if has_plugins then
-	plugins(use)
-end
+	use "wbthomason/packer.nvim"
+	local has_plugins, plugins = pcall(require, "packages.install_plugins")
+	if has_plugins then
+		plugins(use)
+	end
 
-if is_bootstrap then
-	require("packer").sync()
+	if is_bootstrap then
+		require("packer").sync()
 	end
 end)
-

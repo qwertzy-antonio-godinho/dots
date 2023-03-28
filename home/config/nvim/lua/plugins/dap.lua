@@ -24,11 +24,14 @@ end
 
 local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
 
-vim.fn.sign_define("DapBreakpoint", { text="", texthl="DapBreakpoint", linehl="DapBreakpoint", numhl="DapBreakpoint" })
-vim.fn.sign_define("DapBreakpointCondition", { text="ﳁ", texthl="DapBreakpoint", linehl="DapBreakpoint", numhl="DapBreakpoint" })
-vim.fn.sign_define("DapBreakpointRejected", { text="", texthl="DapBreakpoint", linehl="DapBreakpoint", numhl= "DapBreakpoint" })
-vim.fn.sign_define("DapLogPoint", { text="", texthl="DapLogPoint", linehl="DapLogPoint", numhl= "DapLogPoint" })
-vim.fn.sign_define("DapStopped", { text="", texthl="DapStopped", linehl="Search", numhl= "DapStopped" })
+vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint",
+	numhl = "DapBreakpoint" })
+vim.fn.sign_define("DapBreakpointCondition",
+{ text = "ﳁ", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" })
+vim.fn.sign_define("DapBreakpointRejected",
+{ text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" })
+vim.fn.sign_define("DapLogPoint", { text = "", texthl = "DapLogPoint", linehl = "DapLogPoint", numhl = "DapLogPoint" })
+vim.fn.sign_define("DapStopped", { text = "", texthl = "DapStopped", linehl = "Search", numhl = "DapStopped" })
 
 dap_virtual_text.setup({
 	highlight_changed_variables = true,
@@ -67,7 +70,7 @@ table.insert(dap.configurations.python, {
 	type = "python",
 	request = "launch",
 	name = "My py",
---	program = "${file}",
+	--	program = "${file}",
 	module = "pytest",
 	args = {
 		"--verbosity=2",

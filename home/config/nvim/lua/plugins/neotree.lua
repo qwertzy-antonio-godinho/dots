@@ -4,12 +4,12 @@ if not status_ok then
 	return
 end
 
-vim.api.nvim_set_hl(0, "NeoTreeGitAdded", {bg="Green"})
-vim.api.nvim_set_hl(0, "NeoTreeGitConflict", {bg="Red"})
-vim.api.nvim_set_hl(0, "NeoTreeGitDeleted", {bg="Orange"})
-vim.api.nvim_set_hl(0, "NeoTreeGitIgnored", {bg="Gray"})
-vim.api.nvim_set_hl(0, "NeoTreeGitModified", {fg="Yellow"})
-vim.api.nvim_set_hl(0, "NeoTreeGitUntracked", {bg="Blue"})
+vim.api.nvim_set_hl(0, "NeoTreeGitAdded", { bg = "Green" })
+vim.api.nvim_set_hl(0, "NeoTreeGitConflict", { bg = "Red" })
+vim.api.nvim_set_hl(0, "NeoTreeGitDeleted", { bg = "Orange" })
+vim.api.nvim_set_hl(0, "NeoTreeGitIgnored", { bg = "Gray" })
+vim.api.nvim_set_hl(0, "NeoTreeGitModified", { fg = "Yellow" })
+vim.api.nvim_set_hl(0, "NeoTreeGitUntracked", { bg = "Blue" })
 
 neotree.setup({
 	sources = {

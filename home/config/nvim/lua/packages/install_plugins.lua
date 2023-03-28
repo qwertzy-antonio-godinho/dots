@@ -11,7 +11,7 @@ if status_ok then
 		use {
 			"filipdutescu/renamer.nvim",
 			branch = "master",
-			requires = { {"nvim-lua/plenary.nvim"} }
+			requires = { { "nvim-lua/plenary.nvim" } }
 		}
 		use "m-demare/hlargs.nvim"
 		use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
@@ -47,7 +47,7 @@ if status_ok then
 		}
 		use "folke/which-key.nvim"
 		use "nvim-treesitter/nvim-treesitter-context"
---		use "RRethy/vim-illuminate"
+		--		use "RRethy/vim-illuminate"
 		use "nvim-telescope/telescope-dap.nvim"
 		use "mhinz/vim-startify"
 		use "lukas-reineke/indent-blankline.nvim"
@@ -86,4 +86,3 @@ if status_ok then
 		}
 	end
 end
-

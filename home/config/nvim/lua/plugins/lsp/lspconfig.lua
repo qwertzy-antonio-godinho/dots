@@ -1,13 +1,13 @@
 -- LSP config
 local status_ok, lspconfig = pcall(require, "lspconfig")
 if not status_ok then
-  return
+	return
 end
 
 -- CMP LSP
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_ok then
-  return
+	return
 end
 
 -- Fidget
@@ -47,7 +47,7 @@ capabilities.textDocument.foldingRange = {
 fidget.setup()
 
 renamer.setup({
-    border_chars = {'─', '│', '─', '│', '┌', '┐', '┘', '└'},
+	border_chars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
 })
 
 lsp_lines.setup()

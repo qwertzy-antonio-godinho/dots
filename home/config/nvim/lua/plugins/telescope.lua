@@ -29,10 +29,10 @@ telescope.setup({
 			},
 			width = 0.8,
 			height = 0.9,
-            preview_cutoff = 10,
+			preview_cutoff = 10,
 		},
 		border = {},
-		borderchars = {'─', '│', '─', '│', '┌', '┐', '┘', '└'},
+		borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
 		path_display = { "smart" },
 		file_ignore_patterns = {
 			".git/",
