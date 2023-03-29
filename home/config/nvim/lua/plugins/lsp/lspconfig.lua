@@ -1,3 +1,13 @@
+-- Neodev
+local status_ok, neodev = pcall(require, "neodev")
+if not status_ok then
+	return
+else
+	neodev.setup({
+		library = { plugins = { "nvim-dap-ui" }, types = true },
+	})
+end
+
 -- LSP config
 local status_ok, lspconfig = pcall(require, "lspconfig")
 if not status_ok then

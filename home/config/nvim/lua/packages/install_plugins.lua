@@ -47,6 +47,7 @@ if status_ok then
 			},
 		}
 		use "folke/which-key.nvim"
+		use "folke/neodev.nvim"
 		use "nvim-treesitter/nvim-treesitter-context"
 		use "RRethy/vim-illuminate"
 		use "nvim-telescope/telescope-dap.nvim"
