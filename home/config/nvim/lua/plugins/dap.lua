@@ -85,19 +85,20 @@ table.insert(dap.configurations.python, {
 
 dapui.setup({
 	icons = { expanded = "-", collapsed = "+", current_frame = ">" },
+	controls = { element = "repl" },
 	layouts = {
 		{
 			elements = {
-				{ id = "scopes", size = 0.75 },
-				{ id = "stacks", size = 0.25 },
+				{ id = "scopes", size = 0.65 },
+				{ id = "repl", size = 0.20 },
+				{ id = "stacks", size = 0.15 },
 			},
 			size = 0.20,
 			position = "right",
 		},
 		{
 			elements = {
-				{ id = "repl",    size = 0.45 },
-				{ id = "console", size = 0.55 },
+				{ id = "console", size = 1 },
 			},
 			size = 0.27,
 			position = "bottom",
@@ -106,7 +107,13 @@ dapui.setup({
 })
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
-	dapui.open("tray")
+	dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+	dapui.close(1)
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+	dapui.close(1)
 end
 
 vim.keymap.set("n", "<F1>", dap.step_into)
@@ -114,7 +121,11 @@ vim.keymap.set("n", "<F2>", dap.step_over)
 vim.keymap.set("n", "<F3>", dap.step_out)
 vim.keymap.set("n", "<F4>", dap.close)
 vim.keymap.set("n", "<F5>", dap.continue)
+vim.keymap.set("n", "<F6>", dap.run_to_cursor)
 vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint)
 vim.keymap.set("n", "<leader>dr", dap.repl.open)
 vim.keymap.set("n", "<leader>dt", dap_python.test_method)
 vim.keymap.set("n", "<leader>dc", dap_python.test_class)
+vim.keymap.set("n", "<leader>ev", dapui.eval)
+vim.keymap.set("n", "<leader>cls", dapui.close)
+vim.keymap.set("n", "<leader>ols", dapui.open)
