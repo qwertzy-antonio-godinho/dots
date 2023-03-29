@@ -5,6 +5,10 @@ if not status_ok then
 end
 
 cmp.setup({
+	enabled = function()
+		return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
+		or require("cmp_dap").is_dap_buffer()
+	end,
 	window = {
 		completion = {
 			border = "single",
@@ -39,5 +43,11 @@ cmp.setup({
 				fallback()
 			end
 		end, { "i", "s" }),
+	},
+})
+
+cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+	sources = {
+		{ name = "dap" },
 	},
 })
