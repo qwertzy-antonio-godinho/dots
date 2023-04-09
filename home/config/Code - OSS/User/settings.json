@@ -1,6 +1,5 @@
 {
     "workbench.sideBar.location": "right",
-    "workbench.colorTheme": "1Dark RainCoat Bright",
     "editor.cursorStyle": "block",
     "editor.wordWrap": "wordWrapColumn",
     "editor.cursorSmoothCaretAnimation": "on",
@@ -9,5 +8,6 @@
     "workbench.editor.scrollToSwitchTabs": true,
     "workbench.editor.wrapTabs": true,
     "editor.stickyScroll.enabled": true,
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "workbench.colorTheme": "Default High Contrast"
 }
