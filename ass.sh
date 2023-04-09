@@ -175,6 +175,7 @@ install_flatpaks () {
     printf "\nInstalling extras...\n"
 	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo \
 		&& flatpak install flathub org.duckstation.DuckStation -y \
+		&& flatpak install flathub org.citra_emu.citra -y \
   		&& flatpak install flathub io.github.shiiion.primehack -y \
   		&& flatpak install flathub org.DolphinEmu.dolphin-emu -y \
   		&& flatpak install flathub org.flycast.Flycast -y \
