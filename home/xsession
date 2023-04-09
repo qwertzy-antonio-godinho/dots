@@ -12,8 +12,8 @@ exec setxkbmap -layout us &
 
 # WALLPAPER
 # -------------
-#exec hsetroot -solid '#11122C' &
-#exec ~/.config/scripts/set_wallpaper.sh &
+exec hsetroot -solid '#11122C' &
+exec ~/.config/scripts/set_wallpaper.sh &
 exec xwinwrap -ovr -- /usr/libexec/xscreensaver/glmatrix -density 6 -root -window-id WID &
 
 # SETTINGS
