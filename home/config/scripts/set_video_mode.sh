@@ -109,7 +109,7 @@ set_resolution_scale () {
 		"1920x1080")
 			local scale_dpi=142
 			local scale_mouse_size=32
-			local scale_font_size=10
+			local scale_font_size=12
 			local scale_ui_height=30
 			local scale_ui_toolkit_scale=1
 			local scale_ui_dpi_scale=0.5
