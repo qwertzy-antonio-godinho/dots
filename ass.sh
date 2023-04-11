@@ -89,7 +89,7 @@ declare -a PACKAGES=(
 	"xsettingsd"
 	"xwinwrap"
 	"xz"
-	"youtube-dl"
+	"yt-dlp"
 	"zstd"
 )
 
