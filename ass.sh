@@ -48,7 +48,6 @@ declare -a PACKAGES=(
 	"mpg123"
 	"most"
 	"mpv"
-	"neovim"
 	"ncdu"
 	"network-manager-applet"
 	"ntfs-3g"
