@@ -20,7 +20,7 @@ hist () {
 
 mediav () {
 	timg \
-		"$(fzf \
+		"$(find . -path '*/.git/*' -prune -o -printf '%P\n' 2>/dev/null | fzf \
 			--exact \
 			--no-separator \
 			--preview='timg --title=%D -g${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES} --frames=1 {}' \
