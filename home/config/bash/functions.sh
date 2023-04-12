@@ -18,6 +18,16 @@ hist () {
 	fi
 }
 
+mediav () {
+	timg \
+		"$(fzf \
+			--preview='timg --title=%D -g80x80 --frames=1 {}' \
+			--bind shift-up:preview-page-up,shift-down:preview-page-down \
+			--preview-window 'right,60%,border-left' \
+		)" \
+	-V
+}
+
 printfl () {
 	local message_type="${1}"
 	local message="${2}"
