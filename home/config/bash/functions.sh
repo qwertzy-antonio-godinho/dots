@@ -23,7 +23,7 @@ mediav () {
 		"$(fzf \
 			--exact \
 			--no-separator \
-			--preview='timg --title=%D -g80x80 --frames=1 {}' \
+			--preview='timg --title=%D -g${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES} --frames=1 {}' \
 			--bind shift-up:preview-page-up,shift-down:preview-page-down \
 			--preview-window 'right,60%,border-left' \
 		)" \
