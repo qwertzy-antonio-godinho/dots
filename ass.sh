@@ -68,6 +68,7 @@ declare -a PACKAGES=(
 	"stalonetray"
 	"terminator"
 	"thunderbird"
+	"timg"
 	"tree"
 	"tty-clock"
 	"unzip"
