@@ -9,5 +9,6 @@
     "workbench.editor.wrapTabs": true,
     "editor.stickyScroll.enabled": true,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Monokai High Contrast"
+    "workbench.colorTheme": "Monokai High Contrast",
+    "window.restoreFullscreen": true
 }
