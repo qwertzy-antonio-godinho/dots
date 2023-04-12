@@ -10,5 +10,29 @@
     "editor.stickyScroll.enabled": true,
     "workbench.startupEditor": "none",
     "workbench.colorTheme": "Monokai High Contrast",
-    "window.restoreFullscreen": true
+    "window.restoreFullscreen": true,
+    "workbench.activityBar.visible": false,
+    "activitusbar.activeColour": "magenta",
+    "activitusbar.inactiveColour": "gray",
+    "activitusbar.priority": 0,
+    "activitusbar.alignment": "Right",
+    "activitusbar.showSourceControlCounter": true,
+    "activitusbar.views": [  
+        {
+            "name": "explorer",
+            "codicon": "explorer-view-icon"
+        },
+        {
+            "name": "search",
+            "codicon": "search-view-icon"
+        },
+        {
+            "name": "debug",
+            "codicon": "run-view-icon"
+        },
+        {
+            "name": "extensions",
+            "codicon": "extensions-view-icon"
+        }
+    ]
 }
