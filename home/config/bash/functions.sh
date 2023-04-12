@@ -21,6 +21,8 @@ hist () {
 mediav () {
 	timg \
 		"$(fzf \
+			--exact \
+			--no-separator \
 			--preview='timg --title=%D -g80x80 --frames=1 {}' \
 			--bind shift-up:preview-page-up,shift-down:preview-page-down \
 			--preview-window 'right,60%,border-left' \
