@@ -1,0 +1,175 @@
+:root {
+    --uc-active-tab-width: clamp(130px, 30vw, 210px);
+    --uc-inactive-tab-width: clamp(80px, 30vw, 120px);
+}
+
+.tabbrowser-tab[selected][fadein]:not([pinned]) {
+    min-width: var(--uc-active-tab-width) !important;
+    transition: ease-in-out 1.5s !important;
+    transition-duration: 380ms !important;
+}
+
+.tabbrowser-tab[fadein]:not([selected]):not([pinned]) {
+    max-width: var(--uc-inactive-tab-width) !important;
+    transition: ease-in-out 1.5s !important;
+    transition-duration: 380ms !important;
+}
+
+:root {
+    --tab-block-margin: 0px 0px !important;
+    --tab-min-height: 25px !important;
+}
+
+.tabbrowser-tab {
+    min-height: 27px !important;
+    max-height: 27px !important;
+    box-shadow: none !important;
+}
+
+#TabsToolbar #tabs-newtab-button {
+    margin-top: -5px !important;
+    margin-bottom: -8px !important;
+    margin-left: 0px !important;
+}
+
+menupopup:not(.in-menulist)>menuitem,
+menupopup:not(.in-menulist)>menu {
+    padding-block: 4px !important;
+    min-height: unset !important;
+}
+
+:root {
+    --arrowpanel-menuitem-padding: 4px 8px !important;
+}
+
+#tabbrowser-tabs {
+    --user-tab-rounding: 0px;
+}
+
+.tab-background {
+    border-radius: var(--user-tab-rounding) var(--user-tab-rounding) 0px 0px !important;
+    margin-block: 1px 0 !important;
+}
+
+#scrollbutton-up,
+#scrollbutton-down {
+    border-top-width: 1px !important;
+    border-bottom-width: 0 !important;
+}
+
+.tab-background:is([selected], [multiselected]):-moz-lwtheme {
+    --lwt-tabs-border-color: rgba(0, 0, 0, 0.5) !important;
+    border-bottom-color: transparent !important;
+}
+
+[brighttext="true"] .tab-background:is([selected], [multiselected]):-moz-lwtheme {
+    --lwt-tabs-border-color: rgba(255, 255, 255, 0.5) !important;
+    border-bottom-color: transparent !important;
+}
+
+.tabbrowser-tab[usercontextid]>.tab-stack>.tab-background>.tab-context-line {
+    margin: 0px max(calc(var(--user-tab-rounding) - 3px), 0px) !important;
+}
+
+.tabbrowser-tab:is([image], [pinned])>.tab-stack>.tab-content[attention]:not([selected="true"]),
+.tabbrowser-tab>.tab-stack>.tab-content[pinned][titlechanged]:not([selected="true"]),
+#firefox-view-button[attention],
+.webextension-browser-action[attention="true"] {
+    background-position-y: bottom 5px !important;
+}
+
+.tab-background {
+    --context-line-margin-adjust: 3px;
+    --context-line-active-adjust: 1px;
+}
+
+.tabbrowser-tab[usercontextid]:is([selected=true], [visuallyselected="true"], [multiselected]) .tab-background {
+    border-top: 1px solid transparent;
+}
+
+.tabbrowser-tab[usercontextid]>.tab-stack>.tab-background>.tab-context-line {
+    margin-top: calc(var(--tab-min-height) - var(--context-line-margin-adjust) - 2px) !important;
+}
+
+.tabbrowser-tab[usercontextid]:is([selected=true], [visuallyselected="true"], [multiselected])>.tab-stack>.tab-background>.tab-context-line {
+    margin-top: calc(var(--tab-min-height) - var(--context-line-margin-adjust) - var(--context-line-active-adjust) - 2px) !important;
+}
+
+.tab-background::before {
+    content: "";
+    display: block;
+    height: 3px;
+    margin: -1px var(--user-tab-rounding) 0;
+}
+
+.tabbrowser-tab[selected] .tab-background::before {
+    background-color: #0a84ff;
+}
+
+.tabbrowser-tab[multiselected]:not([selected]) .tab-background::before {
+    background-color: color-mix(in srgb, #0a84ff 66%, transparent);
+}
+
+.tabbrowser-tab:not([selected], [multiselected]):hover .tab-background::before {
+    background-color: color-mix(in srgb, currentColor 33%, transparent);
+    transform: none;
+}
+
+#TabsToolbar {
+    --user-mute-button-height: 20px;
+}
+
+.tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]) {
+    width: var(--user-mute-button-height) !important;
+    height: var(--user-mute-button-height) !important;
+    margin-left: calc(var(--user-mute-button-height) / 2 + 2px) !important;
+    margin-right: 2px !important;
+    padding: 0 !important;
+}
+
+.tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted])> :not(.tab-icon-overlay) {
+    margin-left: -4px !important;
+    margin-top: calc((var(--user-mute-button-height) - 16px) / 2) !important;
+}
+
+.tabbrowser-tab:not(:hover) .tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]),
+.tabbrowser-tab:hover .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted])> :not(.tab-icon-overlay),
+:root[uidensity="compact"] .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted])> :not(.tab-icon-overlay) {
+    opacity: 1 !important;
+}
+
+.tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]):hover {
+    fill: green !important;
+}
+
+[lwthemetextcolor="bright"] .tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]):hover {
+    fill: lightgreen !important;
+}
+
+.tab-icon-overlay:not([crashed]):is([pinned], [sharing]):is([soundplaying], [muted]) {
+    width: var(--user-mute-button-height) !important;
+    height: var(--user-mute-button-height) !important;
+    margin-left: 2px !important;
+    margin-right: -2px !important;
+    padding: 0 !important;
+    top: 0 !important;
+}
+
+.tab-icon-stack:not([crashed]):is([pinned], [sharing]):is([soundplaying], [muted])> :not(.tab-icon-overlay) {
+    margin-left: -6px !important;
+    margin-top: calc((var(--user-mute-button-height) - 16px) / 2) !important;
+}
+
+.tabbrowser-tab:not(:hover) .tab-icon-overlay:not([crashed]):is([pinned], [sharing]):is([soundplaying], [muted]),
+.tabbrowser-tab:hover .tab-icon-stack:not([crashed]):is([pinned], [sharing]):is([soundplaying], [muted])> :not(.tab-icon-overlay),
+:root[uidensity="compact"] .tab-icon-stack:not([crashed]):is([pinned], [sharing]):is([soundplaying], [muted])> :not(.tab-icon-overlay) {
+    opacity: 1 !important;
+}
+
+.tab-icon-overlay:not([crashed]):is([pinned], [sharing]):is([soundplaying], [muted]):hover {
+    fill: green !important;
+}
+
+[lwthemetextcolor="bright"] .tab-icon-overlay:not([crashed]):is([pinned], [sharing]):is([soundplaying], [muted]):hover {
+    fill: lightgreen !important;
+}
