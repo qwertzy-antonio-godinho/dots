@@ -32,6 +32,7 @@
 
 [core]
   editor = micro --wait
+  pager = delta --line-numbers --dark
 
 [diff]
   tool = vscode
@@ -40,6 +41,10 @@
 
 [merge]
   tool = vscode
+  conflictstyle = diff3
 [mergetool "vscode"]
   cmd = code-oss --wait --merge $REMOTE $LOCAL $BASE $MERGED
 
+[delta]
+	side-by-side = true
+	hyperlinks = true

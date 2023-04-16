@@ -23,6 +23,7 @@ declare -a PACKAGES=(
 	"compiz-plugins-main"
 	"conky"
 	"curl"
+	"delta"
 	"dbus"
 	"dunst"
 	"elinks"
