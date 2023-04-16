@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /usr/bin/env bash
 
 WINBIN="/backup/Games/winbin"
 WINERUNTIME="${WINBIN}/runtime"

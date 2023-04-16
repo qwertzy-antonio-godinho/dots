@@ -57,7 +57,7 @@ set_scale () {
 	local ui_height="$4"
 	local ui_toolkit_scale="$5"
 	local ui_dpi_scale="$6"
-	local stalonetray_icon_size="$7"
+	local tray_icon_size="$7"
 	local output_name="$8"
 
 	# --- [ DPI ] --------------------------------------------------------------------
@@ -86,8 +86,8 @@ set_scale () {
 	printf "        * UI=%s\n" "$ui_height"
 
 	# --- [ TRAY ] -------------------------------------------------------------------
-	printf "        * TRAY=%s\n" "$stalonetray_icon_size"
-	sed -i --follow-symlinks -E "s/icon_size .[0-9]/icon_size $stalonetray_icon_size/" "$HOME/.config/stalonetrayrc"
+	printf "        * TRAY=%s\n" "$tray_icon_size"
+	sed -i --follow-symlinks -E "s/icon_size .[0-9]/icon_size $tray_icon_size/" "$HOME/.config/stalonetrayrc"
 
 	# --- [ TOOLKIT ] ----------------------------------------------------------------
 	printf "        * Toolkit=%s\n" "$ui_toolkit_scale"
@@ -113,7 +113,7 @@ set_resolution_scale () {
 			local scale_ui_height=30
 			local scale_ui_toolkit_scale=1
 			local scale_ui_dpi_scale=0.5
-			local scale_stalonetray_icon_size=32
+			local scale_tray_icon_size=32
 		;;
 		"3440x1440")
 			local scale_dpi=152
@@ -122,7 +122,7 @@ set_resolution_scale () {
 			local scale_ui_height=34
 			local scale_ui_toolkit_scale=1
 			local scale_ui_dpi_scale=0.5
-			local scale_stalonetray_icon_size=32
+			local scale_tray_icon_size=32
 		;;
 		*)
 			printf " ]\n[ ERROR ] no information how to handle resolution %s, exiting...\n" "${resolution}"
@@ -130,7 +130,7 @@ set_resolution_scale () {
 		;;
 	esac
 
-	set_scale $scale_dpi $scale_mouse_size $scale_font_size $scale_ui_height $scale_ui_toolkit_scale $scale_ui_dpi_scale $scale_stalonetray_icon_size $output
+	set_scale $scale_dpi $scale_mouse_size $scale_font_size $scale_ui_height $scale_ui_toolkit_scale $scale_ui_dpi_scale $scale_tray_icon_size $output
 }
 
 main () {

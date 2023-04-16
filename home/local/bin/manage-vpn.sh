@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /usr/bin/env bash
 
 WORK_DIRECTORY="${HOME}/.local/bin/vpn"
 OVPN_SERVER_FILES="https://downloads.nordcdn.com/configs/archives/servers/ovpn.zip"
