@@ -1,8 +1,6 @@
 {
     "colorscheme": "cmc-16",
     "diffgutter": true,
-    "lsp.ignoreTriggerCharacters": "completion,signature",
-    "lsp.server": "python=pyls,go=gopls,typescript=deno lsp,rust=rust-analyzer",
     "mkparents": true,
     "saveundo": true,
     "scrollbar": true,
