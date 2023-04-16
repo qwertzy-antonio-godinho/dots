@@ -1,9 +1,9 @@
-#!/bin/sh
+#! /usr/bin/env bash
 
 DPI_TV=102
 DPI_MONITOR=142
 
-if [[ $(xrandr | awk -v monitor="HDMI-0" '/connected/ {p = 0} $0 ~ monitor {p = 1} p'  | grep "primary" | wc -l) -gt 0 ]]; then
+if [ $(xrandr | awk -v monitor="HDMI-0" '/connected/ {p = 0} $0 ~ monitor {p = 1} p' | grep -c "primary") -gt 0 ]; then
 	sed -i -E 's/-dpi .([0-9]+)/-dpi '$DPI_TV'/' /etc/X11/xdm/Xservers
 else
 	sed -i -E 's/-dpi .([0-9]+)/-dpi '$DPI_MONITOR'/' /etc/X11/xdm/Xservers
