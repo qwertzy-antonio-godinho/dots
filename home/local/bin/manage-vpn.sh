@@ -10,8 +10,8 @@ main () {
 			sudo openvpn --config "$WORK_DIRECTORY"/vpn.ovpn --auth-user-pass "$WORK_DIRECTORY"/auth.conf --auth-nocache --data-ciphers AES-256-CBC
 			;;
 		"--stop")
-			if ([[ $(ps aux | grep "[o]penvpn" | wc -l) -eq 1 ]]) ; then
-				killall openvpn
+			if [ $(ps aux | grep -c "[o]penvpn") -gt 0 ] ; then
+				sudo killall openvpn
 			else
 				printf "* OpenVPN process is not running...\n"
 			fi
@@ -23,9 +23,9 @@ main () {
 			rm -r --interactive=never "$WORK_DIRECTORY"/ovpn.zip
         ;;
         "--status")
-        	if ([[ $(ps aux | grep "[o]penvpn" | wc -l) -eq 1 ]]) ; then
+        	if [ $(ps aux | grep -c "[o]penvpn") -gt 0 ]; then
 				local pid=$(ps aux | grep "[o]penvpn" | awk '{print $2}')
-				printf "* OpenVPN process is running with PID: $pid \n"
+				printf "* OpenVPN process is running with PID(s): \n$pid\n"
 				else
 				printf "* OpenVPN process is not running...\n"
         	fi
@@ -69,7 +69,7 @@ exit 127
 			printf "\n  * VPN Operations:\n"
 			printf "    --refresh-servers               : Downloads a new list of OVPN server files\n"
 			printf "    --list-servers                  : Shows the list of available OVPN server files\n"
-			printf "    --set-server [SERVER_FILE_NAME] : Sets the server to use for establishing VPN connections\n\n"
+			printf "    --set-server [SERVER_FILE_NAME] : Sets the server to use for establishing VPN connections\n"
 			printf "    --show-server                   : Shows the current set server\n\n"
 			exit 127
         ;;
