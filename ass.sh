@@ -46,7 +46,6 @@ declare -a PACKAGES=(
 	"micro"
 	"most"
 	"mpg123"
-	"most"
 	"mpv"
 	"ncdu"
 	"network-manager-applet"
